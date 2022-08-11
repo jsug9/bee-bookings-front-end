@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import '../Styles/navbar.scss';
 
 const Navbar = () => {
   const links = [
@@ -32,6 +33,14 @@ const Navbar = () => {
 
   return (
     <nav>
+      <div className="hamburger">
+        <div className="slice" />
+
+        <div className="slice" />
+
+        <div className="slice" />
+
+      </div>
       <ul className="links">
         {links.map((link) => (
           <li key={link.id} className="linkLi">

@@ -1,0 +1,36 @@
+nav {
+  position: fixed;
+  height: 100%;
+  width: 375px;
+  background-color: pink;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li:hover {
+      background-color: aqua;
+    }
+
+    li {
+      font-size: 34px;
+      font-weight: 900;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
+
+.hamburger {
+  padding: 10px;
+
+  .slice {
+    background-color: white;
+    height: 5px;
+    width: 35px;
+    border-radius: 20%;
+  }
+}
