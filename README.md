@@ -74,8 +74,9 @@ npm start
 
 👤 **Henry Nawrocki**
 
-- GitHub: [@jsug9](https://github.com/jsug9)
-- LinkedIn: [Augusto Galindo](https://www.linkedin.com/in/augustogalindo/)
+- GitHub: [@hsztan](https://github.com/hsztan)
+- Twitter: [@hsztanski](https://twitter.com/hsztanski)
+- LinkedIn: [henry-nawrocki](https://linkedin.com/in/henry-nawrocki)
 
 ## 🤝 Contributing
 
