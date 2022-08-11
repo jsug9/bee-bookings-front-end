@@ -4,7 +4,10 @@ const BeeItem = (props) => {
   const { bee } = props;
   return (
     <li>
-      <img src={bee.image} alt={bee.name} className="bee_item_image" />
+      <div className="bee_image_container">
+        <img src={bee.image} alt={bee.name} className="bee_item_image" />
+        <div className="bee_image_background" />
+      </div>
       <h3>{bee.name}</h3>
       <p>{bee.description}</p>
     </li>
