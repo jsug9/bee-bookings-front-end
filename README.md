@@ -89,7 +89,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio).
+- Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk).
 - Thanks to my peers who are always there to offer support. 
 
 ## 📝 License
