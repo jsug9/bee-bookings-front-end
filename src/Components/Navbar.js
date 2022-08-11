@@ -32,28 +32,35 @@ const Navbar = () => {
   ];
 
   return (
-    <nav>
+    <>
       <div className="hamburger">
         <div className="slice" />
 
         <div className="slice" />
 
         <div className="slice" />
-
       </div>
-      <ul className="links">
-        {links.map((link) => (
-          <li key={link.id} className="linkLi">
-            <NavLink
-              to={link.path}
-              className={(navData) => (navData.isActive ? 'active' : 'link')}
-            >
-              {link.text}
-            </NavLink>
+      <nav>
+        <ul className="links">
+          {links.map((link) => (
+            <li key={link.id} className="linkLi">
+              <NavLink
+                to={link.path}
+                className={(navData) => (navData.isActive ? 'active' : 'link')}
+              >
+                {link.text}
+              </NavLink>
+            </li>
+          ))}
+          <li>
+            <p>Log in</p>
           </li>
-        ))}
-      </ul>
-    </nav>
+          <li>
+            <p>Sign up</p>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ nav {
   ul {
     list-style: none;
     padding: 0;
+    margin-top: 4rem;
 
     li:hover {
       background-color: aqua;
@@ -15,10 +16,16 @@ nav {
     li {
       font-size: 34px;
       font-weight: 900;
+      padding: 1.5rem 0;
 
-      a {
+      a, p {
         text-decoration: none;
         color: black;
+        margin-left: 3rem;
+      }
+
+      p {
+        cursor: pointer;
       }
     }
   }
@@ -26,6 +33,14 @@ nav {
 
 .hamburger {
   padding: 10px;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  cursor: pointer;
 
   .slice {
     background-color: white;
