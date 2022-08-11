@@ -6,6 +6,7 @@ const BeeItem = (props) => {
     <li>
       <h3>{bee.name}</h3>
       <p>{bee.description}</p>
+      <img src={bee.image} alt={bee.name} />
     </li>
   );
 };
