@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../Styles/navbar.scss';
 
+const nav = document.getElementsByTagName('nav');
+
 const Navbar = () => {
   const links = [
     {
@@ -31,9 +33,13 @@ const Navbar = () => {
     },
   ];
 
+  function toggle() {
+    nav[0].classList.toggle('invisible');
+  }
+
   return (
     <>
-      <div className="hamburger">
+      <div className="hamburger" role="presentation" onClick={toggle}>
         <div className="slice" />
 
         <div className="slice" />

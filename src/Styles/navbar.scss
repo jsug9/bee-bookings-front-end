@@ -2,7 +2,7 @@ nav {
   position: fixed;
   height: 100%;
   width: 375px;
-  background-color: pink;
+  background-color: #ffeb3b;
 
   ul {
     list-style: none;
@@ -10,7 +10,10 @@ nav {
     margin-top: 4rem;
 
     li:hover {
-      background-color: aqua;
+      background-color: black;
+      a, p {
+        color: white;
+      }
     }
 
     li {
@@ -32,8 +35,7 @@ nav {
 }
 
 .hamburger {
-  padding: 10px;
-  height: 45px;
+  height: 25px;
   width: 45px;
   display: flex;
   flex-direction: column;
@@ -41,11 +43,17 @@ nav {
   position: fixed;
   z-index: 1;
   cursor: pointer;
+  left: 24px;
+  top: 17px;
 
   .slice {
-    background-color: white;
+    background-color: black;
     height: 5px;
     width: 35px;
     border-radius: 20%;
   }
+}
+
+.invisible {
+  display: none;
 }
