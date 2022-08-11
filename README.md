@@ -2,7 +2,7 @@
 
 # Bee Booking Front End
 
-> In this capstone I put on practice my skills on React and Redux, along with JavaScript and SCSS.
+> Add a nice bee description here.
 
 ## Built With
 
