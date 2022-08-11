@@ -4,9 +4,9 @@ const BeeItem = (props) => {
   const { bee } = props;
   return (
     <li>
+      <img src={bee.image} alt={bee.name} className="bee_item_image" />
       <h3>{bee.name}</h3>
       <p>{bee.description}</p>
-      <img src={bee.image} alt={bee.name} />
     </li>
   );
 };
