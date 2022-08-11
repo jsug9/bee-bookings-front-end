@@ -9,19 +9,19 @@ const getBees = () => async (dispatch) => {
     {
       id: '1',
       name: 'bee1',
-      image: 'https://i1.wp.com/www.draquio.com/wp-content/uploads/2020/09/bee-movie-voces.jpg?w=1280&ssl=1',
+      image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
       description: 'Awesome bee',
     },
     {
       id: '2',
       name: 'bee2',
-      image: 'https://i1.wp.com/www.draquio.com/wp-content/uploads/2020/09/bee-movie-voces.jpg?w=1280&ssl=1',
+      image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
       description: 'Awesome bee',
     },
     {
       id: '3',
       name: 'bee3',
-      image: 'https://i1.wp.com/www.draquio.com/wp-content/uploads/2020/09/bee-movie-voces.jpg?w=1280&ssl=1',
+      image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
       description: 'Awesome bee',
     },
   ];
