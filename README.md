@@ -72,8 +72,9 @@ npm start
 
 👤 **Emily Robertson**
 
-- GitHub: [@jsug9](https://github.com/jsug9)
-- LinkedIn: [Augusto Galindo](https://www.linkedin.com/in/augustogalindo/)
+- GitHub: [@emyrue](https://github.com/emyrue)
+- Twitter: [@EmyrueRobertson](https://twitter.com/EmyrueRobertson)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/emilyruthrobertson/)
 
 👤 **Henry Nawrocki**
 
