@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import '../Styles/navbar.scss';
+
+const nav = document.getElementsByTagName('nav');
 
 const Navbar = () => {
   const links = [
@@ -30,21 +33,40 @@ const Navbar = () => {
     },
   ];
 
+  function toggle() {
+    nav[0].classList.toggle('invisible');
+  }
+
   return (
-    <nav>
-      <ul className="links">
-        {links.map((link) => (
-          <li key={link.id} className="linkLi">
-            <NavLink
-              to={link.path}
-              className={(navData) => (navData.isActive ? 'active' : 'link')}
-            >
-              {link.text}
-            </NavLink>
+    <>
+      <div className="hamburger" role="presentation" onClick={toggle}>
+        <div className="slice" />
+
+        <div className="slice" />
+
+        <div className="slice" />
+      </div>
+      <nav>
+        <ul className="links">
+          {links.map((link) => (
+            <li key={link.id} className="linkLi">
+              <NavLink
+                to={link.path}
+                className={(navData) => (navData.isActive ? 'active' : 'link')}
+              >
+                {link.text}
+              </NavLink>
+            </li>
+          ))}
+          <li>
+            <p>Log in</p>
           </li>
-        ))}
-      </ul>
-    </nav>
+          <li>
+            <p>Sign up</p>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 
