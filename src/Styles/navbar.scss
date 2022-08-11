@@ -9,19 +9,13 @@ nav {
     padding: 0;
     margin-top: 4rem;
 
-    li:hover {
-      background-color: black;
-      a, p {
-        color: white;
-      }
-    }
-
     li {
       font-size: 34px;
       font-weight: 900;
       padding: 1.5rem 0;
 
-      a, p {
+      a,
+      p {
         text-decoration: none;
         color: black;
         margin-left: 3rem;
@@ -29,6 +23,15 @@ nav {
 
       p {
         cursor: pointer;
+      }
+    }
+    
+    li:hover {
+      background-color: black;
+
+      a,
+      p {
+        color: white;
       }
     }
   }
