@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-- [GitHub Deploy](https://jsug9.github.io/bee-booking-front-end/).
+- [Heroku](https://glacial-fortress-00696.herokuapp.com).
 
 ## Getting Started
 
