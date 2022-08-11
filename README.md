@@ -61,8 +61,9 @@ npm start
 
 👤 **Aaron Keegan**
 
-- GitHub: [@jsug9](https://github.com/jsug9)
-- LinkedIn: [Augusto Galindo](https://www.linkedin.com/in/augustogalindo/)
+- GitHub: [@AKeeganDev](https://github.com/AKeeganDev)
+- Twitter: [@AkeeganDev](https://twitter.com/AkeeganDev)
+- LinkedIn: [AKeeganDev](https://linkedin.com/in/AKeeganDev)
 
 👤 **Augusto Galindo**
 
