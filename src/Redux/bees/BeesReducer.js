@@ -1,4 +1,7 @@
 const GET_BEES = 'Bees/GET_BEES';
+const ADD_BEE = 'Bees/ADD_BEE';
+const DELETE_BEE = 'Bees/DELETE_BEE';
+const ADD_RESERVATION = 'Bees/ADD_RESERVATION';
 
 const initialState = [
   {
@@ -40,4 +43,10 @@ const beesReducer = (state = initialState, action) => {
 };
 
 export default beesReducer;
-export { getBees };
+export {
+  getBees,
+  ADD_BEE,
+  DELETE_BEE,
+  ADD_RESERVATION,
+};
+// Remove these guys later
