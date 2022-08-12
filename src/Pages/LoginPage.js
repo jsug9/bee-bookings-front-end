@@ -1,4 +1,5 @@
 import '../Styles/login_page.scss';
+import { toggleSignup } from './SignupPage';
 
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
@@ -8,13 +9,18 @@ export const toggleLogin = () => {
   loginPage.classList.toggle('flex');
 };
 
+const signupToggle = () => {
+  toggleLogin();
+  toggleSignup();
+};
+
 const LoginPage = () => (
   <div id="loginPage" className="invisible">
     <div id="loginClose" role="presentation" onClick={toggleLogin}>X</div>
     <div className="loginForm mobile">
-      <h1>Login</h1>
+      <h1>Buzz In</h1>
       <section className="loginSection" id="loginSection">
-        <form className="LoginForm" method="post">
+        <form className="loginForm" method="post">
           <input
             type="text"
             name="username"
@@ -23,17 +29,12 @@ const LoginPage = () => (
             required
             maxLength="30"
           />
-          {/* <input
-            type="email"
-            name="email"
-            id="mail"
-            placeholder="Email address"
-            title="Please use all lower-case characters for your email address"
-            required
-          /> */}
           <span className="error" aria-live="polite" />
-          <button type="submit" className="loginBtn">login</button>
+          <button type="submit" className="loginBtn">Let&apos;s Go!</button>
         </form>
+        <div className="signupLink">
+          <p id="signup" role="presentation" onClick={signupToggle}>Sign Up</p>
+        </div>
       </section>
     </div>
   </div>

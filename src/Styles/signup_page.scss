@@ -13,7 +13,6 @@
 
 #signupClose {
   position: absolute;
-  position: absolute;
   top: 24px;
   right: 41px;
   font-size: 34px;
@@ -27,4 +26,35 @@
 
 .invisible {
   display: none;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.signupBtn {
+  background: none;
+  font-size: 24px;
+  border: 2px solid #2f4858;
+  padding: 1rem 2rem;
+}
+
+// Form
+#username {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.loginLink {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#login {
+  cursor: pointer;
+  font-size: 19px;
 }

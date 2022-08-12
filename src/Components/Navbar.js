@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
-import { toggleSignup } from '../Pages/SignupPage';
 import '../Styles/navbar.scss';
 
 export const toggle = () => {
@@ -47,15 +46,14 @@ const Navbar = () => {
 
         <div className="slice" />
       </div>
-      <nav>
+      <nav className="invisible">
         <ul className="links">
           {links.map((link) => (
-            <li key={link.id} className="linkLi">
+            <li key={link.id}>
               <NavLink
                 to={link.path}
-                className={(navData) => (navData.isActive ? 'active' : 'link')}
               >
-                {link.text}
+                <p>{link.text}</p>
               </NavLink>
             </li>
           ))}
@@ -63,7 +61,7 @@ const Navbar = () => {
             <p role="presentation" onClick={toggleLogin}>Log in</p>
           </li>
           <li>
-            <p role="presentation" onClick={toggleSignup}>Sign up</p>
+            <p role="presentation">Placeholder</p>
           </li>
         </ul>
       </nav>
