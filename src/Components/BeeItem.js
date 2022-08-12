@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const BeeItem = (props) => {
   const { bee } = props;
   return (
-    <li>
+    <li className="bee_li">
       <div className="bee_image_container">
         <img src={bee.image} alt={bee.name} className="bee_item_image" />
         <div className="bee_image_background" />

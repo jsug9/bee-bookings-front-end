@@ -5,7 +5,7 @@ const BeesList = (props) => {
   const { bees } = props;
 
   return (
-    <ul>
+    <ul className="bees_ul">
       {bees.map((bee) => (
         <BeeItem key={bee.id} bee={bee} />
       ))}
