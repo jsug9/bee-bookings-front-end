@@ -2,7 +2,8 @@ import '../Styles/login_page.scss';
 
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
-  console.log(loginPage);
+  const nav = document.getElementsByTagName('nav');
+  nav[0].classList.toggle('invisible');
   loginPage.classList.toggle('invisible');
   loginPage.classList.toggle('flex');
 };

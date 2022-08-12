@@ -4,7 +4,10 @@ import { toggleLogin } from '../Pages/LoginPage';
 import { toggleSignup } from '../Pages/SignupPage';
 import '../Styles/navbar.scss';
 
-const nav = document.getElementsByTagName('nav');
+export const toggle = () => {
+  const nav = document.getElementsByTagName('nav');
+  nav[0].classList.toggle('invisible');
+};
 
 const Navbar = () => {
   const links = [
@@ -34,10 +37,6 @@ const Navbar = () => {
       text: 'Delete Bee',
     },
   ];
-
-  function toggle() {
-    nav[0].classList.toggle('invisible');
-  }
 
   return (
     <>

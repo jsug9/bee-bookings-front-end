@@ -2,7 +2,8 @@ import '../Styles/signup_page.scss';
 
 export const toggleSignup = () => {
   const signupPage = document.getElementById('signupPage');
-  console.log(signupPage);
+  const nav = document.getElementsByTagName('nav');
+  nav[0].classList.toggle('invisible');
   signupPage.classList.toggle('invisible');
   signupPage.classList.toggle('flex');
 };
