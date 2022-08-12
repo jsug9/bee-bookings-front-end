@@ -20,6 +20,12 @@
   cursor: pointer;
 }
 
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .flex {
   display: flex;
   flex-direction: column;
