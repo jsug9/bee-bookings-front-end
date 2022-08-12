@@ -12,17 +12,28 @@ nav {
     li {
       font-size: 34px;
       font-weight: 900;
-      padding: 1.5rem 0;
+
+      p {
+        padding: 1.5rem;
+        cursor: pointer;
+      }
 
       a,
       p {
         text-decoration: none;
         color: black;
-        margin-left: 3rem;
       }
 
-      p {
-        cursor: pointer;
+      a {
+        p {
+          width: 100%;
+          padding: 1.5rem;
+        }
+      }
+
+      .active p {
+        background-color: black;
+        color: white;
       }
     }
 
@@ -59,4 +70,9 @@ nav {
 
 .invisible {
   display: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
 }

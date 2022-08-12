@@ -1,8 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { toggleLogin } from '../Pages/LoginPage';
 import '../Styles/navbar.scss';
 
-const nav = document.getElementsByTagName('nav');
+export const toggle = () => {
+  const nav = document.getElementsByTagName('nav');
+  nav[0].classList.toggle('invisible');
+};
 
 const Navbar = () => {
   const links = [
@@ -33,10 +37,6 @@ const Navbar = () => {
     },
   ];
 
-  function toggle() {
-    nav[0].classList.toggle('invisible');
-  }
-
   return (
     <>
       <div className="hamburger" role="presentation" onClick={toggle}>
@@ -46,23 +46,22 @@ const Navbar = () => {
 
         <div className="slice" />
       </div>
-      <nav>
+      <nav className="invisible">
         <ul className="links">
           {links.map((link) => (
-            <li key={link.id} className="linkLi">
+            <li key={link.id}>
               <NavLink
                 to={link.path}
-                className={(navData) => (navData.isActive ? 'active' : 'link')}
               >
-                {link.text}
+                <p>{link.text}</p>
               </NavLink>
             </li>
           ))}
           <li>
-            <p>Log in</p>
+            <p role="presentation" onClick={toggleLogin}>Log in</p>
           </li>
           <li>
-            <p>Sign up</p>
+            <p role="presentation">Placeholder</p>
           </li>
         </ul>
       </nav>
