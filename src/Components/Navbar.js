@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
+import { toggleSignup } from '../Pages/SignupPage';
 import '../Styles/navbar.scss';
 
 const nav = document.getElementsByTagName('nav');
@@ -63,7 +64,7 @@ const Navbar = () => {
             <p role="presentation" onClick={toggleLogin}>Log in</p>
           </li>
           <li>
-            <p>Sign up</p>
+            <p role="presentation" onClick={toggleSignup}>Sign up</p>
           </li>
         </ul>
       </nav>

@@ -8,7 +8,7 @@ export const toggleLogin = () => {
 };
 
 const LoginPage = () => (
-  <div id="loginPage" className="flex">
+  <div id="loginPage" className="invisible">
     <div id="loginClose" role="presentation" onClick={toggleLogin}>X</div>
   </div>
 );

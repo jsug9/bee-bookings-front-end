@@ -11,11 +11,13 @@ import AddBeePage from './Pages/AddBeePage';
 import DeleteBeePage from './Pages/DeleteBeePage';
 import BeeDetailsPage from './Pages/BeeDetailsPage';
 import LoginPage from './Pages/LoginPage';
+import SignupPage from './Pages/SignupPage';
 
 const App = () => (
   <Router basename={process.env.PUBLIC_URL}>
     <Navbar />
     <LoginPage />
+    <SignupPage />
     <Routes>
       <Route exact path="/" element={<HomePage />} />
       <Route exact path="/:bee" element={<BeeDetailsPage />} />
