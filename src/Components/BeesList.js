@@ -5,7 +5,7 @@ const BeesList = (props) => {
   const { bees } = props;
 
   return (
-    <ul className="bees_ul">
+    <ul className="mx-auto w-full flex flex-col gap-24 md:flex-row  md:justify-center md:items-center md:min-h-[70vh] md:gap-0">
       {bees.map((bee) => (
         <BeeItem key={bee.id} bee={bee} />
       ))}

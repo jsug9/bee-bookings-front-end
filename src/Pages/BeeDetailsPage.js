@@ -6,6 +6,8 @@ const BeeDetailsPage = () => {
 
   const { bee } = location.state;
 
+  console.log(bee);
+
   return (
     <div>
       <h2>{bee.name}</h2>
