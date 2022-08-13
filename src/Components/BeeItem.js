@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import BeeItemSocial from './BeeItemSocial';
 
 const BeeItem = (props) => {
   const { bee } = props;
@@ -28,6 +29,7 @@ const BeeItem = (props) => {
         <div className="flex flex-col flex-wrap text-center gap-3 pt-5">
           <p className="font-medium text-black">{bee.description}</p>
         </div>
+        <BeeItemSocial />
       </button>
     </li>
   );
