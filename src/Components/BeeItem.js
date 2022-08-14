@@ -21,14 +21,16 @@ const BeeItem = (props) => {
       <button
         type="button"
         onClick={redirect}
-        className="border rounded-lg p-5 h-full"
+        className="rounded-lg p-5 h-full shadow-lg flex flex-col"
       >
-        <img src={bee.image} alt="Tour" className="h-50 w-full object-cover rounded-md" />
-        <h2 className="mt-2 text-2xl font-bold text-gray-700">
-          {bee.name}
-        </h2>
-        <hr className="w-1/4 mx-auto" />
-        <p className="mt-2 text-gray-500">{bee.description}</p>
+        <div className="flex-col">
+          <img src={bee.image} alt="Tour" className="h-50 w-full object-cover rounded-md" />
+          <h2 className="mt-2 text-2xl font-bold text-gray-700">
+            {bee.name}
+          </h2>
+          <hr className="w-1/2 mx-auto" />
+          <p className="mt-2 text-gray-500">{bee.description}</p>
+        </div>
         <BeeItemSocial />
       </button>
     </li>

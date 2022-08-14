@@ -12,19 +12,19 @@ const getBees = () => async (dispatch) => {
       id: '1',
       name: 'bee1',
       image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
-      description: 'Awesome bee',
+      description: 'This is an awesome bee',
     },
     {
       id: '2',
       name: 'bee2',
       image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
-      description: 'Awesome bee',
+      description: 'This is a very awesome bee',
     },
     {
       id: '3',
       name: 'bee3',
       image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
-      description: 'Awesome bee',
+      description: 'This is a huge bee that is also awesome, but not as much as the first one',
     },
     {
       id: '4',
