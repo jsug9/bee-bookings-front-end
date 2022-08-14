@@ -1,33 +1,7 @@
-import React, {
-  useRef,
-  useState,
-  useCallback,
-  useEffect,
-} from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import BeeItem from './BeeItem';
-
-const useResize = (myRef) => {
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
-
-  const handleResize = useCallback(() => {
-    setWidth(myRef.current.offsetWidth);
-    setHeight(myRef.current.offsetHeight);
-  }, [myRef]);
-
-  useEffect(() => {
-    window.addEventListener('load', handleResize);
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('load', handleResize);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [myRef, handleResize]);
-
-  return { width, height };
-};
+import useResize from '../Utilities/UseResize';
 
 const BeesList = (props) => {
   const { bees } = props;
@@ -35,13 +9,18 @@ const BeesList = (props) => {
   const ref = useRef();
   const { width } = useResize(ref);
 
-  console.log(width);
+  const cardWidth = width / 3;
+  const sliderWidth = bees.length * cardWidth;
 
   return (
-    <div className="w-10/12 overflow-hidden" id="slider-container" ref={ref}>
-      <ul className="flex w-full">
+    <div
+      className="w-10/12 overflow-hidden"
+      id="slider-container"
+      ref={ref}
+    >
+      <ul className="flex w-full" id="slider" style={{ width: `${sliderWidth}px` }}>
         {bees.map((bee) => (
-          <BeeItem key={bee.id} bee={bee} />
+          <BeeItem key={bee.id} bee={bee} width={cardWidth} />
         ))}
       </ul>
     </div>
