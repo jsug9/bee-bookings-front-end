@@ -12,7 +12,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mx-auto max-w-screen md:max-h-screen">
       <h1>Our Collection of Bees</h1>
       <p>Please select a Bee</p>
       <BeesList bees={bees} />
