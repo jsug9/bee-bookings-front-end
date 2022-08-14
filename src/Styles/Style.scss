@@ -1,22 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $highlight: #9fbe3d;
 $gray: #e2e3e5;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+// }
 
-html, body {
-  padding: 0;
-}
+// html, body {
+//   padding: 0;
+// }
 
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
 
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+// body {
+//   margin: 0;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
