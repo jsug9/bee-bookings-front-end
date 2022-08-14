@@ -12,6 +12,14 @@ const HomePage = () => {
     dispatch(getBees());
   }, []);
 
+  const prev = () => {
+    console.log('prev');
+  };
+
+  const next = () => {
+    console.log('next');
+  };
+
   return (
     <section>
       <h1>Our Collection of Bees</h1>
@@ -22,6 +30,7 @@ const HomePage = () => {
             <button
               type="button"
               className="p-3 rounded-full bg-white border-gray-700 shadow-lg mr-5"
+              onClick={prev}
             >
               <Icon icon="ooui:previous-ltr" />
             </button>
@@ -33,6 +42,7 @@ const HomePage = () => {
             <button
               type="button"
               className="p-3 rounded-full bg-white border-gray-700 shadow-lg ml-5"
+              onClick={next}
             >
               <Icon icon="ooui:previous-rtl" />
             </button>

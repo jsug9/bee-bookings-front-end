@@ -32,6 +32,24 @@ const getBees = () => async (dispatch) => {
       image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
       description: 'Awesome bee',
     },
+    {
+      id: '5',
+      name: 'bee5',
+      image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
+      description: 'Awesome bee',
+    },
+    {
+      id: '6',
+      name: 'bee6',
+      image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
+      description: 'Awesome bee',
+    },
+    {
+      id: '7',
+      name: 'bee7',
+      image: 'https://i.pinimg.com/originals/ae/7f/0a/ae7f0aa6330f9db3896a4c9190281006.png',
+      description: 'Awesome bee',
+    },
   ];
 
   dispatch({
