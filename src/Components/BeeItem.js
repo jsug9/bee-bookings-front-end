@@ -15,20 +15,18 @@ const BeeItem = (props) => {
   };
 
   return (
-    <li className="md:h-[420px] flex-1">
+    <li className="p-5">
       <button
         type="button"
         onClick={redirect}
-        className="md:max-w-xs rounded overflow-hidden mx-2 shadow-lg shadow-gray-dark md:pb-3  md:h-full"
+        className="border rounded-lg p-5 h-full"
       >
-        <img src={bee.image} alt="Tour" className="w-100 pb-5 mx-auto" />
-        <h2 className="text-center pb-5 text-black font-l font-bold">
+        <img src={bee.image} alt="Tour" className="h-50 w-full object-cover rounded-md" />
+        <h2 className="mt-2 text-2xl font-bold text-gray-700">
           {bee.name}
         </h2>
         <hr className="w-1/4 mx-auto" />
-        <div className="flex flex-col flex-wrap text-center gap-3 pt-5">
-          <p className="font-medium text-black">{bee.description}</p>
-        </div>
+        <p className="mt-2 text-gray-500">{bee.description}</p>
         <BeeItemSocial />
       </button>
     </li>
