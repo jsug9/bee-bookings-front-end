@@ -18,14 +18,16 @@ const App = () => (
     <Navbar />
     <LoginPage />
     <SignupPage />
-    <Routes>
-      <Route exact path="/" element={<HomePage />} />
-      <Route exact path="/:bee" element={<BeeDetailsPage />} />
-      <Route path="/add_reservation" element={<AddReservationPage />} />
-      <Route path="/reservations" element={<ReservationsPage />} />
-      <Route path="/add_bee" element={<AddBeePage />} />
-      <Route path="/delete_bee" element={<DeleteBeePage />} />
-    </Routes>
+    <div className="main">
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/:bee" element={<BeeDetailsPage />} />
+        <Route path="/add_reservation" element={<AddReservationPage />} />
+        <Route path="/reservations" element={<ReservationsPage />} />
+        <Route path="/add_bee" element={<AddBeePage />} />
+        <Route path="/delete_bee" element={<DeleteBeePage />} />
+      </Routes>
+    </div>
   </Router>
 );
 
