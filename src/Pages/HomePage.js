@@ -14,9 +14,9 @@ const HomePage = () => {
 
   return (
     <section>
-      <div className="mx-auto w-full flex flex-col p-10 mt-10 md:mt-0 text-center gap-4">
-        <h1 className="mx-auto font-bold text-5xl text-black md:mt-[20px]">Our Collection of Bees</h1>
-        <p className="mx-auto text-2xl text-text-gray">Please select a Bee</p>
+      <div className="homepage-title">
+        <h1 className="title">Our Collection of Bees</h1>
+        <p className="description">Please select a Bee</p>
       </div>
       <BeesList bees={bees} />
     </section>
