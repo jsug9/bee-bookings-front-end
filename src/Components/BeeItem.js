@@ -47,15 +47,15 @@ const BeeItem = (props) => {
           <Typography component="p">{bee.description}</Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className="social-icons-container">
         <Button size="large" color="inherit">
-          <Icon icon="bi:facebook" />
+          <Icon icon="bi:facebook" className="social-icon" />
         </Button>
         <Button size="large" color="inherit">
-          <Icon icon="bi:twitter" />
+          <Icon icon="bi:twitter" className="social-icon" />
         </Button>
         <Button size="large" color="inherit">
-          <Icon icon="bi:instagram" />
+          <Icon icon="bi:instagram" className="social-icon" />
         </Button>
       </CardActions>
     </Card>
