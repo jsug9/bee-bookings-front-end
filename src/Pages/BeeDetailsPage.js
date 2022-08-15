@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import '../Styles/Homepage.scss';
+import '../Styles/DetailsPage.scss';
 
 const BeeDetailsPage = () => {
   const location = useLocation();
