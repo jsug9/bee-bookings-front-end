@@ -6,7 +6,9 @@ import reservationsReducer from './reservations/ReservationsReducer';
 import userReducer from './user/UserReducer';
 
 export default configureStore({
-  user: userReducer,
-  bees: beesReducer,
-  reservations: reservationsReducer,
+  reducer: {
+    user: userReducer,
+    bees: beesReducer,
+    reservations: reservationsReducer,
+  },
 });

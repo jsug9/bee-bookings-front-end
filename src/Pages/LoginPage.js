@@ -1,5 +1,8 @@
 import '../Styles/login_page.scss';
 import { toggleSignup } from './SignupPage';
+import { signIn } from '../Redux/user/UserReducer';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
@@ -14,13 +17,20 @@ const signupToggle = () => {
   toggleSignup();
 };
 
-const LoginPage = () => (
+const LoginPage = () => {
+  const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(signIn(username));
+  }
+  return (
   <div id="loginPage" className="invisible">
     <div id="loginClose" role="presentation" onClick={toggleLogin}>X</div>
     <div className="loginForm mobile">
       <h1>Buzz In</h1>
       <section className="loginSection" id="loginSection">
-        <form className="loginForm" method="post">
+        <form className="loginForm" method="post" onSubmit={handleSubmit}>
           <input
             type="text"
             name="username"
@@ -28,6 +38,8 @@ const LoginPage = () => (
             placeholder="Enter your username"
             required
             maxLength="30"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <span className="error" aria-live="polite" />
           <button type="submit" className="loginBtn">Let&apos;s Go!</button>
@@ -38,6 +50,6 @@ const LoginPage = () => (
       </section>
     </div>
   </div>
-);
+)};
 
 export default LoginPage;

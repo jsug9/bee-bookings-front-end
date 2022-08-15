@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const signInEndpoint = 'https://bee-store.herokuapp.com/' + 'api/v1/signin';
 
-const signIn = createAsyncThunk('user/signIn', async (username) => {
+export const signIn = createAsyncThunk('user/signIn', async (username) => {
   const userParams = { user: { username } };
   const { data } = await axios.post(signInEndpoint, userParams);
   return data;
