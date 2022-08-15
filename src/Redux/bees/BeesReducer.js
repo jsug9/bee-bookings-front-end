@@ -110,15 +110,21 @@ const getBees = () => async (dispatch) => {
     },
     {
       id: '18',
+      name: 'Beelase',
+      image: 'https://www.agriculturayganaderia.com/website/wp-content/uploads/2017/08/wsi-imageoptim-Abejas-abejas-abejas-2-640x451.jpg',
+      description: 'Beelase can solve math problems, he is very talented',
+    },
+    {
+      id: '19',
       name: 'Beerthur',
       image: 'https://static.nationalgeographicla.com/files/styles/image_3200/public/01honeybeegallery.jpg?w=1190&h=794',
       description: 'Beerthur is a wise bee, he is very wise',
     },
     {
-      id: '19',
-      name: 'Beelase',
-      image: 'https://www.agriculturayganaderia.com/website/wp-content/uploads/2017/08/wsi-imageoptim-Abejas-abejas-abejas-2-640x451.jpg',
-      description: 'Beelase can solve math problems, he is very talented',
+      id: '20',
+      name: 'Tolubee',
+      image: 'https://i.ytimg.com/vi/rWP0fnKana0/maxresdefault.jpg',
+      description: 'Tolubee can help you, he is very helpful',
     },
   ];
 
