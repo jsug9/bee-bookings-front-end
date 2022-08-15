@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import BeeItemSocial from './BeeItemSocial';
 
 const BeeItem = (props) => {
-  const { bee, width } = props;
+  const { bee } = props;
   const navigate = useNavigate();
 
   const redirect = () => {
@@ -15,7 +15,7 @@ const BeeItem = (props) => {
   };
 
   return (
-    <li className="p-5" id="card" style={{ width: `${width}px` }}>
+    <div className="p-5" id="card">
       <button
         type="button"
         onClick={redirect}
@@ -31,7 +31,7 @@ const BeeItem = (props) => {
         </div>
         <BeeItemSocial />
       </button>
-    </li>
+    </div>
   );
 };
 
@@ -42,7 +42,6 @@ BeeItem.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
-  width: PropTypes.number.isRequired,
 };
 
 export default BeeItem;

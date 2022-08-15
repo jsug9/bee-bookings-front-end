@@ -1,28 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import BeeItem from './BeeItem';
 
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 768 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 768, min: 0 },
+    items: 1,
+  },
+};
+
 const BeesList = (props) => {
-  const { bees, width } = props;
-
-  const itemsShown = 3;
-  const cardWidth = width / itemsShown;
-  const sliderWidth = bees.length * cardWidth;
-
-  const style = {
-    width: `${sliderWidth}px`,
-  };
+  const { bees } = props;
 
   return (
-    <ul
-      className="flex w-full transition-margin"
-      id="slider"
-      style={style}
+    <Carousel
+      responsive={responsive}
+      className="flex w-full"
+      infinite
     >
       {bees.map((bee) => (
-        <BeeItem key={bee.id} bee={bee} width={cardWidth} />
+        <BeeItem key={bee.id} bee={bee} />
       ))}
-    </ul>
+    </Carousel>
   );
 };
 
@@ -33,7 +46,6 @@ BeesList.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   })).isRequired,
-  width: PropTypes.number.isRequired,
 };
 
 export default BeesList;
