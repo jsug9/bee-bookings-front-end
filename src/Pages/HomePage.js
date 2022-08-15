@@ -1,23 +1,39 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import { getBees } from '../Redux/bees/BeesReducer';
 import BeesList from '../Components/BeesList';
+import useResize from '../Utilities/UseResize';
 import '../Styles/HomePage.scss';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const bees = useSelector((state) => state.bees);
+  const ref = useRef();
+
+  const { width, marginLeft } = useResize(ref);
+
+  const itemsShown = 3;
+  const cardWidth = width / itemsShown;
+
   useEffect(() => {
     dispatch(getBees());
   }, []);
 
+  console.log(`width: ${width}`);
+
   const prev = () => {
-    console.log('prev');
+    const slicedMargin = +marginLeft.slice(0, -2);
+    if (slicedMargin !== -cardWidth * (bees.length - itemsShown)) {
+      ref.current.style.marginLeft = `${slicedMargin - cardWidth}px`;
+    }
   };
 
   const next = () => {
-    console.log('next');
+    const slicedMargin = +marginLeft.slice(0, -2);
+    if (slicedMargin !== 0) {
+      ref.current.style.marginLeft = `${slicedMargin + cardWidth}px`;
+    }
   };
 
   return (
@@ -36,7 +52,13 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-        <BeesList bees={bees} />
+        <div
+          className="w-10/12 overflow-hidden"
+          id="slider-container"
+          ref={ref}
+        >
+          <BeesList bees={bees} width={width} />
+        </div>
         <div className="w-2/12 flex items-center">
           <div className="w-full text-left">
             <button

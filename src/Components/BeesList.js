@@ -1,29 +1,28 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import BeeItem from './BeeItem';
-import useResize from '../Utilities/UseResize';
 
 const BeesList = (props) => {
-  const { bees } = props;
+  const { bees, width } = props;
 
-  const ref = useRef();
-  const { width } = useResize(ref);
-
-  const cardWidth = width / 3;
+  const itemsShown = 3;
+  const cardWidth = width / itemsShown;
   const sliderWidth = bees.length * cardWidth;
 
+  const style = {
+    width: `${sliderWidth}px`,
+  };
+
   return (
-    <div
-      className="w-10/12 overflow-hidden"
-      id="slider-container"
-      ref={ref}
+    <ul
+      className="flex w-full transition-margin"
+      id="slider"
+      style={style}
     >
-      <ul className="flex w-full" id="slider" style={{ width: `${sliderWidth}px` }}>
-        {bees.map((bee) => (
-          <BeeItem key={bee.id} bee={bee} width={cardWidth} />
-        ))}
-      </ul>
-    </div>
+      {bees.map((bee) => (
+        <BeeItem key={bee.id} bee={bee} width={cardWidth} />
+      ))}
+    </ul>
   );
 };
 
@@ -34,6 +33,7 @@ BeesList.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   })).isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 export default BeesList;

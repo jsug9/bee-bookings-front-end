@@ -7,10 +7,13 @@ import {
 const useResize = (myRef) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+  const [marginLeft, setMarginLeft] = useState(0);
 
   const handleResize = useCallback(() => {
+    const nodeStyle = window.getComputedStyle(myRef.current);
     setWidth(myRef.current.offsetWidth);
     setHeight(myRef.current.offsetHeight);
+    setMarginLeft(nodeStyle.getPropertyValue('margin-left'));
   }, [myRef]);
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const useResize = (myRef) => {
     };
   }, [myRef, handleResize]);
 
-  return { width, height };
+  return { width, height, marginLeft };
 };
 
 export default useResize;

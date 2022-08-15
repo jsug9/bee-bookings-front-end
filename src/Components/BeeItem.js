@@ -14,8 +14,6 @@ const BeeItem = (props) => {
     );
   };
 
-  console.log(width);
-
   return (
     <li className="p-5" id="card" style={{ width: `${width}px` }}>
       <button
