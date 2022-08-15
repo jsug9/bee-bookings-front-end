@@ -29,7 +29,7 @@ const BeesList = (props) => {
   return (
     <Carousel
       responsive={responsive}
-      className="flex w-full pb-8"
+      className="carousel-container"
       infinite
     >
       {bees.map((bee) => (
