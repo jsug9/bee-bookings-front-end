@@ -48,13 +48,13 @@ const BeeItem = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="large" color="primary">
+        <Button size="large" color="inherit">
           <Icon icon="bi:facebook" />
         </Button>
-        <Button size="large" color="primary">
+        <Button size="large" color="inherit">
           <Icon icon="bi:twitter" />
         </Button>
-        <Button size="large" color="primary">
+        <Button size="large" color="inherit">
           <Icon icon="bi:instagram" />
         </Button>
       </CardActions>
