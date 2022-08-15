@@ -17,8 +17,16 @@ export const getAllBees = createAsyncThunk(GET_BEES, async() => {
   return data;
 });
 
+//May need revision
 export const addBee = createAsyncThunk(ADD_BEE, async(bee) => {
   axios.post(getBeesEndpoint, bee);
+  const { data } = await axios.get(getBeesEndpoint);
+  return data;
+});
+
+//May need revision
+export const deleteBee = createAsyncThunk(DELETE_BEE, async(beeId) => {
+  axios.delete(getBeesEndpoint + '/' + beeId);
   const { data } = await axios.get(getBeesEndpoint);
   return data;
 });
@@ -49,6 +57,18 @@ const beesSlice = createSlice({
       state.isLoading = false;
     },
     [addBee.pending]: (state) => {
+      state.allBees = [];
+      state.isLoading = true;
+    },
+    [deleteBee.fulfilled]: (state, action) => {
+      state.allBees = action.payload;
+      state.isLoading = false;
+    },
+    [deleteBee.rejected]: (state) => {
+      state.allBees = [];
+      state.isLoading = false;
+    },
+    [deleteBee.pending]: (state) => {
       state.allBees = [];
       state.isLoading = true;
     },
