@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import BeeItem from './BeeItem';
+import BeeItem from './test';
 
 const responsive = {
   superLargeDesktop: {
@@ -29,7 +29,7 @@ const BeesList = (props) => {
   return (
     <Carousel
       responsive={responsive}
-      className="flex w-full"
+      className="flex w-full pb-8"
       infinite
     >
       {bees.map((bee) => (
