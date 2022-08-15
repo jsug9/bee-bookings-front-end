@@ -4,8 +4,6 @@ const DELETE_BEE = 'Bees/DELETE_BEE';
 
 const initialState = [];
 
-// const slides = (a) => a.map((e, i) => (i % 3 === 0 ? a.slice(i, i + 3) : null)).filter((e) => e);
-
 const getBees = () => async (dispatch) => {
   const payload = [
     {
