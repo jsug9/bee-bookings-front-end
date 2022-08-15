@@ -1,5 +1,6 @@
-import axios from "axios";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const GET_BEES = 'Bees/GET_BEES';
 const ADD_BEE = 'Bees/ADD_BEE';
@@ -12,21 +13,21 @@ const initialState = {
   isLoading: false,
 };
 
-export const getAllBees = createAsyncThunk(GET_BEES, async() => {
+export const getAllBees = createAsyncThunk(GET_BEES, async () => {
   const { data } = await axios.get(getBeesEndpoint);
   return data;
 });
 
-//May need revision
-export const addBee = createAsyncThunk(ADD_BEE, async(bee) => {
+// May need revision
+export const addBee = createAsyncThunk(ADD_BEE, async (bee) => {
   axios.post(getBeesEndpoint, bee);
   const { data } = await axios.get(getBeesEndpoint);
   return data;
 });
 
-//May need revision
-export const deleteBee = createAsyncThunk(DELETE_BEE, async(beeId) => {
-  axios.delete(getBeesEndpoint + '/' + beeId);
+// May need revision
+export const deleteBee = createAsyncThunk(DELETE_BEE, async (beeId) => {
+  axios.delete(`${getBeesEndpoint}/${beeId}`);
   const { data } = await axios.get(getBeesEndpoint);
   return data;
 });
