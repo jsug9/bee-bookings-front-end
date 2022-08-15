@@ -23,11 +23,11 @@ const BeeItem = (props) => {
       >
         <div className="flex-col">
           <img src={bee.image} alt="Tour" className="h-50 w-full object-cover rounded-md" />
-          <h2 className="mt-2 text-2xl font-bold text-gray-700 pt-3 pb-3">
+          <h2 className="mt-2 text-2xl font-bold text-gray-700 pt-3 pb-3 pl-3 pr-3">
             {bee.name}
           </h2>
           <hr className="w-1/2 mx-auto pb-3" />
-          <p className="mt-2 text-gray-500">{bee.description}</p>
+          <p className="mt-2 text-gray-500 pl-4 pr-4">{bee.description}</p>
         </div>
         <BeeItemSocial />
       </button>
