@@ -18,7 +18,7 @@ const App = () => (
     <Navbar />
     <LoginPage />
     <SignupPage />
-    <div className="main">
+    <main>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/:bee" element={<BeeDetailsPage />} />
@@ -27,7 +27,7 @@ const App = () => (
         <Route path="/add_bee" element={<AddBeePage />} />
         <Route path="/delete_bee" element={<DeleteBeePage />} />
       </Routes>
-    </div>
+    </main>
   </Router>
 );
 
