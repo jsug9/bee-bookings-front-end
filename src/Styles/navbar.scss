@@ -3,6 +3,7 @@ nav {
   height: 100%;
   width: 375px;
   background-color: #ffeb3b;
+  z-index: 5;
 
   ul {
     list-style: none;
@@ -55,7 +56,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  z-index: 1;
+  z-index: 6;
   cursor: pointer;
   left: 24px;
   top: 17px;
