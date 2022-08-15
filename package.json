@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
     "flowbite": "^1.5.2",
     "flowbite-react": "^0.1.6",
     "prop-types": "^15.8.1",
@@ -25,9 +26,11 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.54.4",
     "scss": "^0.2.4",
-    "tw-elements": "^1.0.0-alpha12",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -69,7 +72,6 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "^3.21.0",
-    "tailwindcss": "^3.1.8"
+    "stylelint-scss": "^3.21.0"
   }
 }

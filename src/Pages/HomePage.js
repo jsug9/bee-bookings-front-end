@@ -1,15 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
-import { getBees } from '../Redux/bees/BeesReducer';
+// import { getBees } from '../Redux/bees/BeesReducer';
 import BeesList from '../Components/BeesList';
-import '../Styles/HomePage.scss';
+import '../Styles/Homepage.scss';
+import { getAllBees } from '../Redux/bees/BeesReducer';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const bees = useSelector((state) => state.bees);
+  const bees = useSelector((state) => state.bees.allBees);
 
   useEffect(() => {
-    dispatch(getBees());
+    dispatch(getAllBees());
   }, []);
 
   return (

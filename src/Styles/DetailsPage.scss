@@ -1,0 +1,48 @@
+.bee-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bee-image {
+  border-radius: 3%;
+}
+
+.bee-information {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: gray;
+  }
+}
+
+@media (max-width: 768px) {
+  .bee-details {
+    padding: 0 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .bee-image {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bee-details {
+    padding: 0 4rem;
+    flex-direction: row;
+  }
+
+  .bee-image {
+    width: 70%;
+  }
+}

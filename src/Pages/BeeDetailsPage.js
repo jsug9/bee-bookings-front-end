@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import '../Styles/DetailsPage.scss';
 
 const BeeDetailsPage = () => {
   const location = useLocation();
@@ -7,10 +8,12 @@ const BeeDetailsPage = () => {
   const { bee } = location.state;
 
   return (
-    <div>
-      <h2>{bee.name}</h2>
-      <p>{bee.description}</p>
-      <img src={bee.image} alt={bee.name} />
+    <div className="bee-details">
+      <img src={bee.image} alt={bee.name} className="bee-image" />
+      <div className="bee-information">
+        <h1>{bee.name}</h1>
+        <p>{bee.description}</p>
+      </div>
     </div>
   );
 };
