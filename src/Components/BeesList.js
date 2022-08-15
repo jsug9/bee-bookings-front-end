@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import BeeItem from './test';
+import BeeItem from './BeeItem';
 
 const responsive = {
   superLargeDesktop: {

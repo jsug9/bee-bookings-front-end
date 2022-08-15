@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import BeeItemSocial from './BeeItemSocial';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Icon } from '@iconify/react';
+// import BeeItemSocial from './BeeItemSocial';
 
 const BeeItem = (props) => {
   const { bee } = props;
@@ -14,24 +20,45 @@ const BeeItem = (props) => {
     );
   };
 
+  const imageStyle = {
+    height: 0,
+    paddingTop: '80%',
+    width: '100%',
+    objectFit: 'cover',
+  };
+
+  const cardStyle = {
+    margin: '0 20px',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
+
   return (
-    <div className="p-5 h-full">
-      <button
-        type="button"
-        onClick={redirect}
-        className="rounded-lg h-full shadow-lg flex flex-col"
-      >
-        <div className="flex-col">
-          <img src={bee.image} alt="Tour" className="h-50 w-full object-cover rounded-md" />
-          <h2 className="mt-2 text-2xl font-bold text-gray-700 pt-3 pb-3 pl-3 pr-3">
+    <Card style={cardStyle}>
+      <CardActionArea onClick={redirect}>
+        <CardMedia image={bee.image} title={bee.name} style={imageStyle} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
             {bee.name}
-          </h2>
-          <hr className="w-1/2 mx-auto pb-3" />
-          <p className="mt-2 text-gray-500 pl-4 pr-4">{bee.description}</p>
-        </div>
-        <BeeItemSocial />
-      </button>
-    </div>
+          </Typography>
+          <Typography component="p">{bee.description}</Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="large" color="primary">
+          <Icon icon="bi:facebook" />
+        </Button>
+        <Button size="large" color="primary">
+          <Icon icon="bi:twitter" />
+        </Button>
+        <Button size="large" color="primary">
+          <Icon icon="bi:instagram" />
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 
