@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { getBees } from '../Redux/bees/BeesReducer';
 import BeesList from '../Components/BeesList';
-import '../Styles/Homepage.scss';
+import '../Styles/HomePage.scss';
 
 const HomePage = () => {
   const dispatch = useDispatch();
