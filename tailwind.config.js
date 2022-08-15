@@ -3,7 +3,11 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'text-gray': '#888888',
+      },
+    },
   },
   plugins: [
     // eslint-disable-next-line global-require
