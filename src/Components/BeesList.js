@@ -1,15 +1,41 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import BeeItem from './BeeItem';
+
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 768 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 768, min: 0 },
+    items: 1,
+  },
+};
 
 const BeesList = (props) => {
   const { bees } = props;
 
   return (
-    <ul className="mx-auto w-full flex flex-col gap-24 md:flex-row  md:justify-center md:items-center md:min-h-[70vh] md:gap-0">
+    <Carousel
+      responsive={responsive}
+      className="flex w-full"
+      infinite
+    >
       {bees.map((bee) => (
         <BeeItem key={bee.id} bee={bee} />
       ))}
-    </ul>
+    </Carousel>
   );
 };
 
