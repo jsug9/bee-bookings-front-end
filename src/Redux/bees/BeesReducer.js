@@ -10,25 +10,25 @@ const getBees = () => async (dispatch) => {
       id: '1',
       name: 'Beegusto',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Drinking_Bee.jpg/1200px-Drinking_Bee.jpg',
-      description: 'This bee is a great one to drink!',
+      description: 'Beegusto is a great bee to drink with!',
     },
     {
       id: '2',
       name: 'Aaron Beegan',
       image: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Bee-apis.jpg',
-      description: 'This is an awesome bee! It is the favorite of countless people.',
+      description: 'Beegan is an awesome bee! It is the favorite of countless people.',
     },
     {
       id: '3',
       name: 'Beemily',
       image: 'https://www.efsa.europa.eu/sites/default/files/styles/share_opengraph/public/2021-07/Bee-4.jpeg?h=199d8c1f&itok=O4pVoW8_',
-      description: 'This is a great bee to have around! You will love it!',
+      description: 'Beemily is a great bee to have around! You will love her!',
     },
     {
       id: '4',
-      name: 'Beenry',
+      name: 'Henbee',
       image: 'https://dam.tuenlinea.com/wp-content/uploads/2018/10/que-pasa-si-desaparecen-las-abejas.jpg',
-      description: 'This is an interesting bee! It is a good one to have around.',
+      description: 'Henbee is an interesting bee! It is a good one to have around.',
     },
     {
       id: '5',
@@ -98,15 +98,27 @@ const getBees = () => async (dispatch) => {
     },
     {
       id: '16',
+      name: 'Beejudá',
+      image: 'https://www.bee-careful.com/site_media/uploads/bee-85576_1280_aJbdjL8.jpg',
+      description: 'Beejudá can play the guitar, he is very talented',
+    },
+    {
+      id: '17',
+      name: 'Beemuel',
+      image: 'https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/11/29/5fa4453654587.jpeg',
+      description: 'Beemuel can sing, he is very talented',
+    },
+    {
+      id: '18',
       name: 'Beerthur',
       image: 'https://static.nationalgeographicla.com/files/styles/image_3200/public/01honeybeegallery.jpg?w=1190&h=794',
       description: 'Beerthur is a wise bee, he is very wise',
     },
     {
-      id: '17',
-      name: 'Beejudá',
-      image: 'https://www.bee-careful.com/site_media/uploads/bee-85576_1280_aJbdjL8.jpg',
-      description: 'Beejudá can play the guitar, he is very talented',
+      id: '19',
+      name: 'Beelase',
+      image: 'https://www.agriculturayganaderia.com/website/wp-content/uploads/2017/08/wsi-imageoptim-Abejas-abejas-abejas-2-640x451.jpg',
+      description: 'Beelase can solve math problems, he is very talented',
     },
   ];
 
