@@ -24,6 +24,17 @@
   }
 }
 
+.button-icon {
+  margin-right: 0.25rem;
+}
+
+.bee-details-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (max-width: 768px) {
   .bee-details {
     padding: 0 2rem;

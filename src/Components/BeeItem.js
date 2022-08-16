@@ -7,7 +7,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Icon } from '@iconify/react';
-// import BeeItemSocial from './BeeItemSocial';
 
 const BeeItem = (props) => {
   const { bee } = props;

@@ -1,6 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../Styles/DetailsPage.scss';
+import { Button } from '@mui/material';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const BeeDetailsPage = () => {
   const location = useLocation();
@@ -13,6 +16,22 @@ const BeeDetailsPage = () => {
       <div className="bee-information">
         <h1>{bee.name}</h1>
         <p>{bee.description}</p>
+        <Button
+          variant="contained"
+          color="success"
+          startIcon={<LibraryAddIcon />}
+          sx={{ fontWeight: 'bold' }}
+        >
+          Book bee
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          startIcon={<DeleteIcon />}
+          sx={{ fontWeight: 'bold' }}
+        >
+          Delete Bee
+        </Button>
       </div>
     </div>
   );
