@@ -5,8 +5,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import { Icon } from '@iconify/react';
+import { CardActionArea } from '@mui/material';
+import CardActionsContainer from './CardActions';
 
 const BeeItem = (props) => {
   const { bee } = props;
@@ -46,17 +46,7 @@ const BeeItem = (props) => {
           <Typography component="p">{bee.description}</Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions className="social-icons-container">
-        <Button size="large" color="inherit">
-          <Icon icon="bi:facebook" className="social-icon" />
-        </Button>
-        <Button size="large" color="inherit">
-          <Icon icon="bi:twitter" className="social-icon" />
-        </Button>
-        <Button size="large" color="inherit">
-          <Icon icon="bi:instagram" className="social-icon" />
-        </Button>
-      </CardActions>
+      <CardActionsContainer />
     </Card>
   );
 };
