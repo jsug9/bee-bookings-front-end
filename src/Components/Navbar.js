@@ -39,7 +39,7 @@ const Navbar = () => {
   const generateActiveUserLinks = () => (
     <>
       <li>
-        <p role="presentation" onClick={handleClick}>Sign Out</p>
+        <p role="presentation" className="links" onClick={handleClick}>Sign Out</p>
       </li>
     </>
   );
