@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
 import { toggleSignup } from '../Pages/SignupPage';
+import { logOutUser } from '../Redux/user/UserReducer';
 // import { toggleSignup } from '../Pages/SignupPage';
 import '../Styles/navbar.scss';
 
@@ -16,6 +17,13 @@ export const toggleNavbar = () => {
 
 const Navbar = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(logOutUser());
+  };
+
+  console.log(handleClick);
 
   const generateInactiveUserLinks = () => (
     <>
@@ -28,16 +36,13 @@ const Navbar = () => {
     </>
   );
 
-  // const generateInactiveUserLinks = () => {
-  //   return (<>
-  //       <li>
-  //       <p role="presentation" onClick={toggleLogin}>Log in</p>
-  //     </li>
-  // <li>
-  //   <p role="presentation">Placeholder</p>
-  // </li>
-  //   </>)
-  // }
+  const generateActiveUserLinks = () => (
+    <>
+      <li>
+        <p role="presentation" onClick={handleClick}>Sign Out</p>
+      </li>
+    </>
+  );
 
   const links = [
     {
@@ -87,11 +92,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          {user.username ? (
-            <li className="links">
-              <p role="presentation">Placeholder</p>
-            </li>
-          ) : generateInactiveUserLinks()}
+          {user.username ? generateActiveUserLinks() : generateInactiveUserLinks()}
         </ul>
       </nav>
     </>

@@ -1,6 +1,6 @@
 import '../Styles/signup_page.scss';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../Redux/user/UserReducer';
 
 // Toggles visibility of the signup page overlay
@@ -13,8 +13,6 @@ export const toggleSignup = () => {
 // Toggles visibility of the login page overlay when the user clicks the log in link
 const loginToggle = () => {
   const loginPage = document.getElementById('loginPage');
-  const nav = document.getElementsByTagName('nav');
-  nav[0].classList.toggle('invisible');
   loginPage.classList.toggle('invisible');
   loginPage.classList.toggle('flex');
   toggleSignup();
@@ -22,19 +20,23 @@ const loginToggle = () => {
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
+  const user = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signUp(username));
   };
+
   return (
     <div id="signupPage" className="invisible">
       <div id="signupClose" role="presentation" onClick={toggleSignup}>X</div>
       <div className="loginForm mobile">
-        <h1>Sign Up</h1>
+        <h1>{user?.createdUser ? 'Welcome!' : 'Sign Up'}</h1>
         <section className="loginSection" id="loginSection">
           <form className="loginForm" method="post" onSubmit={handleSubmit}>
             <input
+              className={user?.createdUser ? 'invisible' : ''}
               type="text"
               name="username"
               id="username"
@@ -44,10 +46,10 @@ const SignupPage = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <span className="error" aria-live="polite" />
-            <button type="submit" className="loginBtn">Sign me up!</button>
+            <span className="error" aria-live="polite">{ user?.createdUser ? 'Account Creation Successful!' : '' }</span>
+            <button type="submit" className={user?.createdUser ? 'loginBtn invisible' : 'loginBtn'}>Sign me up!</button>
           </form>
-          <div className="signupLink">
+          <div className={user?.createdUser ? 'signupLink invisible' : 'signupLink'}>
             <p id="signup" role="presentation" onClick={loginToggle}>Log in</p>
           </div>
         </section>
