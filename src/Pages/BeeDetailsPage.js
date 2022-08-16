@@ -5,6 +5,7 @@ import { Button } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BackButton from '../Components/BackButton';
+import CardActionsContainer from '../Components/CardActions';
 
 const BeeDetailsPage = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const BeeDetailsPage = () => {
         >
           Delete Bee
         </Button>
+        <CardActionsContainer />
       </div>
       <BackButton />
     </div>
