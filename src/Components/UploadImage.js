@@ -16,14 +16,18 @@ const myBucket = new AWS.S3({
 
 const UploadImage = ({ selectedFile, setSelectedFile }) => {
   const [progress, setProgress] = useState(0);
+  const [disableSubmit, setDisableSubmit] = useState(true);
 
   const handleFileInput = (e) => {
-    if (e.target.files[0].type.includes('image')) {
+    if (!e.target.files[0].type.includes('image')) {
       alert('Please select an image file');
+      e.target.value = null;
     } else if (e.target.files[0].size > 11_000_000) {
       alert('File is too big');
+      e.target.value = null;
     } else {
       setSelectedFile(e.target.files[0]);
+      setDisableSubmit(false);
     }
   };
 
@@ -50,7 +54,7 @@ const UploadImage = ({ selectedFile, setSelectedFile }) => {
         {progress}
       </div>
       <input type="file" onChange={handleFileInput} />
-      <button type="button" onClick={() => uploadFile(selectedFile)}>
+      <button type="button" onClick={() => uploadFile(selectedFile)} disabled={disableSubmit}>
         {' '}
         Upload to S3
       </button>
