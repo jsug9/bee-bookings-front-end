@@ -14,12 +14,17 @@ const myBucket = new AWS.S3({
   region: REGION,
 });
 
-const UploadImage = () => {
+const UploadImage = ({ selectedFile, setSelectedFile }) => {
   const [progress, setProgress] = useState(0);
-  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileInput = (e) => {
-    setSelectedFile(e.target.files[0]);
+    if (e.target.files[0].type.includes('image')) {
+      alert('Please select an image file');
+    } else if (e.target.files[0].size > 11_000_000) {
+      alert('File is too big');
+    } else {
+      setSelectedFile(e.target.files[0]);
+    }
   };
 
   const uploadFile = (file) => {
