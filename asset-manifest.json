@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/bee-bookings-front-end/static/css/main.2cdf506c.css",
-    "main.js": "/bee-bookings-front-end/static/js/main.7a3ce95e.js",
+    "main.css": "/bee-bookings-front-end/static/css/main.2e0576a1.css",
+    "main.js": "/bee-bookings-front-end/static/js/main.ca10c23d.js",
     "static/media/revicons.eot": "/bee-bookings-front-end/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/bee-bookings-front-end/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/bee-bookings-front-end/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/bee-bookings-front-end/index.html",
-    "main.2cdf506c.css.map": "/bee-bookings-front-end/static/css/main.2cdf506c.css.map",
-    "main.7a3ce95e.js.map": "/bee-bookings-front-end/static/js/main.7a3ce95e.js.map"
+    "main.2e0576a1.css.map": "/bee-bookings-front-end/static/css/main.2e0576a1.css.map",
+    "main.ca10c23d.js.map": "/bee-bookings-front-end/static/js/main.ca10c23d.js.map"
   },
   "entrypoints": [
-    "static/css/main.2cdf506c.css",
-    "static/js/main.7a3ce95e.js"
+    "static/css/main.2e0576a1.css",
+    "static/js/main.ca10c23d.js"
   ]
 }
