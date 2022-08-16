@@ -21,7 +21,7 @@ const BeeDetailsPage = () => {
   const backStyle = {
     position: 'fixed',
     bottom: 30,
-    left: 20,
+    left: 25,
   };
 
   return (
@@ -48,7 +48,12 @@ const BeeDetailsPage = () => {
           Delete Bee
         </Button>
       </div>
-      <Fab color="inherit" size="large" aria-label="scroll back to top" style={backStyle} onClick={redirect}>
+      <Fab
+        color="inherit"
+        size="large"
+        style={backStyle}
+        onClick={redirect}
+      >
         <ArrowBackIosNewIcon />
       </Fab>
     </div>
