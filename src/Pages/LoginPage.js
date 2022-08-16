@@ -1,15 +1,17 @@
 import '../Styles/login_page.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { toggleSignup } from './SignupPage';
 import { signIn } from '../Redux/user/UserReducer';
 
+// Toggles visibility of the login page overlay
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
   loginPage.classList.toggle('invisible');
   loginPage.classList.toggle('flex');
 };
 
+// Toggles visibility of the login page overlay when the user clicks the sign up link
 const signupToggle = () => {
   toggleLogin();
   toggleSignup();
@@ -17,13 +19,15 @@ const signupToggle = () => {
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
+  const user = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signIn(username));
   };
   return (
-    <div id="loginPage" className="invisible">
+    <div id="loginPage" className={user.userId ? 'hide' : 'invisible'}>
       <div id="loginClose" role="presentation" onClick={toggleLogin}>X</div>
       <div className="loginForm mobile">
         <h1>Buzz In</h1>

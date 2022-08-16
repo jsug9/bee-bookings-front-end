@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
@@ -16,17 +16,6 @@ export const toggleNavbar = () => {
 
 const Navbar = () => {
   const user = useSelector((state) => state.user);
-  const [loginStatus, setLoginStatus] = useState(false);
-
-  const checkLoginStatus = (user) => {
-    if (user.username) {
-      setLoginStatus(true);
-    } else {
-      setLoginStatus(false);
-    }
-  };
-
-  console.log(checkLoginStatus);
 
   const generateInactiveUserLinks = () => (
     <>
@@ -49,9 +38,6 @@ const Navbar = () => {
   // </li>
   //   </>)
   // }
-
-  console.log(user);
-  console.log(loginStatus);
 
   const links = [
     {
@@ -101,7 +87,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          {loginStatus ? (
+          {user.username ? (
             <li className="links">
               <p role="presentation">Placeholder</p>
             </li>
@@ -113,21 +99,20 @@ const Navbar = () => {
 };
 
 // Sets listener that determines if the nav is open and if it should be closed
-// if a user clicks outside of it
+// if a user clicks outside of it or clicks a navlink
 document.addEventListener('click', (e) => {
   const nav = document.getElementsByTagName('nav');
+
+  // convertes the query selector into an array instead of HTML collection (allows use of some())
   const navLinks = [].slice.call(document.getElementsByClassName('links'));
 
   const hamburger = document.getElementById('hamburger');
   const hamburgerClicked = hamburger.contains(e.target);
   const navLinkClicked = navLinks.some((link) => link.contains(e.target));
-  // const navLinkClicked = navLinks[0].contains(e.target);
 
   if (!hamburgerClicked && navbarIsOpen && !nav[0].contains(e.target)) {
     toggleNavbar();
   } else if (navLinkClicked) {
-    console.log(navbarIsOpen);
-    console.log('trigger count');
     toggleNavbar();
   }
 });

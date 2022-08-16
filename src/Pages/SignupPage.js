@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../Redux/user/UserReducer';
 
+// Toggles visibility of the signup page overlay
 export const toggleSignup = () => {
   const signupPage = document.getElementById('signupPage');
   signupPage.classList.toggle('invisible');
   signupPage.classList.toggle('flex');
 };
 
+// Toggles visibility of the login page overlay when the user clicks the log in link
 const loginToggle = () => {
   const loginPage = document.getElementById('loginPage');
   const nav = document.getElementsByTagName('nav');
