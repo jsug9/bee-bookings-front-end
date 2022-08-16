@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import AWS from 'aws-sdk';
 
 const S3_BUCKET = 'bee-bucket-microverse';
@@ -14,7 +15,8 @@ const myBucket = new AWS.S3({
   region: REGION,
 });
 
-const UploadImage = ({ selectedFile, setSelectedFile }) => {
+const UploadImage = (props) => {
+  const { selectedFile, setSelectedFile } = props;
   const [progress, setProgress] = useState(0);
   const [disableSubmit, setDisableSubmit] = useState(true);
 
@@ -60,6 +62,15 @@ const UploadImage = ({ selectedFile, setSelectedFile }) => {
       </button>
     </div>
   );
+};
+
+UploadImage.propTypes = { // eslint-disable-next-line react/require-default-props
+  selectedFile: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
+  }),
+  setSelectedFile: PropTypes.func.isRequired,
 };
 
 export default UploadImage;
