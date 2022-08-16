@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
 import '../Styles/navbar.scss';
 
-export const toggle = () => {
+let navbarIsOpen = false;
+
+export const toggleNavbar = () => {
   const nav = document.getElementsByTagName('nav');
   nav[0].classList.toggle('invisible');
+  navbarIsOpen = !navbarIsOpen;
 };
 
 const Navbar = () => {
@@ -39,7 +42,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hamburger" role="presentation" onClick={toggle}>
+      <div className="hamburger" id="hamburger" role="presentation" onClick={toggleNavbar}>
         <div className="slice" />
 
         <div className="slice" />
@@ -68,5 +71,14 @@ const Navbar = () => {
     </>
   );
 };
+
+document.addEventListener('click', (e) => {
+  const nav = document.getElementsByTagName('nav');
+  const hamburger = document.getElementById('hamburger');
+  const hamburgerClicked = hamburger.contains(e.target);
+  if (!hamburgerClicked && navbarIsOpen && !nav[0].contains(e.target)) {
+    toggleNavbar();
+  }
+});
 
 export default Navbar;
