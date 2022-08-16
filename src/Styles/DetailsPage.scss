@@ -5,6 +5,7 @@
 
 .bee-image {
   border-radius: 3%;
+  object-fit: cover;
 }
 
 .bee-information {
@@ -45,7 +46,6 @@
   .bee-image {
     width: 100%;
     height: 230px;
-    object-fit: cover;
   }
 }
 
@@ -56,12 +56,11 @@
   }
 
   .bee-information {
-    width: 24.9%;
+    width: 30%;
   }
 
   .bee-image {
-    width: 70%;
+    width: 67%;
     height: 450px;
-    object-fit: cover;
   }
 }
