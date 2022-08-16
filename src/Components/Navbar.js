@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
+import { toggleSignup } from '../Pages/SignupPage';
+// import { toggleSignup } from '../Pages/SignupPage';
 import '../Styles/navbar.scss';
 
 let navbarIsOpen = false;
@@ -12,6 +15,44 @@ export const toggleNavbar = () => {
 };
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user);
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  const checkLoginStatus = (user) => {
+    if (user.username) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
+  };
+
+  console.log(checkLoginStatus);
+
+  const generateInactiveUserLinks = () => (
+    <>
+      <li>
+        <p role="presentation" onClick={toggleLogin}>Log in</p>
+      </li>
+      <li>
+        <p role="presentation" onClick={toggleSignup}>Sign Up</p>
+      </li>
+    </>
+  );
+
+  // const generateInactiveUserLinks = () => {
+  //   return (<>
+  //       <li>
+  //       <p role="presentation" onClick={toggleLogin}>Log in</p>
+  //     </li>
+  // <li>
+  //   <p role="presentation">Placeholder</p>
+  // </li>
+  //   </>)
+  // }
+
+  console.log(user);
+  console.log(loginStatus);
+
   const links = [
     {
       id: 1,
@@ -60,12 +101,17 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          <li>
+          {loginStatus ? (
+            <li>
+              <p role="presentation">Placeholder</p>
+            </li>
+          ) : generateInactiveUserLinks()}
+          {/* <li>
             <p role="presentation" onClick={toggleLogin}>Log in</p>
           </li>
           <li>
             <p role="presentation">Placeholder</p>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </>
@@ -81,6 +127,7 @@ document.addEventListener('click', (e) => {
   const hamburger = document.getElementById('hamburger');
   const hamburgerClicked = hamburger.contains(e.target);
   const navLinkClicked = navLinks[0].contains(e.target);
+
   if (!hamburgerClicked && navbarIsOpen && !nav[0].contains(e.target)) {
     toggleNavbar();
   } else if (navLinkClicked) {
