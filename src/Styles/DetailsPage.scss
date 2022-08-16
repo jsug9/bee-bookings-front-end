@@ -44,6 +44,8 @@
 
   .bee-image {
     width: 100%;
+    height: 230px;
+    object-fit: cover;
   }
 }
 
@@ -59,5 +61,7 @@
 
   .bee-image {
     width: 70%;
+    height: 450px;
+    object-fit: cover;
   }
 }
