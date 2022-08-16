@@ -1,25 +1,17 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import '../Styles/DetailsPage.scss';
-import { Button, Fab } from '@mui/material';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { Button } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import DeleteIcon from '@mui/icons-material/Delete';
+import BackButton from '../Components/BackButton';
 
 const BeeDetailsPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const { bee } = location.state;
 
   const disabled = () => bee.id === 2;
-  const redirect = () => navigate('/');
-
-  const backStyle = {
-    position: 'fixed',
-    bottom: 30,
-    left: 25,
-  };
 
   return (
     <div className="bee-details">
@@ -45,14 +37,7 @@ const BeeDetailsPage = () => {
           Delete Bee
         </Button>
       </div>
-      <Fab
-        color="inherit"
-        size="large"
-        style={backStyle}
-        onClick={redirect}
-      >
-        <ArrowBackIosNewIcon />
-      </Fab>
+      <BackButton />
     </div>
   );
 };
