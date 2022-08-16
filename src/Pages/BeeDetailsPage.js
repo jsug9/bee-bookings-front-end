@@ -10,6 +10,8 @@ const BeeDetailsPage = () => {
 
   const { bee } = location.state;
 
+  const disabled = () => bee.id === 2;
+
   return (
     <div className="bee-details">
       <img src={bee.image} alt={bee.name} className="bee-image" />
@@ -29,6 +31,7 @@ const BeeDetailsPage = () => {
           color="error"
           startIcon={<DeleteIcon />}
           sx={{ fontWeight: 'bold' }}
+          disabled={disabled()}
         >
           Delete Bee
         </Button>
