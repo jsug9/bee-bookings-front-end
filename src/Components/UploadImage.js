@@ -58,10 +58,6 @@ const UploadImage = ({ selectedFile, setSelectedFile }) => {
         {' '}
         Upload to S3
       </button>
-      <img
-        src="https://bee-bucket-microverse.s3.amazonaws.com/download.jpg"
-        alt=""
-      />
     </div>
   );
 };
