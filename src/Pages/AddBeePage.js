@@ -6,12 +6,20 @@ const AddBeePage = () => {
   return (
     <div>
       <h1>Add Bee Page</h1>
-      <div>
+      <form>
+        <label htmlFor="name">
+          Name
+          <input type="text" id="name" />
+        </label>
+        <label htmlFor="description">
+          Description
+          <input type="text" id="description" />
+        </label>
         <UploadImage
           selectedFile={selectedFile}
           setSelectedFile={setSelectedFile}
         />
-      </div>
+      </form>
     </div>
   );
 };
