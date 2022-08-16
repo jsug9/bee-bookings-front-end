@@ -13,12 +13,16 @@ const responsive = {
     breakpoint: { max: 3000, min: 1024 },
     items: 4,
   },
-  tablet: {
+  laptop: {
     breakpoint: { max: 1024, min: 768 },
     items: 3,
   },
+  tablet: {
+    breakpoint: { max: 768, min: 464 },
+    items: 2,
+  },
   mobile: {
-    breakpoint: { max: 768, min: 0 },
+    breakpoint: { max: 464, min: 0 },
     items: 1,
   },
 };
@@ -41,7 +45,7 @@ const BeesList = (props) => {
 
 BeesList.propTypes = {
   bees: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
