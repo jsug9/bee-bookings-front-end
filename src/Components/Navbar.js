@@ -23,8 +23,6 @@ const Navbar = () => {
     dispatch(logOutUser());
   };
 
-  console.log(handleClick);
-
   const generateInactiveUserLinks = () => (
     <>
       <li className="links">
