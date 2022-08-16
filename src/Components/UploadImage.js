@@ -49,12 +49,10 @@ const UploadImage = () => {
         {' '}
         Upload to S3
       </button>
-      {selectedFile && (
-        <img
-          src={`https://bee-bucket-microverse.s3.amazonaws.com/${selectedFile.name}`}
-          alt=""
-        />
-      )}
+      <img
+        src="https://bee-bucket-microverse.s3.amazonaws.com/download.jpg"
+        alt=""
+      />
     </div>
   );
 };
