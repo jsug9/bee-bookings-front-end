@@ -56,7 +56,7 @@ const UploadImage = ({ selectedFile, setSelectedFile }) => {
       <input type="file" onChange={handleFileInput} />
       <button type="button" onClick={() => uploadFile(selectedFile)} disabled={disableSubmit}>
         {' '}
-        Upload to S3
+        Upload Image
       </button>
     </div>
   );
