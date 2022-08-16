@@ -5,8 +5,6 @@ import { signUp } from '../Redux/user/UserReducer';
 
 export const toggleSignup = () => {
   const signupPage = document.getElementById('signupPage');
-  const nav = document.getElementsByTagName('nav');
-  nav[0].classList.toggle('invisible');
   signupPage.classList.toggle('invisible');
   signupPage.classList.toggle('flex');
 };

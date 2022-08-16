@@ -30,10 +30,10 @@ const Navbar = () => {
 
   const generateInactiveUserLinks = () => (
     <>
-      <li>
+      <li className="links">
         <p role="presentation" onClick={toggleLogin}>Log in</p>
       </li>
-      <li>
+      <li className="links">
         <p role="presentation" onClick={toggleSignup}>Sign Up</p>
       </li>
     </>
@@ -102,16 +102,10 @@ const Navbar = () => {
             </li>
           ))}
           {loginStatus ? (
-            <li>
+            <li className="links">
               <p role="presentation">Placeholder</p>
             </li>
           ) : generateInactiveUserLinks()}
-          {/* <li>
-            <p role="presentation" onClick={toggleLogin}>Log in</p>
-          </li>
-          <li>
-            <p role="presentation">Placeholder</p>
-          </li> */}
         </ul>
       </nav>
     </>
@@ -122,15 +116,18 @@ const Navbar = () => {
 // if a user clicks outside of it
 document.addEventListener('click', (e) => {
   const nav = document.getElementsByTagName('nav');
-  const navLinks = document.getElementsByClassName('links');
+  const navLinks = [].slice.call(document.getElementsByClassName('links'));
 
   const hamburger = document.getElementById('hamburger');
   const hamburgerClicked = hamburger.contains(e.target);
-  const navLinkClicked = navLinks[0].contains(e.target);
+  const navLinkClicked = navLinks.some((link) => link.contains(e.target));
+  // const navLinkClicked = navLinks[0].contains(e.target);
 
   if (!hamburgerClicked && navbarIsOpen && !nav[0].contains(e.target)) {
     toggleNavbar();
   } else if (navLinkClicked) {
+    console.log(navbarIsOpen);
+    console.log('trigger count');
     toggleNavbar();
   }
 });

@@ -6,8 +6,6 @@ import { signIn } from '../Redux/user/UserReducer';
 
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
-  const nav = document.getElementsByTagName('nav');
-  nav[0].classList.toggle('invisible');
   loginPage.classList.toggle('invisible');
   loginPage.classList.toggle('flex');
 };
