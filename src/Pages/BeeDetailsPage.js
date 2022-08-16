@@ -13,10 +13,7 @@ const BeeDetailsPage = () => {
   const { bee } = location.state;
 
   const disabled = () => bee.id === 2;
-
-  const redirect = () => {
-    navigate('/');
-  };
+  const redirect = () => navigate('/');
 
   const backStyle = {
     position: 'fixed',
