@@ -72,11 +72,18 @@ const Navbar = () => {
   );
 };
 
+// Sets listener that determines if the nav is open and if it should be closed
+// if a user clicks outside of it
 document.addEventListener('click', (e) => {
   const nav = document.getElementsByTagName('nav');
+  const navLinks = document.getElementsByClassName('links');
+
   const hamburger = document.getElementById('hamburger');
   const hamburgerClicked = hamburger.contains(e.target);
+  const navLinkClicked = navLinks[0].contains(e.target);
   if (!hamburgerClicked && navbarIsOpen && !nav[0].contains(e.target)) {
+    toggleNavbar();
+  } else if (navLinkClicked) {
     toggleNavbar();
   }
 });
