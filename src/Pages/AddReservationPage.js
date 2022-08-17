@@ -84,7 +84,12 @@ const AddReservationPage = () => {
         </Button>
       </form>
       )}
-      {!userId && <h1 className="please-log-in">Please log in to add a reservation</h1>}
+      {!userId
+      && (
+        <div>
+          <h1 className="please-log-in">Please log in to add a reservation</h1>
+        </div>
+      )}
     </div>
   );
 };
