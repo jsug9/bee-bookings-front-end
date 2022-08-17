@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import { Button, TextField } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import { useState } from 'react';
@@ -10,47 +9,38 @@ const AddBeePage = () => {
   return (
     <form className="bee-form">
       <h1>Add Your own Bee</h1>
-      <Box
-        component="form"
-        sx={{
-          '& .MuiTextField-root': {
-            m: 1,
-            display: 'flex',
-            width: '100%',
-            margin: '1rem auto',
-          },
-        }}
+      <div>
+        <TextField
+          required
+          id="name-form"
+          label="Name"
+        />
+      </div>
+      <div>
+        <TextField
+          required
+          id="description-form"
+          label="Description"
+          multiline
+          rows={4}
+        />
+      </div>
+      <div>
+        <UploadImage
+          selectedFile={selectedFile}
+          setSelectedFile={setSelectedFile}
+        />
+      </div>
+      <Button
+        variant="contained"
+        color="success"
+        startIcon={<LibraryAddIcon />}
+        sx={{ fontWeight: 'bold' }}
+        type="submit"
+        className="submit-button"
       >
-        <div>
-          <TextField
-            required
-            id="name-form"
-            label="Name"
-          />
-        </div>
-        <div>
-          <TextField
-            required
-            id="description-form"
-            label="Description"
-            multiline
-            rows={4}
-          />
-        </div>
-        <Button
-          variant="contained"
-          color="success"
-          startIcon={<LibraryAddIcon />}
-          sx={{ fontWeight: 'bold' }}
-          type="submit"
-        >
-          Add bee
-        </Button>
-      </Box>
-      <UploadImage
-        selectedFile={selectedFile}
-        setSelectedFile={setSelectedFile}
-      />
+        Add bee
+      </Button>
     </form>
   );
 };
