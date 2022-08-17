@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../Redux/reservations/ReservationsReducer';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const AddReservationPage = () => {
-  const location = useLocation();
-  const { selectedBee } = location.state;
+  // const location = useLocation();
+  // const { selectedBee } = location.state;
   const [date, setDate] = useState('');
   const [beeId, setBeeId] = useState('');
   const [city, setCity] = useState('');
