@@ -36,7 +36,7 @@ const AddReservationPage = () => {
   return (
     <div>
       <h1>Add Reservation Page</h1>
-      <form method="post" onSubmit={handleSubmit}>
+      <form className="reservation-form" method="post" onSubmit={handleSubmit}>
         <FormControl>
           <InputLabel id="bee-label">Bee</InputLabel>
           <Select labelId="bee-label" label="Bee" style={{ width: '300px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
