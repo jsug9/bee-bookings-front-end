@@ -48,7 +48,7 @@ const AddBeePage = () => {
         startIcon={<LibraryAddIcon />}
         sx={{ fontWeight: 'bold' }}
       >
-        Book bee
+        Add bee
       </Button>
     </form>
   );
