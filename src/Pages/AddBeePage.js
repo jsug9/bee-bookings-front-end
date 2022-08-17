@@ -37,19 +37,20 @@ const AddBeePage = () => {
             rows={4}
           />
         </div>
+        <Button
+          variant="contained"
+          color="success"
+          startIcon={<LibraryAddIcon />}
+          sx={{ fontWeight: 'bold' }}
+          type="submit"
+        >
+          Add bee
+        </Button>
       </Box>
       <UploadImage
         selectedFile={selectedFile}
         setSelectedFile={setSelectedFile}
       />
-      <Button
-        variant="contained"
-        color="success"
-        startIcon={<LibraryAddIcon />}
-        sx={{ fontWeight: 'bold' }}
-      >
-        Add bee
-      </Button>
     </form>
   );
 };
