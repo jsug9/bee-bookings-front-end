@@ -40,6 +40,8 @@ const AddBeePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const fileUrl = `https://s3.amazonaws.com/${S3_BUCKET}/${selectedFile.name}`;
+    console.log(fileUrl);
     uploadFile(selectedFile);
   };
 

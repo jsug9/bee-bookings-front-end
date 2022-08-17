@@ -35,14 +35,7 @@ const UploadImage = (props) => {
         error={error.error}
         helperText={error.message}
       />
-      <button
-        type="button"
-        // onClick={() => uploadFile(selectedFile)}
-        disabled={disableSubmit}
-      >
-        {' '}
-        Upload Image
-      </button>
+
       <div>File Upload Progress is {progress}</div>
     </div>
   );
