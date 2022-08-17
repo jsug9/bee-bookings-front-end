@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AWS from 'aws-sdk';
@@ -52,11 +53,14 @@ const UploadImage = (props) => {
 
   return (
     <div>
-      <div>
-        File Upload Progress is
-        {progress}
-      </div>
-      <input type="file" onChange={handleFileInput} />
+      <TextField
+        id="outlined-basic"
+        variant="outlined"
+        type="file"
+        aria-label="File Upload"
+        required
+        onChange={handleFileInput}
+      />
       <button
         type="button"
         onClick={() => uploadFile(selectedFile)}
@@ -65,6 +69,11 @@ const UploadImage = (props) => {
         {' '}
         Upload Image
       </button>
+      <div>
+        File Upload Progress is
+        {' '}
+        {progress}
+      </div>
     </div>
   );
 };

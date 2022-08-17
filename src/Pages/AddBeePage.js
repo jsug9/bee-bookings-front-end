@@ -1,13 +1,18 @@
 import { Button, TextField } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import UploadImage from '../Components/UploadImage';
 import '../Styles/BeeForm.scss';
 
 const AddBeePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className="bee-form">
+    <form className="bee-form" onSubmit={handleSubmit}>
       <h1>Add Your own Bee</h1>
       <div>
         <TextField
