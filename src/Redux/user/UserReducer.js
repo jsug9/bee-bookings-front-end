@@ -30,6 +30,7 @@ const userSlice = createSlice({
     logOutUser: (state) => {
       state.username = null;
       state.userId = null;
+      state.createdUser = null;
     },
   },
   extraReducers: {
@@ -51,6 +52,7 @@ const userSlice = createSlice({
       state.username = action.payload.username;
       state.userId = action.payload.user_id;
       state.isLoading = false;
+      state.createdUser = true;
     },
     [signUp.rejected]: (state) => {
       state.isLoading = false;
