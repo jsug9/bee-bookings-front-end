@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { Select } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { addReservation } from '../Redux/reservations/ReservationsReducer';
 
@@ -34,7 +35,7 @@ const AddReservationPage = () => {
     <div>
       <h1>Add Reservation Page</h1>
       <form method="post" onSubmit={handleSubmit}>
-        <select onChange={(e) => { setBeeId(e.target.value); }}>
+        <select value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
           { location.state
           && (
           <option value={location.state.bee.id}>
@@ -43,16 +44,11 @@ const AddReservationPage = () => {
           ) }
           { !location.state
           && <option value="">Select a Bee</option>}
-          {bees.map((bee) => {
-            if (location.state && (bee.id !== location.state.bee.id)) {
-              return (
-                <option value={bee.id}>
-                  {bee.name}
-                </option>
-              );
-            }
-            return null;
-          })}
+          {bees.map((bee) => (
+            <option value={bee.id} key={bee.id}>
+              {bee.name}
+            </option>
+          ))}
         </select>
         <input type="date" name="date" id="date" placeholder="Enter date" required value={date} onChange={(e) => setDate(e.target.value)} />
         <input type="text" name="city" id="city" placeholder="Enter city" required value={city} onChange={(e) => setCity(e.target.value)} />
