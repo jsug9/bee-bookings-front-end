@@ -6,8 +6,8 @@ const S3_BUCKET = 'bee-bucket-microverse';
 const REGION = 'us-east-1';
 
 AWS.config.update({
-  accessKeyId: 'AKIATPPJB3KR6KYQHK4P',
-  secretAccessKey: '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',
+  accessKeyId: process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY,
+  secretAccessKey: process.env.REACT_APP_AWS_BUCKET_SECRET_KEY,
 });
 
 const myBucket = new AWS.S3({
@@ -16,6 +16,7 @@ const myBucket = new AWS.S3({
 });
 
 const UploadImage = (props) => {
+  console.log(process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY);
   const { selectedFile, setSelectedFile } = props;
   const [progress, setProgress] = useState(0);
   const [disableSubmit, setDisableSubmit] = useState(true);
@@ -56,7 +57,11 @@ const UploadImage = (props) => {
         {progress}
       </div>
       <input type="file" onChange={handleFileInput} />
-      <button type="button" onClick={() => uploadFile(selectedFile)} disabled={disableSubmit}>
+      <button
+        type="button"
+        onClick={() => uploadFile(selectedFile)}
+        disabled={disableSubmit}
+      >
         {' '}
         Upload Image
       </button>
@@ -64,7 +69,8 @@ const UploadImage = (props) => {
   );
 };
 
-UploadImage.propTypes = { // eslint-disable-next-line react/require-default-props
+UploadImage.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   selectedFile: PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
