@@ -1,12 +1,27 @@
+import { useState } from 'react';
 import UploadImage from '../Components/UploadImage';
 
-const AddBeePage = () => (
-  <div>
-    <h1>Add Bee Page</h1>
+const AddBeePage = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  return (
     <div>
-      <UploadImage />
+      <h1>Add Bee Page</h1>
+      <form>
+        <label htmlFor="name">
+          Name
+          <input type="text" id="name" />
+        </label>
+        <label htmlFor="description">
+          Description
+          <input type="text" id="description" />
+        </label>
+        <UploadImage
+          selectedFile={selectedFile}
+          setSelectedFile={setSelectedFile}
+        />
+      </form>
     </div>
-  </div>
-);
+  );
+};
 
 export default AddBeePage;

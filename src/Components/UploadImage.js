@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import AWS from 'aws-sdk';
 
 const S3_BUCKET = 'bee-bucket-microverse';
@@ -14,12 +15,22 @@ const myBucket = new AWS.S3({
   region: REGION,
 });
 
-const UploadImage = () => {
+const UploadImage = (props) => {
+  const { selectedFile, setSelectedFile } = props;
   const [progress, setProgress] = useState(0);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [disableSubmit, setDisableSubmit] = useState(true);
 
   const handleFileInput = (e) => {
-    setSelectedFile(e.target.files[0]);
+    if (!e.target.files[0].type.includes('image')) {
+      alert('Please select an image file');
+      e.target.value = null;
+    } else if (e.target.files[0].size > 11_000_000) {
+      alert('File is too big');
+      e.target.value = null;
+    } else {
+      setSelectedFile(e.target.files[0]);
+      setDisableSubmit(false);
+    }
   };
 
   const uploadFile = (file) => {
@@ -45,16 +56,21 @@ const UploadImage = () => {
         {progress}
       </div>
       <input type="file" onChange={handleFileInput} />
-      <button type="button" onClick={() => uploadFile(selectedFile)}>
+      <button type="button" onClick={() => uploadFile(selectedFile)} disabled={disableSubmit}>
         {' '}
-        Upload to S3
+        Upload Image
       </button>
-      <img
-        src="https://bee-bucket-microverse.s3.amazonaws.com/download.jpg"
-        alt=""
-      />
     </div>
   );
+};
+
+UploadImage.propTypes = { // eslint-disable-next-line react/require-default-props
+  selectedFile: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
+  }),
+  setSelectedFile: PropTypes.func.isRequired,
 };
 
 export default UploadImage;

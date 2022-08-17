@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../Styles/DetailsPage.scss';
 import { Button } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
@@ -9,8 +9,16 @@ import CardActionsContainer from '../Components/CardActions';
 
 const BeeDetailsPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { bee } = location.state;
+
+  const redirect = () => {
+    navigate(
+      '/add_reservation',
+      { state: { bee } },
+    );
+  };
 
   const disabled = () => bee.id === 2;
 
@@ -25,6 +33,7 @@ const BeeDetailsPage = () => {
           color="success"
           startIcon={<LibraryAddIcon />}
           sx={{ fontWeight: 'bold' }}
+          onClick={redirect}
         >
           Book bee
         </Button>
