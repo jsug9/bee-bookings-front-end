@@ -49,10 +49,10 @@ const AddReservationPage = () => {
       { userId
       && (
       <form className="bee-form reservation-form" method="post" onSubmit={handleSubmit}>
-        <h1>Add Reservation Page</h1>
+        <h1 style={{ 'margin-bottom': '30px' }}>Add Reservation Page</h1>
         <FormControl>
           <InputLabel id="bee-label">Bee</InputLabel>
-          <Select required labelId="bee-label" label="Bee" style={{ 'margin-bottom': '10px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
+          <Select required labelId="bee-label" label="Bee" style={{ 'margin-bottom': '20px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
             {bees.map((bee) => (
               <MenuItem value={bee.id} key={bee.id}>
                 {bee.name}
@@ -70,14 +70,14 @@ const AddReservationPage = () => {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-        <TextField id="city" label="City" variant="outlined" style={{ 'margin-top': '10px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField id="city" label="City" variant="outlined" style={{ 'margin-top': '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
         <Button
           type="submit"
           variant="contained"
           color="success"
           startIcon={<LibraryAddIcon />}
           sx={{
-            fontWeight: 'bold', marginTop: '10px', width: '300px', alignSelf: 'center',
+            fontWeight: 'bold', marginTop: '20px', width: '300px', alignSelf: 'center',
           }}
         >
           Book bee
