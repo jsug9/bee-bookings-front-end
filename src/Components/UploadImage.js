@@ -20,14 +20,15 @@ const UploadImage = (props) => {
   console.log(process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY);
   const { selectedFile, setSelectedFile } = props;
   const [progress, setProgress] = useState(0);
+  const [error, setError] = useState({ error: false, message: '' });
   const [disableSubmit, setDisableSubmit] = useState(true);
 
   const handleFileInput = (e) => {
     if (!e.target.files[0].type.includes('image')) {
-      alert('Please select an image file');
+      setError({ error: true, message: 'Please select an image file.' });
       e.target.value = null;
     } else if (e.target.files[0].size > 11_000_000) {
-      alert('File is too big');
+      setError({ error: true, message: 'Please select an image less than 10MB.' });
       e.target.value = null;
     } else {
       setSelectedFile(e.target.files[0]);
@@ -60,6 +61,8 @@ const UploadImage = (props) => {
         aria-label="File Upload"
         required
         onChange={handleFileInput}
+        error={error.error}
+        helperText={error.message}
       />
       <button
         type="button"
