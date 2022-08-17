@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Select } from '@mui/material';
+import {
+  Select, MenuItem, InputLabel, FormControl,
+} from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { addReservation } from '../Redux/reservations/ReservationsReducer';
 
@@ -35,21 +37,24 @@ const AddReservationPage = () => {
     <div>
       <h1>Add Reservation Page</h1>
       <form method="post" onSubmit={handleSubmit}>
-        <select value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
-          { location.state
+        <FormControl>
+          <InputLabel id="bee-label">Bee</InputLabel>
+          <Select labelId="bee-label" label="Bee" style={{ width: '300px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
+            { location.state
           && (
-          <option value={location.state.bee.id}>
+          <MenuItem value={location.state.bee.id}>
             {location.state.bee.name}
-          </option>
+          </MenuItem>
           ) }
-          { !location.state
-          && <option value="">Select a Bee</option>}
-          {bees.map((bee) => (
-            <option value={bee.id} key={bee.id}>
-              {bee.name}
-            </option>
-          ))}
-        </select>
+            { !location.state
+          && <MenuItem value="">Select a Bee</MenuItem>}
+            {bees.map((bee) => (
+              <MenuItem value={bee.id} key={bee.id}>
+                {bee.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <input type="date" name="date" id="date" placeholder="Enter date" required value={date} onChange={(e) => setDate(e.target.value)} />
         <input type="text" name="city" id="city" placeholder="Enter city" required value={city} onChange={(e) => setCity(e.target.value)} />
         <button type="submit">Add Reservation</button>
