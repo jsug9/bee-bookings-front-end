@@ -1,7 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UploadField from '../Components/UploadImage';
 import UploadImage, { S3_BUCKET } from '../Utilities/AmazonUpload';
 import { addBee } from '../Redux/bees/BeesReducer';
@@ -10,6 +10,7 @@ import '../Styles/BeeForm.scss';
 const AddBeePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [progress, setProgress] = useState(0);
+  const userId = useSelector((state) => state.user.userId);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -29,40 +30,51 @@ const AddBeePage = () => {
   };
 
   return (
-    <form className="bee-form" onSubmit={handleSubmit}>
-      <h1>Add Your own Bee</h1>
-      <div>
-        <TextField
-          required
-          id="name-form"
-          label="Name"
-          name="name"
-        />
-      </div>
-      <div>
-        <TextField
-          required
-          id="description-form"
-          label="Description"
-          multiline
-          rows={4}
-          name="description"
-        />
-      </div>
-      <div>
-        <UploadField setSelectedFile={setSelectedFile} progress={progress} />
-      </div>
-      <Button
-        variant="contained"
-        color="success"
-        startIcon={<LibraryAddIcon />}
-        sx={{ fontWeight: 'bold' }}
-        type="submit"
-        className="submit-button"
-      >
-        Add bee
-      </Button>
-    </form>
+    <section className="form-container">
+      {userId
+      && (
+      <form className="bee-form" onSubmit={handleSubmit}>
+        <h1>Add Your own Bee</h1>
+        <div>
+          <TextField
+            required
+            id="name-form"
+            label="Name"
+            name="name"
+          />
+        </div>
+        <div>
+          <TextField
+            required
+            id="description-form"
+            label="Description"
+            multiline
+            rows={4}
+            name="description"
+          />
+        </div>
+        <div>
+          <UploadField setSelectedFile={setSelectedFile} progress={progress} />
+        </div>
+        <Button
+          variant="contained"
+          color="success"
+          startIcon={<LibraryAddIcon />}
+          sx={{ fontWeight: 'bold' }}
+          type="submit"
+          className="submit-button"
+        >
+          Add bee
+        </Button>
+      </form>
+      )}
+      {!userId
+      && (
+        <div>
+          <h1 className="please-log-in">Please log in to add a bee</h1>
+        </div>
+      )}
+    </section>
   );
 };
 
