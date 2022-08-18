@@ -1,27 +1,31 @@
 import { TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const UploadImage = (props) => {
-  const { setSelectedFile, progress } = props;
-  const [helperText, setHelperText] = useState({ error: false, message: '' });
+  const {
+    setSelectedFile,
+    progress,
+    uploadImageText,
+    setUploadImageText,
+  } = props;
 
   const handleFileInput = (e) => {
     if (!e.target.files[0].type.includes('image')) {
-      setHelperText({
+      setUploadImageText({
         error: true,
         message: 'Please select an image file.',
       });
       e.target.value = null;
     } else if (e.target.files[0].size > 11_000_000) {
-      setHelperText({
+      setUploadImageText({
         error: true,
         message: 'Please select an image less than 10MB.',
       });
       e.target.value = null;
     } else {
       setSelectedFile(e.target.files[0]);
-      setHelperText({ error: false, message: '' });
+      setUploadImageText({ error: false, message: '' });
     }
   };
 
@@ -49,8 +53,8 @@ const UploadImage = (props) => {
         aria-label="File Upload"
         required
         onChange={handleFileInput}
-        error={helperText.error}
-        helperText={helperText.message}
+        error={uploadImageText.error}
+        helperText={uploadImageText.message}
       />
       {progressStatus()}
     </div>
@@ -66,6 +70,11 @@ UploadImage.propTypes = {
   }),
   setSelectedFile: PropTypes.func.isRequired,
   progress: PropTypes.number.isRequired,
+  uploadImageText: PropTypes.shape({
+    error: PropTypes.bool.isRequired,
+    message: PropTypes.string.isRequired,
+  }).isRequired,
+  setUploadImageText: PropTypes.func.isRequired,
 };
 
 export default UploadImage;
