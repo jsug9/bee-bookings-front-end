@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { toggleLogin } from '../Pages/LoginPage';
 import { toggleSignup } from '../Pages/SignupPage';
 import { logOutUser } from '../Redux/user/UserReducer';
+import { clearReservations } from '../Redux/reservations/ReservationsReducer';
 import '../Styles/navbar.scss';
 
 let navbarIsOpen = false;
@@ -20,6 +21,7 @@ const Navbar = () => {
 
   const handleClick = () => {
     dispatch(logOutUser());
+    dispatch(clearReservations());
   };
 
   const generateInactiveUserLinks = () => (
