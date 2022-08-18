@@ -27,8 +27,8 @@ const UploadImage = (file, setProgress, e, dispatch) => {
       const progress = Math.round((evt.loaded * 100) / evt.total);
       setProgress(progress);
       if (progress === 100) {
-        dispatch();
         e.target.reset();
+        dispatch();
       }
     })
     .send((err) => err);
