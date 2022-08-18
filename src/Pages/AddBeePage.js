@@ -40,16 +40,32 @@ const AddBeePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fileUrl = `https://s3.amazonaws.com/${S3_BUCKET}/${selectedFile.name}`;
-    console.log(fileUrl);
-    uploadFile(selectedFile);
+    const beeName = e.target.name.value;
+    const beeDescription = e.target.description.value;
+    const beeImage = `https://s3.amazonaws.com/${S3_BUCKET}/${selectedFile.name}`;
+
+    if (beeName.trim() && beeDescription.trim() && beeImage) {
+      const newBee = {
+        name: beeName,
+        description: beeDescription,
+        image: beeImage,
+      };
+      console.log(newBee);
+      uploadFile(selectedFile);
+      e.target.reset();
+    }
   };
 
   return (
     <form className="bee-form" onSubmit={handleSubmit}>
       <h1>Add Your own Bee</h1>
       <div>
-        <TextField required id="name-form" label="Name" />
+        <TextField
+          required
+          id="name-form"
+          label="Name"
+          name="name"
+        />
       </div>
       <div>
         <TextField
@@ -58,6 +74,7 @@ const AddBeePage = () => {
           label="Description"
           multiline
           rows={4}
+          name="description"
         />
       </div>
       <div>
