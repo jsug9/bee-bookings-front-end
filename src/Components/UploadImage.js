@@ -4,25 +4,40 @@ import PropTypes from 'prop-types';
 
 const UploadImage = (props) => {
   const { setSelectedFile, progress } = props;
-  const [error, setError] = useState({ error: false, message: '' });
+  const [helperText, setHelperText] = useState({ error: false, message: '' });
 
   const handleFileInput = (e) => {
     if (!e.target.files[0].type.includes('image')) {
-      setError({
+      setHelperText({
         error: true,
         message: 'Please select an image file.',
       });
       e.target.value = null;
     } else if (e.target.files[0].size > 11_000_000) {
-      setError({
+      setHelperText({
         error: true,
         message: 'Please select an image less than 10MB.',
       });
       e.target.value = null;
     } else {
       setSelectedFile(e.target.files[0]);
-      setError({ error: false, message: '' });
+      setHelperText({ error: false, message: '' });
     }
+  };
+
+  const progressStatus = () => {
+    if (progress > 0) {
+      return (
+        <p>
+          File Upload Progress is
+          {' '}
+          {progress}
+        </p>
+      );
+    }
+    return (
+      <p />
+    );
   };
 
   return (
@@ -34,14 +49,10 @@ const UploadImage = (props) => {
         aria-label="File Upload"
         required
         onChange={handleFileInput}
-        error={error.error}
-        helperText={error.message}
+        error={helperText.error}
+        helperText={helperText.message}
       />
-      <p>
-        File Upload Progress is
-        {' '}
-        {progress}
-      </p>
+      {progressStatus()}
     </div>
   );
 };
