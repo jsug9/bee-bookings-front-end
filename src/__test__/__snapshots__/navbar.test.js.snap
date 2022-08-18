@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders to the page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="hamburger"
+        id="hamburger"
+        role="presentation"
+      >
+        <div
+          class="slice"
+        />
+        <div
+          class="slice"
+        />
+        <div
+          class="slice"
+        />
+      </div>
+      <nav
+        class="invisible"
+      >
+        <ul
+          class="links"
+        >
+          <li>
+            <a
+              aria-current="page"
+              class="active"
+              href="/"
+            >
+              <p>
+                Home
+              </p>
+            </a>
+          </li>
+          <li>
+            <a
+              class=""
+              href="/add_reservation"
+            >
+              <p>
+                Add Reservation
+              </p>
+            </a>
+          </li>
+          <li>
+            <a
+              class=""
+              href="/reservations"
+            >
+              <p>
+                Reservations
+              </p>
+            </a>
+          </li>
+          <li>
+            <a
+              class=""
+              href="/add_bee"
+            >
+              <p>
+                Add Bee
+              </p>
+            </a>
+          </li>
+          <li>
+            <a
+              class=""
+              href="/delete_bee"
+            >
+              <p>
+                Delete Bee
+              </p>
+            </a>
+          </li>
+          <li
+            class="links"
+          >
+            <p
+              role="presentation"
+            >
+              Log in
+            </p>
+          </li>
+          <li
+            class="links"
+          >
+            <p
+              role="presentation"
+            >
+              Sign Up
+            </p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="hamburger"
+      id="hamburger"
+      role="presentation"
+    >
+      <div
+        class="slice"
+      />
+      <div
+        class="slice"
+      />
+      <div
+        class="slice"
+      />
+    </div>
+    <nav
+      class="invisible"
+    >
+      <ul
+        class="links"
+      >
+        <li>
+          <a
+            aria-current="page"
+            class="active"
+            href="/"
+          >
+            <p>
+              Home
+            </p>
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/add_reservation"
+          >
+            <p>
+              Add Reservation
+            </p>
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/reservations"
+          >
+            <p>
+              Reservations
+            </p>
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/add_bee"
+          >
+            <p>
+              Add Bee
+            </p>
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/delete_bee"
+          >
+            <p>
+              Delete Bee
+            </p>
+          </a>
+        </li>
+        <li
+          class="links"
+        >
+          <p
+            role="presentation"
+          >
+            Log in
+          </p>
+        </li>
+        <li
+          class="links"
+        >
+          <p
+            role="presentation"
+          >
+            Sign Up
+          </p>
+        </li>
+      </ul>
+    </nav>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
