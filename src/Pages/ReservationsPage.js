@@ -13,7 +13,7 @@ const loginNotice = () => (
 const ReservationsPage = () => {
   const user = useSelector((state) => state.user);
 
-  if (user.userId) {
+  if (user.userId ) {
     return (
       <div>
         <h1 className="bookTableHeader">
