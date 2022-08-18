@@ -51,7 +51,7 @@ const DeleteBeePage = () => {
               }
               return null;
             })}
-            {empty && <MenuItem value="">No Bees to Delete</MenuItem>}
+            {empty && <MenuItem value="">Cannot delete default bees</MenuItem>}
           </Select>
         </FormControl>
         <Button
