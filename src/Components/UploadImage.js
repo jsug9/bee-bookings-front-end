@@ -40,7 +40,7 @@ const UploadField = (props) => {
   return (
     <div>
       <TextField
-        variant="outlined"
+        style={{ 'background-color': 'white' }}
         type="file"
         aria-label="File Upload"
         required

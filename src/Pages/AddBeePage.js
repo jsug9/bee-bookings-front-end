@@ -41,6 +41,7 @@ const AddBeePage = () => {
             id="name-form"
             label="Name"
             name="name"
+            style={{ 'background-color': 'white' }}
           />
         </div>
         <div>
@@ -51,6 +52,7 @@ const AddBeePage = () => {
             multiline
             rows={4}
             name="description"
+            style={{ 'background-color': 'white' }}
           />
         </div>
         <div>
