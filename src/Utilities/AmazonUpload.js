@@ -27,7 +27,6 @@ const UploadImage = (file, setProgress, e, dispatch) => {
       const progress = Math.round((evt.loaded * 100) / evt.total);
       setProgress(progress);
       if (progress === 100) {
-        console.log('Upload is complete');
         dispatch();
         e.target.reset();
       }
