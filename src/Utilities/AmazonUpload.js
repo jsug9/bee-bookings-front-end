@@ -13,7 +13,7 @@ const myBucket = new AWS.S3({
   region: REGION,
 });
 
-const UploadImage = (file, setProgress, e) => {
+const UploadImage = (file, setProgress, e, dispatch) => {
   const params = {
     ACL: 'public-read',
     Body: file,
@@ -27,6 +27,8 @@ const UploadImage = (file, setProgress, e) => {
       const progress = Math.round((evt.loaded * 100) / evt.total);
       setProgress(progress);
       if (progress === 100) {
+        console.log('Upload is complete');
+        dispatch();
         e.target.reset();
       }
     })

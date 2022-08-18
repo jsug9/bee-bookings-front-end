@@ -1,13 +1,16 @@
 import { Button, TextField } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import UploadField from '../Components/UploadImage';
 import UploadImage, { S3_BUCKET } from '../Utilities/AmazonUpload';
+import { addBee } from '../Redux/bees/BeesReducer';
 import '../Styles/BeeForm.scss';
 
 const AddBeePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [progress, setProgress] = useState(0);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +24,7 @@ const AddBeePage = () => {
         description: beeDescription,
         image: beeImage,
       };
-      console.log(newBee);
-      UploadImage(selectedFile, setProgress, e);
+      UploadImage(selectedFile, setProgress, e, dispatch(addBee(newBee)));
     }
   };
 
