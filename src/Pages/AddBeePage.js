@@ -22,11 +22,7 @@ const AddBeePage = () => {
         image: beeImage,
       };
       console.log(newBee);
-      UploadImage(selectedFile, setProgress);
-
-      if (progress === 100) {
-        e.target.reset();
-      }
+      UploadImage(selectedFile, setProgress, e);
     }
   };
 
