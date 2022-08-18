@@ -16,8 +16,8 @@ const ReservationsPage = () => {
   if (user.userId) {
     return (
       <div>
-        <h1>
-          {'hi '}
+        <h1 className="bookTableHeader">
+          {'Bees booked by '}
           {user?.username}
         </h1>
         <BasicTable />
