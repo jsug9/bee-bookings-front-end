@@ -1,75 +1,58 @@
-import React, { useState } from 'react';
+import { TextField } from '@mui/material';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import AWS from 'aws-sdk';
 
-const S3_BUCKET = 'bee-bucket-microverse';
-const REGION = 'us-east-1';
+const UploadField = (props) => {
+  const {
+    setSelectedFile,
+    progress,
+  } = props;
 
-AWS.config.update({
-  accessKeyId: process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY,
-  secretAccessKey: process.env.REACT_APP_AWS_BUCKET_SECRET_KEY,
-});
-
-const myBucket = new AWS.S3({
-  params: { Bucket: S3_BUCKET },
-  region: REGION,
-});
-
-const UploadImage = (props) => {
-  console.log(process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY);
-  const { selectedFile, setSelectedFile } = props;
-  const [progress, setProgress] = useState(0);
-  const [disableSubmit, setDisableSubmit] = useState(true);
+  const [uploadImageText, setUploadImageText] = useState({ error: false, message: '' });
 
   const handleFileInput = (e) => {
     if (!e.target.files[0].type.includes('image')) {
-      alert('Please select an image file');
+      setUploadImageText({
+        error: true,
+        message: 'Please select an image file.',
+      });
       e.target.value = null;
     } else if (e.target.files[0].size > 11_000_000) {
-      alert('File is too big');
+      setUploadImageText({
+        error: true,
+        message: 'Please select an image less than 10MB.',
+      });
       e.target.value = null;
     } else {
       setSelectedFile(e.target.files[0]);
-      setDisableSubmit(false);
+      setUploadImageText({ error: false, message: '' });
     }
   };
 
-  const uploadFile = (file) => {
-    const params = {
-      ACL: 'public-read',
-      Body: file,
-      Bucket: S3_BUCKET,
-      Key: file.name,
-    };
-
-    myBucket
-      .putObject(params)
-      .on('httpUploadProgress', (evt) => {
-        setProgress(Math.round((evt.loaded / evt.total) * 100));
-      })
-      .send((err) => err);
-  };
+  useEffect(() => {
+    if (progress === 100) {
+      setUploadImageText({ error: false, message: '' });
+    } else if (progress > 0) {
+      setUploadImageText({ error: false, message: `Uploading ${progress}%` });
+    }
+  }, [progress]);
 
   return (
     <div>
-      <div>
-        File Upload Progress is
-        {progress}
-      </div>
-      <input type="file" onChange={handleFileInput} />
-      <button
-        type="button"
-        onClick={() => uploadFile(selectedFile)}
-        disabled={disableSubmit}
-      >
-        {' '}
-        Upload Image
-      </button>
+      <TextField
+        variant="outlined"
+        type="file"
+        aria-label="File Upload"
+        required
+        onChange={handleFileInput}
+        error={uploadImageText.error}
+        helperText={uploadImageText.message}
+      />
     </div>
   );
 };
 
-UploadImage.propTypes = {
+UploadField.propTypes = {
   // eslint-disable-next-line react/require-default-props
   selectedFile: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -77,6 +60,7 @@ UploadImage.propTypes = {
     size: PropTypes.number.isRequired,
   }),
   setSelectedFile: PropTypes.func.isRequired,
+  progress: PropTypes.number.isRequired,
 };
 
-export default UploadImage;
+export default UploadField;
