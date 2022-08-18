@@ -13,7 +13,7 @@ const myBucket = new AWS.S3({
   region: REGION,
 });
 
-const uploadtoAmazon = (file) => {
+const uploadtoAmazon = (file, func) => {
   const params = {
     ACL: 'public-read',
     Body: file,
@@ -23,6 +23,9 @@ const uploadtoAmazon = (file) => {
 
   myBucket
     .putObject(params)
+    .on('httpUploadProgress', (evt) => {
+      func(Math.round((evt.loaded / evt.total) * 100));
+    })
     .send((err) => err);
 };
 

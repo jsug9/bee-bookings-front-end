@@ -1,42 +1,13 @@
 import { Button, TextField } from '@mui/material';
-import AWS from 'aws-sdk';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import React, { useState } from 'react';
 import UploadImage from '../Components/UploadImage';
+import uploadtoAmazon, { S3_BUCKET } from '../Utilities/AmazonUpload';
 import '../Styles/BeeForm.scss';
 
 const AddBeePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [progress, setProgress] = useState(0);
-
-  const S3_BUCKET = 'bee-bucket-microverse';
-  const REGION = 'us-east-1';
-
-  AWS.config.update({
-    accessKeyId: process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY,
-    secretAccessKey: process.env.REACT_APP_AWS_BUCKET_SECRET_KEY,
-  });
-
-  const myBucket = new AWS.S3({
-    params: { Bucket: S3_BUCKET },
-    region: REGION,
-  });
-
-  const uploadFile = (file) => {
-    const params = {
-      ACL: 'public-read',
-      Body: file,
-      Bucket: S3_BUCKET,
-      Key: file.name,
-    };
-
-    myBucket
-      .putObject(params)
-      .on('httpUploadProgress', (evt) => {
-        setProgress(Math.round((evt.loaded / evt.total) * 100));
-      })
-      .send((err) => err);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +22,7 @@ const AddBeePage = () => {
         image: beeImage,
       };
       console.log(newBee);
-      uploadFile(selectedFile);
+      uploadtoAmazon(selectedFile, setProgress);
 
       if (progress === 100) {
         e.target.reset();
