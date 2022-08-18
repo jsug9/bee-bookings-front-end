@@ -14,10 +14,19 @@ const DeleteBeePage = () => {
   const [beeId, setBeeId] = useState('');
   const dispatch = useDispatch();
   const bees = useSelector((state) => state.bees.allBees);
+  const [empty, setEmpty] = useState(true);
 
   useEffect(() => {
-    dispatch(getAllBees(beeId));
+    dispatch(getAllBees());
   }, []);
+
+  useEffect(() => {
+    bees.forEach((bee) => {
+      if (bee.id > 19) {
+        setEmpty(false);
+      }
+    });
+  }, [bees]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,6 +51,7 @@ const DeleteBeePage = () => {
               }
               return null;
             })}
+            {empty && <MenuItem value="">No Bees to Delete</MenuItem>}
           </Select>
         </FormControl>
         <Button
