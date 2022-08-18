@@ -10,11 +10,7 @@ import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 
 const App = () => (
-  <Router
-    basename={
-      process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : '/'
-    }
-  >
+  <Router basename={process.env.PUBLIC_URL}>
     <Navbar />
     <LoginPage />
     <SignupPage />

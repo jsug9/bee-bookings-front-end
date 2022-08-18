@@ -8,7 +8,6 @@ import '../Styles/BeeForm.scss';
 const AddBeePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [uploadImageText, setUploadImageText] = useState({ error: false, message: '' });
 
   const S3_BUCKET = 'bee-bucket-microverse';
   const REGION = 'us-east-1';
@@ -35,7 +34,6 @@ const AddBeePage = () => {
       .putObject(params)
       .on('httpUploadProgress', (evt) => {
         setProgress(Math.round((evt.loaded / evt.total) * 100));
-        setUploadImageText({ error: false, message: 'File Upload Progress is' });
       })
       .send((err) => err);
   };
@@ -56,7 +54,6 @@ const AddBeePage = () => {
       uploadFile(selectedFile);
 
       if (progress === 100) {
-        setUploadImageText({ error: false, message: '' });
         e.target.reset();
       }
     }
@@ -87,8 +84,6 @@ const AddBeePage = () => {
         <UploadImage
           setSelectedFile={setSelectedFile}
           progress={progress}
-          uploadImageText={uploadImageText}
-          setUploadImageText={setUploadImageText}
         />
       </div>
       <Button

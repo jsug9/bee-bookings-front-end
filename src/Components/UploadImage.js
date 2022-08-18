@@ -1,14 +1,14 @@
 import { TextField } from '@mui/material';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const UploadImage = (props) => {
   const {
     setSelectedFile,
     progress,
-    uploadImageText,
-    setUploadImageText,
   } = props;
+
+  const [uploadImageText, setUploadImageText] = useState({ error: false, message: '' });
 
   const handleFileInput = (e) => {
     if (!e.target.files[0].type.includes('image')) {
@@ -29,20 +29,13 @@ const UploadImage = (props) => {
     }
   };
 
-  const progressStatus = () => {
-    if (progress > 0) {
-      return (
-        <p>
-          File Upload Progress is
-          {' '}
-          {progress}
-        </p>
-      );
+  useEffect(() => {
+    if (progress === 100) {
+      setUploadImageText({ error: false, message: '' });
+    } else if (progress > 0) {
+      setUploadImageText({ error: false, message: `Uploading ${progress}%` });
     }
-    return (
-      <p />
-    );
-  };
+  }, [progress]);
 
   return (
     <div>
@@ -56,7 +49,6 @@ const UploadImage = (props) => {
         error={uploadImageText.error}
         helperText={uploadImageText.message}
       />
-      {progressStatus()}
     </div>
   );
 };
@@ -70,11 +62,6 @@ UploadImage.propTypes = {
   }),
   setSelectedFile: PropTypes.func.isRequired,
   progress: PropTypes.number.isRequired,
-  uploadImageText: PropTypes.shape({
-    error: PropTypes.bool.isRequired,
-    message: PropTypes.string.isRequired,
-  }).isRequired,
-  setUploadImageText: PropTypes.func.isRequired,
 };
 
 export default UploadImage;
