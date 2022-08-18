@@ -2,7 +2,7 @@ import { TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const UploadImage = (props) => {
+const UploadField = (props) => {
   const {
     setSelectedFile,
     progress,
@@ -53,7 +53,7 @@ const UploadImage = (props) => {
   );
 };
 
-UploadImage.propTypes = {
+UploadField.propTypes = {
   // eslint-disable-next-line react/require-default-props
   selectedFile: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -64,4 +64,4 @@ UploadImage.propTypes = {
   progress: PropTypes.number.isRequired,
 };
 
-export default UploadImage;
+export default UploadField;

@@ -1,8 +1,8 @@
 import { Button, TextField } from '@mui/material';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import React, { useState } from 'react';
-import UploadImage from '../Components/UploadImage';
-import uploadtoAmazon, { S3_BUCKET } from '../Utilities/AmazonUpload';
+import UploadField from '../Components/UploadImage';
+import UploadImage, { S3_BUCKET } from '../Utilities/AmazonUpload';
 import '../Styles/BeeForm.scss';
 
 const AddBeePage = () => {
@@ -22,7 +22,7 @@ const AddBeePage = () => {
         image: beeImage,
       };
       console.log(newBee);
-      uploadtoAmazon(selectedFile, setProgress);
+      UploadImage(selectedFile, setProgress);
 
       if (progress === 100) {
         e.target.reset();
@@ -52,10 +52,7 @@ const AddBeePage = () => {
         />
       </div>
       <div>
-        <UploadImage
-          setSelectedFile={setSelectedFile}
-          progress={progress}
-        />
+        <UploadField setSelectedFile={setSelectedFile} progress={progress} />
       </div>
       <Button
         variant="contained"

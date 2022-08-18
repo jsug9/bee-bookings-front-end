@@ -13,7 +13,7 @@ const myBucket = new AWS.S3({
   region: REGION,
 });
 
-const uploadtoAmazon = (file, func) => {
+const UploadImage = (file, func) => {
   const params = {
     ACL: 'public-read',
     Body: file,
@@ -29,5 +29,5 @@ const uploadtoAmazon = (file, func) => {
     .send((err) => err);
 };
 
-export default uploadtoAmazon;
+export default UploadImage;
 export { S3_BUCKET };
