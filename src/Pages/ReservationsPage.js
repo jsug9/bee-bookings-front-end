@@ -1,4 +1,6 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
+import BasicTable from '../Components/Table';
 
 const loginNotice = () => (
   <div>
@@ -16,8 +18,9 @@ const ReservationsPage = () => {
       <div>
         <h1>
           {'hi '}
-          {user?.username || ' user'}
+          {user?.username}
         </h1>
+        <BasicTable />
       </div>
     );
   }
