@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const UploadImage = (props) => {
   const { setSelectedFile, progress } = props;
   const [error, setError] = useState({ error: false, message: '' });
-  const [disableSubmit, setDisableSubmit] = useState(true);
 
   const handleFileInput = (e) => {
     if (!e.target.files[0].type.includes('image')) {
@@ -19,7 +18,6 @@ const UploadImage = (props) => {
       e.target.value = null;
     } else {
       setSelectedFile(e.target.files[0]);
-      setDisableSubmit(false);
     }
   };
 
@@ -36,7 +34,11 @@ const UploadImage = (props) => {
         helperText={error.message}
       />
 
-      <div>File Upload Progress is {progress}</div>
+      <p>
+        File Upload Progress is
+        {' '}
+        {progress}
+      </p>
     </div>
   );
 };
