@@ -35,7 +35,7 @@ const LoginPage = () => {
         <section className="loginSection" id="loginSection">
           <form className="loginForm" method="post" onSubmit={handleSubmit}>
             <TextField
-              style={{ 'background-color': 'white' }}
+              style={{ backgroundColor: 'white' }}
               type="text"
               name="username"
               id="username"

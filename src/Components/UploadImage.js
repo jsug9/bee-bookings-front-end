@@ -40,13 +40,17 @@ const UploadField = (props) => {
   return (
     <div>
       <TextField
-        style={{ 'background-color': 'white' }}
         type="file"
         aria-label="File Upload"
         required
         onChange={handleFileInput}
         error={uploadImageText.error}
         helperText={uploadImageText.message}
+        sx={{
+          '& input': {
+            backgroundColor: 'white',
+          },
+        }}
       />
     </div>
   );
