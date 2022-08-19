@@ -40,7 +40,7 @@ const DeleteBeePage = () => {
         <h1 style={{ 'margin-bottom': '30px' }}>Delete a Bee</h1>
         <FormControl>
           <InputLabel id="bee-label">Bee</InputLabel>
-          <Select required labelId="bee-label" label="Bee" style={{ 'background-color': 'white', 'margin-bottom': '20px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
+          <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', 'margin-bottom': '20px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
             {bees.map((bee) => {
               if (bee.id > 19) {
                 return (
