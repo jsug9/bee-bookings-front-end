@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Button, CardActions } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
@@ -8,50 +9,47 @@ import {
   WhatsappShareButton,
 } from 'next-share';
 
-const CardActionsContainer = () => {
-  const handleFacebookClick = () => {
-    console.log('facebook clicked');
-    console.log(window.location.pathname);
-  };
-
-  const handleTwitterClick = () => {
-    console.log('twitter clicked');
-  };
-
-  const handleInstagramClick = () => {
-    console.log('instagram clicked');
-  };
+const CardActionsContainer = (props) => {
+  const { bee } = props;
 
   return (
     <CardActions className="social-icons-container">
       <FacebookShareButton
         url="https://github.com/next-share"
-        quote="Hey! Checkout this awesome bee 🐝. I'll be booking it soon!"
         hashtag="#beeTeam"
       >
-        <Button size="large" color="inherit" onClick={handleFacebookClick}>
+        <Button size="large" color="inherit">
           <FacebookRoundedIcon />
         </Button>
       </FacebookShareButton>
       <TwitterShareButton
         url="https://github.com/next-share"
-        title="Hey! Checkout this awesome bee 🐝. I'll be booking it soon!"
+        title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
       >
-        <Button size="large" color="inherit" onClick={handleTwitterClick}>
+        <Button size="large" color="inherit">
           <TwitterIcon />
         </Button>
       </TwitterShareButton>
       <WhatsappShareButton
         url="https://github.com/next-share"
-        title="Hey! Checkout this awesome bee 🐝. I'll be booking it soon!"
-        separator=":: "
+        title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
+        separator=" "
       >
-        <Button size="large" color="inherit" onClick={handleInstagramClick}>
+        <Button size="large" color="inherit">
           <WhatsAppIcon />
         </Button>
       </WhatsappShareButton>
     </CardActions>
   );
+};
+
+CardActionsContainer.propTypes = {
+  bee: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default CardActionsContainer;
