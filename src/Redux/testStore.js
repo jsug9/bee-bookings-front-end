@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import beesReducer from './bees/BeesReducer';
 import reservationsReducer from './reservations/ReservationsReducer';
 import userReducer from './user/UserReducer';
@@ -8,11 +8,9 @@ const rootReducer = combineReducers({
   user: userReducer,
   bees: beesReducer,
   reservations: reservationsReducer,
-})
+});
 
-export const setupStore = preloadedState => {
-  return configureStore({
-    reducer: rootReducer,
-    preloadedState
-  })
-}
+export default (preloadedState) => configureStore({
+  reducer: rootReducer,
+  preloadedState,
+});
