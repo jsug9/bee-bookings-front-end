@@ -1,12 +1,12 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 // import axios from 'axios';
 import { act } from 'react-dom/test-utils';
 import Navbar from '../Components/Navbar';
 import renderWithProviders, { screen } from './test-utils';
-import { logOutUser, signIn } from '../Redux/user/UserReducer';
+import { signIn } from '../Redux/user/UserReducer';
 // import BeesReducer, { deleteBee } from '../Redux/bees/BeesReducer';
 import setupStore from '../Redux/testStore';
 import server from '../mswMocks/server';
+import realStore from '../Redux/configureStore';
 
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
@@ -25,51 +25,44 @@ afterAll(() => server.close());
 
 it('Navbar renders to the page', () => {
   const tree = renderWithProviders(
-    <Router>
-      <Navbar />
-    </Router>,
+    <Navbar />,
   );
   expect(tree).toMatchSnapshot();
 });
 
 it('Checks that the navbar renders its appropriate default links', () => {
   renderWithProviders(
-    <Router>
-      <Navbar />
-    </Router>,
+    <Navbar />,
   );
   expect(screen.getByText(/Home/)).toBeInTheDocument();
 });
 
 it('Tests the sign in functionality of the redux store', async () => {
-  const store = setupStore();
+  const store = realStore;
   await store.dispatch(signIn('AaronIsCool'));
 
   renderWithProviders(
-    <Router>
-      <Navbar />
-    </Router>, { store },
+    <Navbar />, { store },
   );
 
   expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
 });
 
-it('Tests the sign out functionality of the redux store triggered by the navbar', async () => {
+it('Tests the sign out functionality of the login method triggered by the navbar', async () => {
   const store = setupStore();
   await store.dispatch(signIn('AaronIsCool'));
 
   act(() => {
     renderWithProviders(
-      <Router>
-        <Navbar />
-      </Router>, { store },
+      <Navbar />, { store },
     );
   });
 
   expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
-
+  const button = screen.getByText('Sign Out');
   await act(async () => {
-    store.dispatch(logOutUser());
+    // store.dispatch(logOutUser());
+    button.click();
   });
 
   expect(screen.getByText(/Log in/)).toBeInTheDocument();
