@@ -22,7 +22,7 @@ const DeleteBeePage = () => {
 
   useEffect(() => {
     bees.forEach((bee) => {
-      if (bee.id > 19) {
+      if (bee.id > 4) {
         setEmpty(false);
       }
     });
@@ -42,7 +42,7 @@ const DeleteBeePage = () => {
           <InputLabel id="bee-label">Bee</InputLabel>
           <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', 'margin-bottom': '20px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
             {bees.map((bee) => {
-              if (bee.id > 19) {
+              if (bee.id > 4) {
                 return (
                   <MenuItem value={bee.id} key={bee.id}>
                     {bee.name}
