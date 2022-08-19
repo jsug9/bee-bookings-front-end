@@ -61,7 +61,9 @@ it('Tests the sign out functionality of the login method triggered by the navbar
 
   expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
   const button = screen.getByText('Sign Out');
-  act(() => {
+
+  // if modifying state or executing actions then render the component in an act() block
+  act( () => {
     button.click();
   });
 
