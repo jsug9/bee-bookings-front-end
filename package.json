@@ -37,7 +37,8 @@
     "yarn": "^1.22.19"
   },
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "npm": "8.x"
   },
   "scripts": {
     "start": "react-scripts start",
