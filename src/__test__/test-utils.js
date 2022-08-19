@@ -1,11 +1,11 @@
+/* eslint-disable react/prop-types */
 import { render as rtlRender } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import beesReducer from '../Redux/bees/BeesReducer';
 import reservationsReducer from '../Redux/reservations/ReservationsReducer';
 import userReducer from '../Redux/user/UserReducer';
-import user from '../__test__/__mocks__/userMock';
-
+import user from './__mocks__/userMock';
 
 function render(
   ui,
