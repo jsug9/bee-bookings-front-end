@@ -11,7 +11,7 @@ import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 
 const App = () => (
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router>
     <Navbar />
     <LoginPage />
     <SignupPage />
