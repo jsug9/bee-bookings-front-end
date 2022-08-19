@@ -15,7 +15,7 @@ const CardActionsContainer = (props) => {
   return (
     <CardActions className="social-icons-container">
       <FacebookShareButton
-        url="https://github.com/next-share"
+        url={`${window.location.origin.toString()}/${bee.id}/`}
         hashtag="#beeTeam"
       >
         <Button size="large" color="inherit">
@@ -23,7 +23,7 @@ const CardActionsContainer = (props) => {
         </Button>
       </FacebookShareButton>
       <TwitterShareButton
-        url="https://github.com/next-share"
+        url={`${window.location.origin.toString()}/${bee.id}/`}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
       >
         <Button size="large" color="inherit">
@@ -31,7 +31,7 @@ const CardActionsContainer = (props) => {
         </Button>
       </TwitterShareButton>
       <WhatsappShareButton
-        url="https://github.com/next-share"
+        url={`${window.location.origin.toString()}/${bee.id}/`}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
         separator=" "
       >
