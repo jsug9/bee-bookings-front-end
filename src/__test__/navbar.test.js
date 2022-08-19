@@ -52,6 +52,7 @@ it('Tests the sign out functionality of the login method triggered by the navbar
   const store = setupStore();
   await store.dispatch(signIn('AaronIsCool'));
 
+  // if modifying state or executing actions then render the component in an act() block
   act(() => {
     renderWithProviders(
       <Navbar />, { store },
@@ -60,8 +61,7 @@ it('Tests the sign out functionality of the login method triggered by the navbar
 
   expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
   const button = screen.getByText('Sign Out');
-  await act(async () => {
-    // store.dispatch(logOutUser());
+  act(() => {
     button.click();
   });
 
