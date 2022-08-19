@@ -49,6 +49,7 @@ const UploadField = (props) => {
         sx={{
           '& input': {
             backgroundColor: 'white',
+            borderRadius: '4px',
           },
         }}
       />

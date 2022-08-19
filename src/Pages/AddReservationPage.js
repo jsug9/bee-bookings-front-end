@@ -52,7 +52,7 @@ const AddReservationPage = () => {
         <h1 style={{ 'margin-bottom': '30px' }}>Add Reservation Page</h1>
         <FormControl>
           <InputLabel id="bee-label">Bee</InputLabel>
-          <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', 'margin-bottom': '20px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
+          <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', 'margin-bottom': '20px', borderRadius: '4px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
             {bees.map((bee) => (
               <MenuItem value={bee.id} key={bee.id}>
                 {bee.name}
@@ -67,10 +67,10 @@ const AddReservationPage = () => {
             value={date}
             required
             onChange={(newValue) => setDate(newValue)}
-            renderInput={(params) => <TextField sx={{ backgroundColor: 'white' }} {...params} />}
+            renderInput={(params) => <TextField sx={{ backgroundColor: 'white', borderRadius: '4px' }} {...params} />}
           />
         </LocalizationProvider>
-        <TextField id="city" label="City" variant="outlined" style={{ backgroundColor: 'white', 'margin-top': '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField id="city" label="City" variant="outlined" style={{ backgroundColor: 'white', 'margin-top': '20px', borderRadius: '4px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
         <Button
           type="submit"
           variant="contained"
