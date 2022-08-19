@@ -14,7 +14,6 @@ const Navbar = () => {
 
   const handleHamburgerClick = () => {
     setNavbar(navbar === 'invisible' ? '' : 'invisible');
-    console.log(navbar);
   };
 
   const handleClick = () => {
