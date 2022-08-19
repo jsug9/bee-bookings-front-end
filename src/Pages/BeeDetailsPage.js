@@ -63,7 +63,7 @@ const BeeDetailsPage = () => {
         >
           Delete Bee
         </Button>
-        <CardActionsContainer />
+        <CardActionsContainer bee={bee} />
       </div>
       <BackButton />
     </div>

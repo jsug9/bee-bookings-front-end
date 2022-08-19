@@ -1,35 +1,50 @@
-import { Button, CardActions } from '@mui/material';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CardActions } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from 'next-share';
 
-const CardActionsContainer = () => {
-  const handleFacebookClick = () => {
-    console.log('facebook clicked');
-    console.log(window.location.pathname);
-  };
-
-  const handleTwitterClick = () => {
-    console.log('twitter clicked');
-  };
-
-  const handleInstagramClick = () => {
-    console.log('instagram clicked');
-  };
+const CardActionsContainer = (props) => {
+  const { bee } = props;
 
   return (
     <CardActions className="social-icons-container">
-      <Button size="large" color="inherit" onClick={handleFacebookClick}>
-        <FacebookRoundedIcon />
-      </Button>
-      <Button size="large" color="inherit" onClick={handleTwitterClick}>
-        <TwitterIcon />
-      </Button>
-      <Button size="large" color="inherit" onClick={handleInstagramClick}>
-        <InstagramIcon />
-      </Button>
+      <FacebookShareButton
+        url={`${process.env.PUBLIC_URL.toString()}/${bee.id}/`}
+        hashtag="#beeTeam"
+      >
+        <FacebookRoundedIcon size="large" color="inherit" />
+      </FacebookShareButton>
+      <TwitterShareButton
+        url={`${process.env.PUBLIC_URL.toString()}/${bee.id}/`}
+        title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
+      >
+        <TwitterIcon size="large" color="inherit" />
+      </TwitterShareButton>
+      <WhatsappShareButton
+        url={`${process.env.PUBLIC_URL.toString()}/${bee.id}/`}
+        title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
+        separator=" "
+      >
+        <WhatsAppIcon size="large" color="inherit" />
+      </WhatsappShareButton>
     </CardActions>
   );
+};
+
+CardActionsContainer.propTypes = {
+  bee: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default CardActionsContainer;

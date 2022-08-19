@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-- [GitHub](https://jsug9.github.io/bee-bookings-front-end/).
+- [Netlify](https://62fffb905257070009431802--beebookcapstone.netlify.app).
 
 ## Getting Started
 

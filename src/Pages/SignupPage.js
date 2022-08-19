@@ -1,6 +1,6 @@
 import '../Styles/signup_page.scss';
 import { TextField } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../Redux/user/UserReducer';
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Select, MenuItem, InputLabel, FormControl, Button,
@@ -37,7 +37,7 @@ const DeleteBeePage = () => {
   return (
     <div className="reservation-form-container">
       <form className="bee-form reservation-form" method="post" onSubmit={handleSubmit}>
-        <h1 style={{ 'margin-bottom': '30px' }}>Delete a Bee</h1>
+        <h1 style={{ marginBottom: '30px' }}>Delete a Bee</h1>
         <FormControl>
           <InputLabel id="bee-label">Bee</InputLabel>
           <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', 'margin-bottom': '20px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>

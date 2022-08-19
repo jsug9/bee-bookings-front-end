@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Select, MenuItem, InputLabel, FormControl, TextField, Button,
@@ -51,10 +51,10 @@ const AddReservationPage = () => {
       { userId
       && (
       <form className="bee-form reservation-form" method="post" onSubmit={handleSubmit}>
-        <h1 style={{ 'margin-bottom': '30px' }}>Add Reservation Page</h1>
+        <h1 style={{ marginBottom: '30px' }}>Add Reservation Page</h1>
         <FormControl>
           <InputLabel id="bee-label">Bee</InputLabel>
-          <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', 'margin-bottom': '20px', borderRadius: '4px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
+          <Select required labelId="bee-label" label="Bee" style={{ backgroundColor: 'white', marginBottom: '20px', borderRadius: '4px' }} value={beeId} onChange={(e) => { setBeeId(e.target.value); }}>
             {bees.map((bee) => (
               <MenuItem value={bee.id} key={bee.id}>
                 {bee.name}
@@ -72,7 +72,7 @@ const AddReservationPage = () => {
             renderInput={(params) => <TextField sx={{ backgroundColor: 'white', borderRadius: '4px' }} {...params} />}
           />
         </LocalizationProvider>
-        <TextField id="city" label="City" variant="outlined" style={{ 'border-radius': '4px', 'background-color': 'white', 'margin-top': '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField id="city" label="City" variant="outlined" style={{ borderRadius: '4px', backgroundColor: 'white', marginTop: '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
         <Button
           type="submit"
           variant="contained"
