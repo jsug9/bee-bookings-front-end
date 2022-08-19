@@ -3,6 +3,7 @@ import { rest } from 'msw';
 import allBees from './beesData';
 
 export default [
+  // signing up a new user
   rest.post('https://bee-store.herokuapp.com/api/v1/signin', (req, res, ctx) =>
     res(
       ctx.status(200),
@@ -48,5 +49,22 @@ export default [
   rest.get(
     'https://bee-store.herokuapp.com/api/v1/items/:id',
     (req, res, ctx) => res(ctx.status(200), ctx.json(allBees[0])),
+  ),
+  // create a booking
+  rest.post(
+    'https://bee-store.herokuapp.com/api/v1/bookings',
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          id: 41,
+          date: '2023-08-19',
+          city: 'New York',
+          created_at: '2022-08-19T20:36:37.427Z',
+          updated_at: '2022-08-19T20:36:37.427Z',
+          user_id: 2,
+          item_id: 4,
+        }),
+      ),
   ),
 ];
