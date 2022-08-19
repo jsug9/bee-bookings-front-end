@@ -1,6 +1,5 @@
 {
   "name": "bee-bookings-front-end",
-  "homepage": "https://jsug9.github.io/bee-bookings-front-end",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
