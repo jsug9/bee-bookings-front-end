@@ -31,6 +31,9 @@ const BeeDetailsPage = () => {
   };
 
   const handleDelete = () => {
+    if (bee.id > 19) {
+      return;
+    }
     dispatch(deleteBee(bee.id));
     navigate('/');
   };
