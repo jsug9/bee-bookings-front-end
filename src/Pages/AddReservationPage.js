@@ -17,7 +17,7 @@ import '../Styles/ReservationForm.scss';
 const AddReservationPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [date, setDate] = useState(Date.now());
+  const [date, setDate] = useState(new Date());
   const [beeId, setBeeId] = useState('');
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
@@ -34,14 +34,16 @@ const AddReservationPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const object = {
-      date: date.toString(),
-      user_id: userId,
-      item_id: beeId,
-      city,
-    };
-    dispatch(addReservation(object));
-    navigate('/reservations');
+    if (city.trim()) {
+      const object = {
+        date: date.toString(),
+        user_id: userId,
+        item_id: beeId,
+        city: city.trim(),
+      };
+      dispatch(addReservation(object));
+      navigate('/reservations');
+    }
   };
 
   return (
@@ -70,7 +72,7 @@ const AddReservationPage = () => {
             renderInput={(params) => <TextField sx={{ backgroundColor: 'white', borderRadius: '4px' }} {...params} />}
           />
         </LocalizationProvider>
-        <TextField id="city" label="City" variant="outlined" style={{ backgroundColor: 'white', 'margin-top': '20px', borderRadius: '4px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField id="city" label="City" variant="outlined" style={{ 'border-radius': '4px', 'background-color': 'white', 'margin-top': '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
         <Button
           type="submit"
           variant="contained"
