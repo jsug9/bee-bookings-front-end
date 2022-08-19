@@ -7,17 +7,15 @@ import { logOutUser } from '../Redux/user/UserReducer';
 import { clearReservations } from '../Redux/reservations/ReservationsReducer';
 import '../Styles/navbar.scss';
 
-let navbarIsOpen = false;
-
-export const toggleNavbar = () => {
-  const nav = document.getElementsByTagName('nav');
-  nav[0].classList.toggle('invisible');
-  navbarIsOpen = !navbarIsOpen;
-};
-
 const Navbar = () => {
   const user = useSelector((state) => state.user);
+  const [navbar, setNavbar] = React.useState('invisible');
   const dispatch = useDispatch();
+
+  const handleHamburgerClick = () => {
+    setNavbar(navbar === 'invisible' ? '' : 'invisible');
+    console.log(navbar);
+  };
 
   const handleClick = () => {
     dispatch(logOutUser());
@@ -73,18 +71,19 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hamburger" id="hamburger" role="presentation" onClick={toggleNavbar}>
+      <div className="hamburger" id="hamburger" role="presentation" onClick={handleHamburgerClick}>
         <div className="slice" />
 
         <div className="slice" />
 
         <div className="slice" />
       </div>
-      <nav className="invisible">
+      <nav className={navbar}>
         <ul className="links">
           {links.map((link) => (
             <li key={link.id}>
               <NavLink
+                onClick={handleHamburgerClick}
                 to={link.path}
               >
                 <p>{link.text}</p>
@@ -97,24 +96,5 @@ const Navbar = () => {
     </>
   );
 };
-
-// Sets listener that determines if the nav is open and if it should be closed
-// if a user clicks outside of it or clicks a navlink
-document.addEventListener('click', (e) => {
-  const nav = document.getElementsByTagName('nav');
-
-  // convertes the query selector into an array instead of HTML collection (allows use of some())
-  const navLinks = [].slice.call(document.getElementsByClassName('links'));
-
-  const hamburger = document.getElementById('hamburger');
-  const hamburgerClicked = hamburger.contains(e.target);
-  const navLinkClicked = navLinks.some((link) => link.contains(e.target));
-
-  if (!hamburgerClicked && navbarIsOpen && !nav[0].contains(e.target)) {
-    toggleNavbar();
-  } else if (navLinkClicked) {
-    toggleNavbar();
-  }
-});
 
 export default Navbar;
