@@ -1,12 +1,15 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../Components/Navbar';
-import render, { screen } from './test-utils';
-import userReducer, { logOutUser } from '../Redux/user/UserReducer';
-import user from './__mocks__/userMock';
+import renderWithProviders, { screen } from './test-utils';
+import userReducer, { logOutUser, signIn } from '../Redux/user/UserReducer';
+import BeesReducer, { deleteBee } from '../Redux/bees/BeesReducer';
+import { setupStore } from '../Redux/testStore';
+
 
 // src/setupTests.js
 import server from '../mswMocks/server';
+import { act } from 'react-dom/test-utils';
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
 // Reset any request handlers that we may add during the tests,
@@ -14,17 +17,6 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 // Clean up after the tests are finished.
 afterAll(() => server.close());
-
-it('Log in a user with axios', async () => {
-  const data = await axios.post(
-    'https://bee-store.herokuapp.com/api/v1/signin',
-    {
-      username: 'AaronIsCool',
-    }
-  );
-  console.log(data);
-  expect(data.data.user_id).toBe(4);
-});
 
 it('deletes an item with axios', async () => {
   const { data } = await axios.delete(
@@ -34,7 +26,7 @@ it('deletes an item with axios', async () => {
 });
 
 it('Navbar renders to the page', () => {
-  const tree = render(
+  const tree = renderWithProviders(
     <Router>
       <Navbar />
     </Router>
@@ -42,8 +34,8 @@ it('Navbar renders to the page', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('Checks that the navbar renders its appropriate links', () => {
-  render(
+it('Checks that the navbar renders its appropriate default links', () => {
+  renderWithProviders(
     <Router>
       <Navbar />
     </Router>
@@ -51,21 +43,39 @@ it('Checks that the navbar renders its appropriate links', () => {
   expect(screen.getByText(/Home/)).toBeInTheDocument();
 });
 
-it('updates the mocked rocket reserved status from false to true', async () => {
-  const state = {
-    username: 'emyrue',
-    userId: 5,
-    isLoading: false,
-    createdUser: true,
-  };
+it('Tests the sign in functionality of the redux store', async () => {
+  const store = setupStore();
+  await store.dispatch(signIn('AaronIsCool'));
 
-  render(
+  renderWithProviders(
     <Router>
       <Navbar />
-    </Router>
+    </Router>, { store }
   );
 
-  const finalState = await userReducer(state, logOutUser());
 
-  expect(finalState).toStrictEqual(user);
+  expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
+});
+
+it('Tests the sign out functionality of the redux store triggered by the navbar', async () => {
+  const store = setupStore();
+  await store.dispatch(signIn('AaronIsCool'));
+
+  act(() => {
+    renderWithProviders(
+      <Router>
+        <Navbar />
+      </Router>, { store }
+    );
+  })
+
+  
+
+  expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
+  
+  await act( async () => {
+   store.dispatch(logOutUser());
+  })
+
+  expect(screen.getByText(/Log in/)).toBeInTheDocument();
 });

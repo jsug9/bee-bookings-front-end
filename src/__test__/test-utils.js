@@ -1,32 +1,22 @@
 /* eslint-disable react/prop-types */
-import { render as rtlRender } from '@testing-library/react';
-import { configureStore } from '@reduxjs/toolkit';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import beesReducer from '../Redux/bees/BeesReducer';
-import reservationsReducer from '../Redux/reservations/ReservationsReducer';
-import userReducer from '../Redux/user/UserReducer';
-import user from './__mocks__/userMock';
+import { setupStore } from '../Redux/testStore';
 
-function render(
+function renderWithProviders(
   ui,
   {
     preloadedState,
-    store = configureStore({
-      reducer: {
-        user: userReducer,
-        bees: beesReducer,
-        reservations: reservationsReducer,
-      },
-    }),
+    store = setupStore(preloadedState),
     ...renderOptions
-  } = { user },
+  } = {},
 ) {
   function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;
   }
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+  return {store, ...render(ui, { wrapper: Wrapper, ...renderOptions })};
 }
 
 export * from '@testing-library/react';
 
-export default render;
+export default renderWithProviders;
