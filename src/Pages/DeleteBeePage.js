@@ -57,7 +57,7 @@ const DeleteBeePage = () => {
         <Button
           type="submit"
           variant="contained"
-          color="success"
+          color="error"
           startIcon={<RemoveCircleIcon />}
           sx={{
             fontWeight: 'bold', marginTop: '20px', width: '300px', alignSelf: 'center',
