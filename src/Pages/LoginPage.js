@@ -1,4 +1,5 @@
 import '../Styles/login_page.scss';
+import { TextField } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { toggleSignup } from './SignupPage';
@@ -33,11 +34,12 @@ const LoginPage = () => {
         <h1>Buzz In</h1>
         <section className="loginSection" id="loginSection">
           <form className="loginForm" method="post" onSubmit={handleSubmit}>
-            <input
+            <TextField
+              style={{ 'background-color': 'white' }}
               type="text"
               name="username"
               id="username"
-              placeholder="Enter your username"
+              label="Enter your username"
               required
               maxLength="30"
               value={username}
