@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
+import allBees from './beesData';
 
 export default [
   rest.post('https://bee-store.herokuapp.com/api/v1/signin', (req, res, ctx) =>
@@ -38,5 +39,9 @@ export default [
           updated_at: '2022-08-19T20:22:17.746Z',
         }),
       ),
+  ),
+  // list bees
+  rest.get('https://bee-store.herokuapp.com/api/v1/items', (req, res, ctx) =>
+    res(ctx.status(200), ctx.json(allBees)),
   ),
 ];
