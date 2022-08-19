@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/bee-bookings-front-end/static/css/main.290be224.css",
-    "main.js": "/bee-bookings-front-end/static/js/main.934ca6b4.js",
+    "main.js": "/bee-bookings-front-end/static/js/main.5cf326ce.js",
     "static/media/Background.jpg": "/bee-bookings-front-end/static/media/Background.b9376df657d27ff5062d.jpg",
     "static/media/revicons.eot": "/bee-bookings-front-end/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/bee-bookings-front-end/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/bee-bookings-front-end/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/bee-bookings-front-end/index.html",
     "main.290be224.css.map": "/bee-bookings-front-end/static/css/main.290be224.css.map",
-    "main.934ca6b4.js.map": "/bee-bookings-front-end/static/js/main.934ca6b4.js.map"
+    "main.5cf326ce.js.map": "/bee-bookings-front-end/static/js/main.5cf326ce.js.map"
   },
   "entrypoints": [
     "static/css/main.290be224.css",
-    "static/js/main.934ca6b4.js"
+    "static/js/main.5cf326ce.js"
   ]
 }
