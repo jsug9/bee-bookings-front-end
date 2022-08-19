@@ -1,0 +1,43 @@
+.please-log-in {
+  text-align: center;
+}
+
+.bee-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  gap: 1rem;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.MuiTextField-root {
+  display: flex;
+  width: 100%;
+}
+
+.submit-button {
+  align-self: center;
+  margin: auto;
+}
+
+.input-file {
+  height: 3rem;
+}
+
+@media (max-width: 768px) {
+  .submit-button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .submit-button {
+    width: 25%;
+  }
+}

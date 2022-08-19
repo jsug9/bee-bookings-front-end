@@ -46,7 +46,7 @@ const BeeItem = (props) => {
           <Typography component="p">{bee.description}</Typography>
         </CardContent>
       </CardActionArea>
-      <CardActionsContainer />
+      <CardActionsContainer bee={bee} />
     </Card>
   );
 };

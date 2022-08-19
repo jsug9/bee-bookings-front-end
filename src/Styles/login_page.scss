@@ -1,5 +1,4 @@
 #loginPage {
-  border: 1px solid red;
   position: absolute;
   z-index: 10;
   width: 100%;
@@ -30,13 +29,18 @@
   background: none;
   font-size: 24px;
   border: 2px solid #2f4858;
-  padding: 1rem 2rem;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+}
+
+.loginBtn:hover {
+  background: #2f4858;
+  color: yellow;
 }
 
 // Form
 #username {
   font-size: 20px;
-  padding: 5px;
 }
 
 .signupLink {
@@ -48,6 +52,10 @@
 #signup {
   cursor: pointer;
   font-size: 19px;
+}
+
+#signup:hover {
+  opacity: 0.5;
 }
 
 .flex {

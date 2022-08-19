@@ -1,5 +1,6 @@
 import '../Styles/signup_page.scss';
-import { useState } from 'react';
+import { TextField } from '@mui/material';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../Redux/user/UserReducer';
 
@@ -35,12 +36,12 @@ const SignupPage = () => {
         <h1>{user?.createdUser ? 'Welcome!' : 'Sign Up'}</h1>
         <section className="loginSection" id="loginSection">
           <form className="loginForm" method="post" onSubmit={handleSubmit}>
-            <input
-              className={user?.createdUser ? 'invisible' : ''}
+            <TextField
+              style={{ backgroundColor: 'white', borderRadius: '4px' }}
               type="text"
               name="username"
               id="username"
-              placeholder="Enter your desired username"
+              label="Set your user Name"
               required
               maxLength="30"
               value={username}

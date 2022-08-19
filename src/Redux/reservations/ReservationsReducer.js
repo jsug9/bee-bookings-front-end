@@ -21,10 +21,13 @@ export const addReservation = createAsyncThunk(ADD_RESERVATION, async (reservati
 });
 
 export const deleteReservation = createAsyncThunk(DELETE_RESERVATION,
-  async (reservationId, userId) => {
-    axios.delete(`${addReservationUrl}/${reservationId}`);
-    const { data } = await axios.post(getReservationsUrl, { user_id: userId });
-    return data;
+  async (reservationId) => {
+    try {
+      axios.delete(`${addReservationUrl}/${reservationId}`);
+    } catch (error) {
+      return error;
+    }
+    return reservationId;
   });
 
 const initialState = {
@@ -36,7 +39,7 @@ const reservationsSlice = createSlice({
   name: 'reservations',
   initialState,
   reducers: {
-    logOut: (state) => {
+    clearReservations: (state) => {
       state.allReservations = [];
       state.isLoading = false;
     },
@@ -65,7 +68,9 @@ const reservationsSlice = createSlice({
       state.isLoading = true;
     },
     [deleteReservation.fulfilled]: (state, action) => {
-      state.allReservations = action.payload;
+      state.allReservations = state.allReservations.filter(
+        (reservation) => reservation.id !== action.payload,
+      );
       state.isLoading = false;
     },
     [deleteReservation.rejected]: (state) => {
@@ -78,5 +83,5 @@ const reservationsSlice = createSlice({
   },
 });
 
-export const { logOut } = reservationsSlice.actions;
+export const { clearReservations } = reservationsSlice.actions;
 export default reservationsSlice.reducer;

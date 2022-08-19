@@ -1,8 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import HomePage from './Pages/HomePage';
 import AddReservationPage from './Pages/AddReservationPage';
