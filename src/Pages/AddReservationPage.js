@@ -34,14 +34,16 @@ const AddReservationPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const object = {
-      date: date.toString(),
-      user_id: userId,
-      item_id: beeId,
-      city,
-    };
-    dispatch(addReservation(object));
-    navigate('/reservations');
+    if (city.trim()) {
+      const object = {
+        date: date.toString(),
+        user_id: userId,
+        item_id: beeId,
+        city: city.trim(),
+      };
+      dispatch(addReservation(object));
+      navigate('/reservations');
+    }
   };
 
   return (
@@ -67,10 +69,10 @@ const AddReservationPage = () => {
             value={date}
             required
             onChange={(newValue) => setDate(newValue)}
-            renderInput={(params) => <TextField sx={{ backgroundColor: 'white' }} {...params} />}
+            renderInput={(params) => <TextField sx={{ backgroundColor: 'white', borderRadius: '4px' }} {...params} />}
           />
         </LocalizationProvider>
-        <TextField id="city" label="City" variant="outlined" style={{ 'background-color': 'white', 'margin-top': '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField id="city" label="City" variant="outlined" style={{ 'border-radius': '4px', 'background-color': 'white', 'margin-top': '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
         <Button
           type="submit"
           variant="contained"
