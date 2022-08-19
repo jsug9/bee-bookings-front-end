@@ -19,16 +19,12 @@
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "quote-props": "off"
+    "quote-props": "off",
+    "import/no-extraneous-dependencies": "off"
   },
   "ignorePatterns": [
     "dist/",
     "build/",
     "__snapshots__"
-  ],
-  "rules": {
-    "quote-props": "off",
-    "react/jsx-filename-extension": "off",
-    "react/react-in-jsx-scope": "off"
-  }
+  ]
 }

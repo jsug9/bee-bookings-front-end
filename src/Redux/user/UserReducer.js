@@ -11,6 +11,8 @@ export const signIn = createAsyncThunk('user/signIn', async (username) => {
   return data;
 });
 
+export const sum = () => 'from user reducer';
+
 export const signUp = createAsyncThunk('user/signUp', async (username) => {
   const userParams = { user: { username } };
   const { data } = await axios.post(signUpEndpoint, userParams);
