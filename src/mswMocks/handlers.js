@@ -78,4 +78,9 @@ export default [
     'https://bee-store.herokuapp.com/api/v1/bookings/:id',
     (req, res, ctx) => res(ctx.status(204), ctx.json({})),
   ),
+  // get all user bookings
+  rest.post(
+    'https://bee-store.herokuapp.com/api/v1/bookings/user',
+    (req, res, ctx) => res(ctx.status(200), ctx.json(mockBookings)),
+  ),
 ];
