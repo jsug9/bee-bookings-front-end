@@ -12,6 +12,16 @@ const Navbar = () => {
   const [navbar, setNavbar] = React.useState('invisible');
   const dispatch = useDispatch();
 
+  const handleToggleLogin = () => {
+    toggleLogin();
+    setNavbar(navbar === 'invisible' ? '' : 'invisible');
+  };
+
+  const handleToggleSignup = () => {
+    toggleSignup();
+    setNavbar(navbar === 'invisible' ? '' : 'invisible');
+  };
+
   const handleHamburgerClick = () => {
     setNavbar(navbar === 'invisible' ? '' : 'invisible');
   };
@@ -19,15 +29,16 @@ const Navbar = () => {
   const handleClick = () => {
     dispatch(logOutUser());
     dispatch(clearReservations());
+    setNavbar(navbar === 'invisible' ? '' : 'invisible');
   };
 
   const generateInactiveUserLinks = () => (
     <>
       <li className="links">
-        <p role="presentation" onClick={toggleLogin}>Log in</p>
+        <p role="presentation" onClick={handleToggleLogin}>Log in</p>
       </li>
       <li className="links">
-        <p role="presentation" onClick={toggleSignup}>Sign Up</p>
+        <p role="presentation" onClick={handleToggleSignup}>Sign Up</p>
       </li>
     </>
   );
