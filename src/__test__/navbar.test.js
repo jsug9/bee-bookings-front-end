@@ -63,7 +63,7 @@ it('Tests the sign out functionality of the login method triggered by the navbar
   const button = screen.getByText('Sign Out');
 
   // if modifying state or executing actions then render the component in an act() block
-  act( () => {
+  act(() => {
     button.click();
   });
 
