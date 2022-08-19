@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
-import allBees from './beesData';
+import mockBees from './beesData';
+import mockBookings from './bookingsData';
 
 export default [
   // signing up a new user
@@ -43,12 +44,12 @@ export default [
   ),
   // list bees
   rest.get('https://bee-store.herokuapp.com/api/v1/items', (req, res, ctx) =>
-    res(ctx.status(200), ctx.json(allBees)),
+    res(ctx.status(200), ctx.json(mockBees)),
   ),
   // bee details
   rest.get(
     'https://bee-store.herokuapp.com/api/v1/items/:id',
-    (req, res, ctx) => res(ctx.status(200), ctx.json(allBees[0])),
+    (req, res, ctx) => res(ctx.status(200), ctx.json(mockBees[0])),
   ),
   // create a booking
   rest.post(
@@ -66,5 +67,15 @@ export default [
           item_id: 4,
         }),
       ),
+  ),
+  // get booking
+  rest.get(
+    'https://bee-store.herokuapp.com/api/v1/bookings/:id',
+    (req, res, ctx) => res(ctx.status(200), ctx.json(mockBookings[0])),
+  ),
+  // delete booking
+  rest.delete(
+    'https://bee-store.herokuapp.com/api/v1/bookings/:id',
+    (req, res, ctx) => res(ctx.status(204), ctx.json({})),
   ),
 ];
