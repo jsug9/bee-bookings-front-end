@@ -72,7 +72,7 @@ const AddReservationPage = () => {
             renderInput={(params) => <TextField sx={{ backgroundColor: 'white', borderRadius: '4px' }} {...params} />}
           />
         </LocalizationProvider>
-        <TextField id="city" label="City" variant="outlined" style={{ 'border-radius': '4px', 'background-color': 'white', marginTop: '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField id="city" label="City" variant="outlined" style={{ borderRadius: '4px', backgroundColor: 'white', marginTop: '20px' }} required value={city} onChange={(e) => setCity(e.target.value)} />
         <Button
           type="submit"
           variant="contained"
