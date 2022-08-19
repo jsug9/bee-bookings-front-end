@@ -1,7 +1,12 @@
 import { Button, CardActions } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from 'next-share';
 
 const CardActionsContainer = () => {
   const handleFacebookClick = () => {
@@ -19,15 +24,32 @@ const CardActionsContainer = () => {
 
   return (
     <CardActions className="social-icons-container">
-      <Button size="large" color="inherit" onClick={handleFacebookClick}>
-        <FacebookRoundedIcon />
-      </Button>
-      <Button size="large" color="inherit" onClick={handleTwitterClick}>
-        <TwitterIcon />
-      </Button>
-      <Button size="large" color="inherit" onClick={handleInstagramClick}>
-        <InstagramIcon />
-      </Button>
+      <FacebookShareButton
+        url="https://github.com/next-share"
+        quote="Hey! Checkout this awesome bee 🐝. I'll be booking it soon!"
+        hashtag="#beeTeam"
+      >
+        <Button size="large" color="inherit" onClick={handleFacebookClick}>
+          <FacebookRoundedIcon />
+        </Button>
+      </FacebookShareButton>
+      <TwitterShareButton
+        url="https://github.com/next-share"
+        title="Hey! Checkout this awesome bee 🐝. I'll be booking it soon!"
+      >
+        <Button size="large" color="inherit" onClick={handleTwitterClick}>
+          <TwitterIcon />
+        </Button>
+      </TwitterShareButton>
+      <WhatsappShareButton
+        url="https://github.com/next-share"
+        title="Hey! Checkout this awesome bee 🐝. I'll be booking it soon!"
+        separator=":: "
+      >
+        <Button size="large" color="inherit" onClick={handleInstagramClick}>
+          <WhatsAppIcon />
+        </Button>
+      </WhatsappShareButton>
     </CardActions>
   );
 };
