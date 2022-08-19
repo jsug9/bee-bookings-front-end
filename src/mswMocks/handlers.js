@@ -44,4 +44,9 @@ export default [
   rest.get('https://bee-store.herokuapp.com/api/v1/items', (req, res, ctx) =>
     res(ctx.status(200), ctx.json(allBees)),
   ),
+  // bee details
+  rest.get(
+    'https://bee-store.herokuapp.com/api/v1/items/:id',
+    (req, res, ctx) => res(ctx.status(200), ctx.json(allBees[0])),
+  ),
 ];
