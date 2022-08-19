@@ -17,7 +17,7 @@ import '../Styles/ReservationForm.scss';
 const AddReservationPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [date, setDate] = useState(Date.now());
+  const [date, setDate] = useState(new Date());
   const [beeId, setBeeId] = useState('');
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
