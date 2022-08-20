@@ -4,14 +4,7 @@ import BasicTable from '../Components/Table';
 import '../Styles/ReservationsPage.scss';
 import { getReservations } from '../Redux/reservations/ReservationsReducer';
 import { getAllBees } from '../Redux/bees/BeesReducer';
-
-const loginNotice = () => (
-  <div className="center">
-    <h1>
-      Please sign in to use this page
-    </h1>
-  </div>
-);
+import PleaseLogin from '../Components/PleaseLogin';
 
 const emptyReservationsNotice = () => (
   <div className="center">
@@ -63,7 +56,7 @@ const ReservationsPage = () => {
     );
   }
 
-  return loginNotice();
+  return (<PleaseLogin message="View Your Reservations" />);
 };
 
 export default ReservationsPage;
