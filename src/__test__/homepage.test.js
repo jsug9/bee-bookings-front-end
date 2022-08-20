@@ -13,7 +13,7 @@ afterEach(() => server.resetHandlers());
 // Clean up after the tests are finished.
 afterAll(() => server.close());
 
-it('Tests the sign in functionality of the redux store', async () => {
+it('HomePage renders to the page', async () => {
   renderWithProviders(
     <HomePage />,
   );
@@ -21,7 +21,7 @@ it('Tests the sign in functionality of the redux store', async () => {
   expect(screen.getByText('Our Collection of Bees')).toBeInTheDocument();
 });
 
-it('Tests the sign in functionality of the redux store', async () => {
+it('Bee card renders in the page', async () => {
   const store = realStore;
   await store.dispatch(getAllBees());
 
