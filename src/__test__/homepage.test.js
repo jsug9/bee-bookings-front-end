@@ -1,7 +1,7 @@
 // import axios from 'axios';
 import HomePage from '../Pages/Homepage';
 import renderWithProviders, { screen } from './test-utils';
-import { signIn } from '../Redux/user/UserReducer';
+import { getAllBees } from '../Redux/bees/BeesReducer';
 import server from '../mswMocks/server';
 import realStore from '../Redux/configureStore';
 
@@ -14,12 +14,20 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 it('Tests the sign in functionality of the redux store', async () => {
+  renderWithProviders(
+    <HomePage />,
+  );
+
+  expect(screen.getByText('Our Collection of Bees')).toBeInTheDocument();
+});
+
+it('Tests the sign in functionality of the redux store', async () => {
   const store = realStore;
-  await store.dispatch(signIn('AaronIsCool'));
+  await store.dispatch(getAllBees());
 
   renderWithProviders(
     <HomePage />, { store },
   );
 
-  expect(screen.getByText('Our Collection of Bees')).toBeInTheDocument();
+  expect(screen.getByText('Beegusto')).toBeInTheDocument();
 });
