@@ -4,12 +4,20 @@ import mockBees from './beesData';
 import mockBookings from './bookingsData';
 
 export default [
-  // signing up a new user
+  // signing in a new user
   rest.post('https://bee-store.herokuapp.com/api/v1/signin', (req, res, ctx) => res(
     ctx.status(200),
     ctx.json({
       user_id: 4,
       username: 'AaronIsCool',
+    }),
+  )),
+  // signUp a new user
+  rest.post('https://bee-store.herokuapp.com/api/v1/signup', (req, res, ctx) => res(
+    ctx.status(200),
+    ctx.json({
+      'user_id': 19,
+      'username': 'wickedCool',
     }),
   )),
   // delete bee
