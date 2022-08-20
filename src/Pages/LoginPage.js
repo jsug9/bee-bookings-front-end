@@ -46,7 +46,7 @@ const LoginPage = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
             <span className="error" aria-live="polite" />
-            <button type="submit" className="loginBtn">Let&apos;s Go!</button>
+            <button type="submit" id="submitLogin" className="loginBtn">Let&apos;s Go!</button>
           </form>
           <div className="signupLink">
             <p id="signup" role="presentation" onClick={signupToggle}>Sign Up</p>
