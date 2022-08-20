@@ -1,7 +1,7 @@
 import { fireEvent, userEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { context } from 'msw';
 import LoginPage from '../Pages/LoginPage';
+import AddBeePage from '../Pages/AddBeePage';
 import renderWithProviders, { screen } from './test-utils';
 import { signIn } from '../Redux/user/UserReducer';
 import server from '../mswMocks/server';
@@ -15,7 +15,14 @@ afterEach(() => server.resetHandlers());
 // Clean up after the tests are finished.
 afterAll(() => server.close());
 
-it("It doesn't let you add a bee if user is not signed in", async () => {
+it('Doesnt render the add bee page if the user is not logged in', async () => {
+  const store = realStore;
+  await store.dispatch(signIn('AaronIsCool'));
+  renderWithProviders(<AddBeePage />, { store });
+  expect(screen.queryByText(/Add Bee/)).not.toBeInTheDocument();
+});
+
+it('It renders the Add Bee Component if User is Signed In', async () => {
   const store = realStore;
   renderWithProviders(<LoginPage />, { store });
 
@@ -24,8 +31,10 @@ it("It doesn't let you add a bee if user is not signed in", async () => {
   const submitButton = screen.getByText(/Let's Go!/);
   expect(input).toBeInTheDocument();
   expect(submitButton).toBeInTheDocument();
-  act(async () => {
+  await act(async () => {
     input.value = 'AaronIsCool';
     fireEvent.submit(submitButton);
   });
+  renderWithProviders(<AddBeePage />, { store });
+  expect(screen.getByText(/Add Your own Bee/)).toBeInTheDocument();
 });
