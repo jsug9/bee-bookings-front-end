@@ -1,8 +1,6 @@
-import { act } from 'react-dom/test-utils';
 import LoginPage from '../Pages/LoginPage';
 import renderWithProviders, { screen } from './test-utils';
 import { signIn } from '../Redux/user/UserReducer';
-import setupStore from '../Redux/testStore';
 import server from '../mswMocks/server';
 import realStore from '../Redux/configureStore';
 
