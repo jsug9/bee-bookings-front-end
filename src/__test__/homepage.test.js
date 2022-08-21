@@ -14,7 +14,14 @@ afterEach(() => server.resetHandlers());
 // Clean up after the tests are finished.
 afterAll(() => server.close());
 
-it('HomePage renders to the page', async () => {
+it('Homepage renders to the page', () => {
+  const tree = renderWithProviders(
+    <HomePage />,
+  );
+  expect(tree).toMatchSnapshot();
+});
+
+it('HomePage text is shown in the page', async () => {
   renderWithProviders(
     <HomePage />,
   );
