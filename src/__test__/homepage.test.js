@@ -1,4 +1,5 @@
 // import axios from 'axios';
+import { act } from 'react-dom/test-utils';
 import HomePage from '../Pages/Homepage';
 import renderWithProviders, { screen } from './test-utils';
 import { getAllBees } from '../Redux/bees/BeesReducer';
@@ -21,13 +22,14 @@ it('HomePage renders to the page', async () => {
   expect(screen.getByText('Our Collection of Bees')).toBeInTheDocument();
 });
 
-it('Bee card renders in the page', async () => {
+it('Bee cards render in the page', async () => {
   const store = realStore;
-  await store.dispatch(getAllBees());
+  await act(async () => {
+    renderWithProviders(
+      <HomePage />, { store },
+    );
+    await store.dispatch(getAllBees());
+  });
 
-  renderWithProviders(
-    <HomePage />, { store },
-  );
-
-  expect(screen.getByText('Beegusto')).toBeInTheDocument();
+  expect(store.getState().bees.allBees.length).toBe(10);
 });
