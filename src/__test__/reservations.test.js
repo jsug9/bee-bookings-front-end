@@ -2,6 +2,8 @@ import { act } from 'react-dom/test-utils';
 import ReservationsPage from '../Pages/ReservationsPage';
 import AddReservationPage from '../Pages/AddReservationPage';
 import { signIn } from '../Redux/user/UserReducer';
+import { getAllBees } from '../Redux/bees/BeesReducer';
+import { addReservation, deleteReservation, getReservations } from '../Redux/reservations/ReservationsReducer';
 import renderWithProviders, { screen } from './test-utils';
 import setupStore from '../Redux/testStore';
 import server from '../mswMocks/server';
@@ -66,7 +68,7 @@ it('shows the add reservations form if the user is logged in', async () => {
   expect(screen.getByText('Add Reservation Page')).toBeInTheDocument();
 });
 
-it('shows the add reservations form if the user is logged in', async () => {
+it('shows the reservations page if the user is logged in', async () => {
   const store = setupStore();
   await store.dispatch(signIn('AaronIsCool'));
 
@@ -77,4 +79,55 @@ it('shows the add reservations form if the user is logged in', async () => {
   })
 
   expect(screen.getByText('No Bees Booked 🐝')).toBeInTheDocument();
+});
+
+it('shows the reservations if the user is logged in', async () => {
+  const store = setupStore();
+  await store.dispatch(signIn('emyrue'));
+  await store.dispatch(getAllBees());
+  await store.dispatch(getReservations(5));
+
+  act(() => {
+    renderWithProviders(
+      <ReservationsPage />, { store },
+    );
+  })
+
+  expect(screen.getByText('Bees booked by AaronIsCool')).toBeInTheDocument();
+});
+
+it('shows the added reservations', async () => {
+  const store = setupStore();
+  await store.dispatch(signIn('emyrue'));
+  await store.dispatch(getAllBees());
+  await store.dispatch(addReservation({
+    item_id: 1,
+    user_id: 5,
+    date: '2020-01-01',
+    city: 'New York',
+  }));
+
+  act(() => {
+    renderWithProviders(
+      <ReservationsPage />, { store },
+    );
+  })
+
+  expect(store.getState().reservations.allReservations).not.toHaveLength(0);
+});
+
+it('shows the add reservations form if the user is logged in', async () => {
+  const store = setupStore();
+  await store.dispatch(signIn('emyrue'));
+  await store.dispatch(getAllBees());
+
+  await act(async () => {
+    renderWithProviders(
+      <ReservationsPage />, { store },
+    );
+
+    await store.dispatch(deleteReservation(store.getState().reservations.allReservations[0]));
+  });
+
+  expect(store.getState().reservations.allReservations).not.toHaveLength(0);
 });
