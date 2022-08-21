@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import { act } from 'react-dom/test-utils';
-import HomePage from '../Pages/HomePagess';
+import HomePage from '../Pages/HomePage';
 import renderWithProviders, { screen } from './test-utils';
 import { getAllBees } from '../Redux/bees/BeesReducer';
 import server from '../mswMocks/server';
