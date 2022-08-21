@@ -2,7 +2,6 @@ import { fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import LoginPage from '../Pages/LoginPage';
 import AddBeePage from '../Pages/AddBeePage';
-import HomePage from '../Pages/HomePage';
 import renderWithProviders, { screen } from './test-utils';
 import { signIn } from '../Redux/user/UserReducer';
 import { getAllBees, addBee } from '../Redux/bees/BeesReducer';
@@ -65,9 +64,7 @@ it('Creates a bee when the user submits the form', async () => {
   const fileinput = document.querySelector(
     '.MuiInputBase-input.MuiOutlinedInput-input.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input',
   );
-  fileinput.value =
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
-  const submitForm = document.querySelector('.MuiButtonBase-root');
+  fileinput.value = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
   await store.dispatch(getAllBees());
   expect(store.getState().bees.allBees.length).toBe(10);
   await store.dispatch(
