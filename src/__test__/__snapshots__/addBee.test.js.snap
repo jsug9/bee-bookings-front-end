@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`takes a snapshot of the addBee component 1`] = `
+<DocumentFragment>
+  <section
+    class="form-container"
+  >
+    <div>
+      <h1
+        class="please-log-in"
+      >
+        Please log in to add a bee
+      </h1>
+    </div>
+  </section>
+</DocumentFragment>
+`;
