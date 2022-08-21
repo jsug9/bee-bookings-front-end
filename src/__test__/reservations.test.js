@@ -116,7 +116,7 @@ it('shows the added reservations', async () => {
   expect(store.getState().reservations.allReservations).not.toHaveLength(0);
 });
 
-it('shows the add reservations form if the user is logged in', async () => {
+it('deletes a reservation', async () => {
   const store = setupStore();
   await store.dispatch(signIn('emyrue'));
   await store.dispatch(getAllBees());
@@ -126,7 +126,7 @@ it('shows the add reservations form if the user is logged in', async () => {
       <ReservationsPage />, { store },
     );
 
-    await store.dispatch(deleteReservation(store.getState().reservations.allReservations[0]));
+    await store.dispatch(deleteReservation(37));
   });
 
   expect(store.getState().reservations.allReservations).not.toHaveLength(0);
