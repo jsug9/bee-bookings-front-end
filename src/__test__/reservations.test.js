@@ -63,7 +63,7 @@ it('shows the add reservations form if the user is logged in', async () => {
     renderWithProviders(
       <AddReservationPage />, { store },
     );
-  })
+  });
 
   expect(screen.getByText('Add Reservation Page')).toBeInTheDocument();
 });
@@ -76,7 +76,7 @@ it('shows the reservations page if the user is logged in', async () => {
     renderWithProviders(
       <ReservationsPage />, { store },
     );
-  })
+  });
 
   expect(screen.getByText('No Bees Booked 🐝')).toBeInTheDocument();
 });
@@ -91,7 +91,7 @@ it('shows the reservations if the user is logged in', async () => {
     renderWithProviders(
       <ReservationsPage />, { store },
     );
-  })
+  });
 
   expect(screen.getByText('Bees booked by AaronIsCool')).toBeInTheDocument();
 });
@@ -111,7 +111,7 @@ it('shows the added reservations', async () => {
     renderWithProviders(
       <ReservationsPage />, { store },
     );
-  })
+  });
 
   expect(store.getState().reservations.allReservations).not.toHaveLength(0);
 });
