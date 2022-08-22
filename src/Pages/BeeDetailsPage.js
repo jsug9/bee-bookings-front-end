@@ -20,13 +20,12 @@ const BeeDetailsPage = () => {
   useEffect(() => {
     if (location.state !== null) {
       setBee(location.state.bee);
-    } else {
+    } else if (bee.id === undefined) {
       const id = location.pathname.slice(-1);
-      dispatch(getBeeDetails(id)).then(() => {
-        setBee(state);
-      });
+      dispatch(getBeeDetails(id));
+      setBee(state);
     }
-  }, []);
+  }, [bee]);
 
   useEffect(() => {
     if (bee.id > 19) {
