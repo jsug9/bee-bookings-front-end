@@ -1,8 +1,7 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Bee Booking Front End
 
-> Add a nice bee description here.
+Welcome to our site! This is a fun interactive SPA (single page application) that allows a user to interact with our [backend API](https://bee-store.herokuapp.com/). In this site, the user can view, add, delete, and reserve bees. Our app allows a user to add a photo of their choosing. Please be respectful with what you upload as it will be public for all. Please also allow up to a minute for our backend to process the photo and make it viewable on the home and details pages.
+Have fun!
 
 ## Built With
 
@@ -10,10 +9,13 @@
 - JavaScript
 - React
 - Redux
+- AWS S3
+- Rails (backend project [here](https://github.com/hsztan/Bee-Bookings-Back-End))
 
 ## Live Demo
 
 - [Netlify](https://beebookcapstone.netlify.app).
+- [Bee Backend](https://bee-store.herokuapp.com/) (Our API)
 
 ## Getting Started
 
@@ -27,25 +29,8 @@ To get a local copy of the project, follow these steps:
  cd bee-booking-front-end
  ```
 3. Install Dependencies
-  - Required to run 
   ```
-  npm init -y
-  ```
-  - Redux
-  ```
-  npm install redux
-  ```
-  - React Redux
-  ```
-  npm install react-redux
-  ```
-  - Redux Logger
-  ```
-  npm install redux-logger
-  ```
-  - React Router
-  ```
-  npm install react-router-dom@6
+  npm install
   ```
 
 For the Live Server  || http://localhost:8080/
@@ -90,7 +75,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk).
-- Thanks to my peers who are always there to offer support. 
+- Thanks to my peers who are always there to offer support.
+- Special thanks to Bee Quesada for her continued support throughout the program! Our theme is dedicated to you, Bee!
 
 ## 📝 License
 
