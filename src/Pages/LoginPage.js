@@ -6,6 +6,7 @@ import { toggleSignup } from './SignupPage';
 import { signIn } from '../Redux/user/UserReducer';
 
 // Toggles visibility of the login page overlay
+// NO TOUCHY: specially Augusto
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
   loginPage.classList.toggle('invisible');
@@ -13,6 +14,7 @@ export const toggleLogin = () => {
 };
 
 // Toggles visibility of the login page overlay when the user clicks the sign up link
+// NO TOUCHY: specially Augusto
 const signupToggle = () => {
   toggleLogin();
   toggleSignup();
@@ -46,7 +48,7 @@ const LoginPage = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
             <span className="error" aria-live="polite" />
-            <button type="submit" className="loginBtn">Let&apos;s Go!</button>
+            <button type="submit" id="submitLogin" className="loginBtn">Let&apos;s Go!</button>
           </form>
           <div className="signupLink">
             <p id="signup" role="presentation" onClick={signupToggle}>Sign Up</p>

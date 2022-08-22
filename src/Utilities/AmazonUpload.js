@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 
-const S3_BUCKET = 'bee-bucket-microverse';
+const S3_BUCKET = 'pelusobucket';
 const REGION = 'us-east-1';
 
 AWS.config.update({
