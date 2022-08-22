@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk';
 
-const S3_BUCKET = 'bee-bucket-microverse';
-const REGION = 'us-east-1';
+const S3_BUCKET = 'bucketybucketybucketybucket';
+const REGION = 'sa-east-1';
 
 AWS.config.update({
   accessKeyId: process.env.REACT_APP_AWS_BUCKET_ACCESS_KEY,
