@@ -1,10 +1,14 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 nav {
   position: fixed;
   height: 100%;
   width: 375px;
   background-color: #ffeb3b;
   z-index: 5;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   ul {
     list-style: none;
