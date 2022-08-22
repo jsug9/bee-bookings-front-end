@@ -1,6 +1,6 @@
 # Bee Booking Front End
 
-Welcome to our site! This is a fun interactive SPA (single page application) that allows a user to interact with our backend API. In this site, the user can view, add, delete, and reserve bees. Our app allows a user to add a photo of their choosing. Please be respectful with what you upload as it will be public for all. Please also allow up to a minute for our backend to process the photo and make it viewable on the home and details pages.
+Welcome to our site! This is a fun interactive SPA (single page application) that allows a user to interact with our [backend API](https://bee-store.herokuapp.com/). In this site, the user can view, add, delete, and reserve bees. Our app allows a user to add a photo of their choosing. Please be respectful with what you upload as it will be public for all. Please also allow up to a minute for our backend to process the photo and make it viewable on the home and details pages.
 Have fun!
 
 ## Built With
@@ -10,10 +10,12 @@ Have fun!
 - React
 - Redux
 - AWS S3
+- Rails (backend project [here](https://github.com/hsztan/Bee-Bookings-Back-End))
 
 ## Live Demo
 
 - [Netlify](https://beebookcapstone.netlify.app).
+- [Bee Backend](https://bee-store.herokuapp.com/) (Our API)
 
 ## Getting Started
 
