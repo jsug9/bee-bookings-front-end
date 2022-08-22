@@ -1,8 +1,7 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Bee Booking Front End
 
-> In this site, the user can view, add, delete, and reserve bees.
+Welcome to our site! This is a fun interactive SPA (single page application) that allows a user to interact with our backend API. In this site, the user can view, add, delete, and reserve bees. Our app allows a user to add a photo of their choosing. Please be respectful with what you upload as it will be public for all. Please also allow up to a minute for our backend to process the photo and make it viewable on the home and details pages.
+Have fun!
 
 ## Built With
 
@@ -10,6 +9,7 @@
 - JavaScript
 - React
 - Redux
+- AWS S3
 
 ## Live Demo
 
