@@ -12,23 +12,24 @@ import {
 
 const CardActionsContainer = (props) => {
   const { bee } = props;
+  const url = `https://beebookcapstone.netlify.app/${bee.id}`;
 
   return (
     <CardActions className="social-icons-container">
       <FacebookShareButton
-        url={`https://62fffb905257070009431802--beebookcapstone.netlify.app/${bee.id}/`}
+        url={url}
         hashtag="#beeTeam"
       >
         <FacebookRoundedIcon size="large" color="inherit" />
       </FacebookShareButton>
       <TwitterShareButton
-        url={`https://62fffb905257070009431802--beebookcapstone.netlify.app/${bee.id}/`}
+        url={url}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
       >
         <TwitterIcon size="large" color="inherit" />
       </TwitterShareButton>
       <WhatsappShareButton
-        url={`https://62fffb905257070009431802--beebookcapstone.netlify.app/${bee.id}/`}
+        url={url}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
         separator=" "
       >
