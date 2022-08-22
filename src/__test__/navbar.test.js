@@ -1,9 +1,7 @@
-// import axios from 'axios';
 import { act } from 'react-dom/test-utils';
 import Navbar from '../Components/Navbar';
 import renderWithProviders, { screen } from './test-utils';
 import { signIn } from '../Redux/user/UserReducer';
-// import BeesReducer, { deleteBee } from '../Redux/bees/BeesReducer';
 import setupStore from '../Redux/testStore';
 import server from '../mswMocks/server';
 import realStore from '../Redux/configureStore';
@@ -15,13 +13,6 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 // Clean up after the tests are finished.
 afterAll(() => server.close());
-
-// it('deletes an item with axios', async () => {
-//   const { data } = await axios.delete(
-//     'https://bee-store.herokuapp.com/api/v1/items/6'
-//   );
-//   expect(data.message).toBe('Item deleted successfully');
-// });
 
 it('Navbar renders to the page', () => {
   const tree = renderWithProviders(
@@ -52,7 +43,6 @@ it('Tests the sign out functionality of the login method triggered by the navbar
   const store = setupStore();
   await store.dispatch(signIn('AaronIsCool'));
 
-  // if modifying state or executing actions then render the component in an act() block
   act(() => {
     renderWithProviders(
       <Navbar />, { store },
@@ -62,7 +52,6 @@ it('Tests the sign out functionality of the login method triggered by the navbar
   expect(screen.getByText(/Sign Out/)).toBeInTheDocument();
   const button = screen.getByText('Sign Out');
 
-  // if modifying state or executing actions then render the component in an act() block
   act(() => {
     button.click();
   });

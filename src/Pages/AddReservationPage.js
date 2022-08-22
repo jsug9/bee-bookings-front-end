@@ -11,6 +11,7 @@ import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { addReservation } from '../Redux/reservations/ReservationsReducer';
 import { getAllBees } from '../Redux/bees/BeesReducer';
+import PleaseLogin from '../Components/PleaseLogin';
 import '../Styles/BeeForm.scss';
 import '../Styles/ReservationForm.scss';
 
@@ -88,9 +89,7 @@ const AddReservationPage = () => {
       )}
       {!userId
       && (
-        <div>
-          <h1 className="please-log-in">Please log in to add a reservation</h1>
-        </div>
+        <PleaseLogin message="Add a Reservation" />
       )}
     </div>
   );

@@ -6,6 +6,7 @@ import UploadField from '../Components/UploadImage';
 import UploadImage, { S3_BUCKET } from '../Utilities/AmazonUpload';
 import { addBee } from '../Redux/bees/BeesReducer';
 import '../Styles/BeeForm.scss';
+import PleaseLogin from '../Components/PleaseLogin';
 
 const AddBeePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -72,9 +73,7 @@ const AddBeePage = () => {
       )}
       {!userId
       && (
-        <div>
-          <h1 className="please-log-in">Please log in to add a bee</h1>
-        </div>
+        <PleaseLogin message="Add a Bee" />
       )}
     </section>
   );
