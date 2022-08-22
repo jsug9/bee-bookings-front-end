@@ -2,7 +2,7 @@
 
 # Bee Booking Front End
 
-> Add a nice bee description here.
+> In this site, the user can view, add, delete, and reserve bees.
 
 ## Built With
 
@@ -27,25 +27,8 @@ To get a local copy of the project, follow these steps:
  cd bee-booking-front-end
  ```
 3. Install Dependencies
-  - Required to run 
   ```
-  npm init -y
-  ```
-  - Redux
-  ```
-  npm install redux
-  ```
-  - React Redux
-  ```
-  npm install react-redux
-  ```
-  - Redux Logger
-  ```
-  npm install redux-logger
-  ```
-  - React Router
-  ```
-  npm install react-router-dom@6
+  npm install
   ```
 
 For the Live Server  || http://localhost:8080/
@@ -90,7 +73,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk).
-- Thanks to my peers who are always there to offer support. 
+- Thanks to my peers who are always there to offer support.
+- Special thanks to Bee Quesada for her continued support throughout the program! Our theme is dedicated to you, Bee!
 
 ## 📝 License
 
