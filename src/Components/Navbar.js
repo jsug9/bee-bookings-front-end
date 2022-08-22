@@ -6,6 +6,7 @@ import { toggleSignup } from '../Pages/SignupPage';
 import { logOutUser } from '../Redux/user/UserReducer';
 import { clearReservations } from '../Redux/reservations/ReservationsReducer';
 import '../Styles/navbar.scss';
+import beeLogo from '../Assets/BeeLogo.png';
 
 const Navbar = () => {
   const user = useSelector((state) => state.user);
@@ -88,6 +89,7 @@ const Navbar = () => {
       </div>
       <nav className={navbar}>
         <ul className="links">
+          <li className="appLogoLi"><img className="appLogo" alt="" src={beeLogo} /></li>
           {links.map((link) => (
             <li key={link.id}>
               <NavLink
