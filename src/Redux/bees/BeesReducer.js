@@ -43,7 +43,7 @@ const beesSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getAllBees.fulfilled]: (state, action) => {
-      state.allBees = action.payload;
+      state.allBees = action.payload.sort((a, b) => a.id - b.id);
       state.isLoading = false;
     },
     [getAllBees.rejected]: (state) => {
