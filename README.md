@@ -38,6 +38,11 @@ For the Live Server  || http://localhost:8080/
 npm start
 ```
 
+Create a file in your root directory and name it .env
+
+Use keys created with an [AWS S3](https://aws.amazon.com/pm/serv-s3/?trk=fecf68c9-3874-4ae2-a7ed-72b6d19c8034&sc_channel=ps&sc_campaign=acquisition&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Storage|S3|US|EN|Text&s_kwcid=AL!4422!3!488982706719!e!!g!!aws%20s3&ef_id=Cj0KCQjw0oyYBhDGARIsAMZEuMsdY20mxPNIL59cgoNgKbkX95x4w9hzYtkhOoZjw_0sbcHVzP4ndPEaAhk_EALw_wcB:G:s&s_kwcid=AL!4422!3!488982706719!e!!g!!aws%20s3) account 
+
+
 ## Authors
 
 👤 **Aaron Keegan**
