@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-- [Netlify](https://62fffb905257070009431802--beebookcapstone.netlify.app).
+- [Netlify](https://beebookcapstone.netlify.app).
 
 ## Getting Started
 
