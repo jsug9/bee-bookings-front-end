@@ -16,19 +16,19 @@ const CardActionsContainer = (props) => {
   return (
     <CardActions className="social-icons-container">
       <FacebookShareButton
-        url={`${process.env.PUBLIC_URL.toString()}/${bee.id}/`}
+        url={`https://62fffb905257070009431802--beebookcapstone.netlify.app/${bee.id}/`}
         hashtag="#beeTeam"
       >
         <FacebookRoundedIcon size="large" color="inherit" />
       </FacebookShareButton>
       <TwitterShareButton
-        url={`${process.env.PUBLIC_URL.toString()}/${bee.id}/`}
+        url={`https://62fffb905257070009431802--beebookcapstone.netlify.app/${bee.id}/`}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
       >
         <TwitterIcon size="large" color="inherit" />
       </TwitterShareButton>
       <WhatsappShareButton
-        url={`${process.env.PUBLIC_URL.toString()}/${bee.id}/`}
+        url={`https://62fffb905257070009431802--beebookcapstone.netlify.app/${bee.id}/`}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
         separator=" "
       >

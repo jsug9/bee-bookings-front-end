@@ -6,6 +6,7 @@ import { toggleSignup } from './SignupPage';
 import { signIn } from '../Redux/user/UserReducer';
 
 // Toggles visibility of the login page overlay
+// NO TOUCHY: specially Augusto
 export const toggleLogin = () => {
   const loginPage = document.getElementById('loginPage');
   loginPage.classList.toggle('invisible');
@@ -13,6 +14,7 @@ export const toggleLogin = () => {
 };
 
 // Toggles visibility of the login page overlay when the user clicks the sign up link
+// NO TOUCHY: specially Augusto
 const signupToggle = () => {
   toggleLogin();
   toggleSignup();
