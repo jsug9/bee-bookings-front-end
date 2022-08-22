@@ -1,6 +1,5 @@
 import { act } from 'react-dom/test-utils';
 import HomePage from '../Pages/HomePage';
-import BeeDetailsPage from '../Pages/BeeDetailsPage';
 import renderWithProviders, { screen } from './test-utils';
 import { getAllBees } from '../Redux/bees/BeesReducer';
 import server from '../mswMocks/server';
@@ -30,17 +29,4 @@ it('Renders the BeeDetails component', async () => {
     await store.dispatch(getAllBees());
   });
   expect(screen.getByText(/Our/)).toBeInTheDocument();
-  // window.history.pushState(
-  //   { bee: { id: 1, name: 'beeGusto' } },
-  //   '',
-  //   'http://localhost:3000/1',
-  // );
-  // await act(async () => {
-  //   const navigateState = { bee: 1 };
-  //   const url = '/1';
-
-  //   window.history.pushState(navigateState, '', url);
-  //   renderWithProviders(<BeeDetailsPage />, { store });
-  // });
-  // expect(screen.getByText(/bee/)).toBeInTheDocument();
 });
