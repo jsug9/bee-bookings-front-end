@@ -31,11 +31,10 @@ export default [
     ),
   ),
   // create bee
-  rest.post(
-    'https://bee-store.herokuapp.com/api/v1/items/:id',
-    (req, res, ctx) => res(
-      ctx.status(200),
-      ctx.json({
+  rest.post('https://bee-store.herokuapp.com/api/v1/items', (req, res, ctx) => res(
+    ctx.status(200),
+    ctx.json([
+      {
         id: 34,
         name: 'TeeBee',
         image:
@@ -43,9 +42,10 @@ export default [
         description: 'A bee that likes to wear tees',
         created_at: '2022-08-19T20:22:17.746Z',
         updated_at: '2022-08-19T20:22:17.746Z',
-      }),
-    ),
-  ),
+      },
+      ...mockBees,
+    ]),
+  )),
   // list bees
   rest.get('https://bee-store.herokuapp.com/api/v1/items', (req, res, ctx) => res(ctx.status(200), ctx.json(mockBees))),
   // bee details
