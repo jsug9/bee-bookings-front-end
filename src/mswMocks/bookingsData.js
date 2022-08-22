@@ -18,15 +18,6 @@ export default [
     item_id: 3,
   },
   {
-    id: 23,
-    date: '2022-08-31',
-    city: 'Salt Lake City',
-    created_at: '2022-08-18T20:37:36.779Z',
-    updated_at: '2022-08-18T20:37:36.779Z',
-    user_id: 5,
-    item_id: 14,
-  },
-  {
     id: 27,
     date: '2022-08-01',
     city: 'Salt Lake City',
@@ -43,14 +34,5 @@ export default [
     updated_at: '2022-08-19T14:59:54.740Z',
     user_id: 5,
     item_id: 10,
-  },
-  {
-    id: 38,
-    date: '2022-08-19',
-    city: 'Lehi',
-    created_at: '2022-08-19T15:18:08.380Z',
-    updated_at: '2022-08-19T15:18:08.380Z',
-    user_id: 5,
-    item_id: 13,
   },
 ];
