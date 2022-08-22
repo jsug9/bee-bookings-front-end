@@ -82,3 +82,13 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
+.appLogoLi:hover {
+  background: none;
+}
+
+.appLogo {
+  width: auto;
+  height: 112px;
+  margin-left: 15px;
+}
