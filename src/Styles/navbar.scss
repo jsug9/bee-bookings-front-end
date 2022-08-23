@@ -1,3 +1,5 @@
+$green-theme: #9fbe3d;
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -6,21 +8,24 @@ nav {
   position: fixed;
   height: 100%;
   width: 375px;
-  background-color: #ffeb3b;
+  background-color: white;
   z-index: 5;
   overflow-y: auto;
+  box-shadow: 2px 1px 4px $green-theme;
 
   ul {
     list-style: none;
     padding: 0;
-    margin-top: 4rem;
+    margin: 4rem 0;
 
     li {
-      font-size: 34px;
-      font-weight: 900;
+      margin-left: 2rem;
+      font-size: 24px;
+      text-transform: uppercase;
+      font-weight: bold;
 
       p {
-        padding: 1.5rem;
+        padding: 0.8rem 1rem;
         cursor: pointer;
       }
 
@@ -33,18 +38,18 @@ nav {
       a {
         p {
           width: 100%;
-          padding: 1.5rem;
+          padding: 0.8rem 1rem;
         }
       }
 
       .active p {
-        background-color: black;
+        background-color: $green-theme;
         color: white;
       }
     }
 
     li:hover {
-      background-color: black;
+      background-color: $green-theme;
 
       a,
       p {
@@ -94,5 +99,5 @@ nav {
 .appLogo {
   width: auto;
   height: 112px;
-  margin-left: 15px;
+  margin-left: -15px;
 }
