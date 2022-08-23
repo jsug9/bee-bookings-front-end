@@ -19,21 +19,31 @@ const CardActionsContainer = (props) => {
       <FacebookShareButton
         url={url}
         hashtag="#beeTeam"
+        className="social-button"
       >
-        <FacebookRoundedIcon size="large" color="inherit" />
+        <div className="social-button">
+          <FacebookRoundedIcon
+            size="large"
+            color="inherit"
+          />
+        </div>
       </FacebookShareButton>
       <TwitterShareButton
         url={url}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
       >
-        <TwitterIcon size="large" color="inherit" />
+        <div className="social-button">
+          <TwitterIcon size="large" color="inherit" />
+        </div>
       </TwitterShareButton>
       <WhatsappShareButton
         url={url}
         title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
         separator=" "
       >
-        <WhatsAppIcon size="large" color="inherit" />
+        <div className="social-button">
+          <WhatsAppIcon size="large" color="inherit" />
+        </div>
       </WhatsappShareButton>
     </CardActions>
   );

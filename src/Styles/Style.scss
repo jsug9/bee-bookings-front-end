@@ -30,3 +30,19 @@ body {
 main {
   padding-top: 5rem;
 }
+
+.social-button {
+  padding: 0.2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-button:hover {
+  border-radius: 10%;
+  background-color: #f7f6f6;
+}
+
+.social-button:active {
+  background-color: #e4e2e2;
+}
