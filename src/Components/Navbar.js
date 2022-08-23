@@ -7,6 +7,7 @@ import { logOutUser } from '../Redux/user/UserReducer';
 import { clearReservations } from '../Redux/reservations/ReservationsReducer';
 import '../Styles/navbar.scss';
 import beeLogo from '../Assets/BeeLogo.png';
+import NavSocialButtons from './NavSocialButtons';
 
 const Navbar = () => {
   const user = useSelector((state) => state.user);
@@ -102,6 +103,7 @@ const Navbar = () => {
           ))}
           {user.username ? generateActiveUserLinks() : generateInactiveUserLinks()}
         </ul>
+        <NavSocialButtons />
       </nav>
     </>
   );
