@@ -8,7 +8,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { addReservation } from '../Redux/reservations/ReservationsReducer';
 import { getAllBees } from '../Redux/bees/BeesReducer';
 import PleaseLogin from '../Components/PleaseLogin';
@@ -17,7 +17,6 @@ import '../Styles/ReservationForm.scss';
 
 const AddReservationPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
   const [beeId, setBeeId] = useState('');
   const [city, setCity] = useState('');
@@ -43,7 +42,9 @@ const AddReservationPage = () => {
         city: city.trim(),
       };
       dispatch(addReservation(object));
-      navigate('/reservations');
+      setDate(new Date());
+      setBeeId('');
+      setCity('');
     }
   };
 
