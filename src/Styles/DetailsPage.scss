@@ -35,6 +35,26 @@
   gap: 1rem;
 }
 
+.backButton {
+  position: fixed;
+  bottom: 3.25rem;
+  left: 0;
+  width: 4.5rem;
+  height: 3.5rem;
+  background: black;
+  border: none;
+  color: #ffeb3b;
+  border-top-right-radius: 5em 5em;
+  border-bottom-right-radius: 5em 5em;
+}
+
+.backButton:hover {
+  background: #ffeb3b;
+  color: black;
+  border: 2px solid black;
+  border-left: none;
+}
+
 @media (max-width: 768px) {
   .bee-details {
     padding: 0 2rem;
