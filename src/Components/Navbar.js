@@ -84,7 +84,7 @@ const Navbar = () => {
       <div className="hamburger" id="hamburger" role="presentation" onClick={handleHamburgerClick}>
         <div className="slice" />
 
-        <div className="slice" />
+        <div className="slice invisible" />
 
         <div className="slice" />
       </div>
