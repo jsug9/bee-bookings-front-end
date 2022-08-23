@@ -104,6 +104,7 @@ const Navbar = () => {
           {user.username ? generateActiveUserLinks() : generateInactiveUserLinks()}
         </ul>
         <NavSocialButtons />
+        <p className="navFooter">© Bee-Team, Lima</p>
       </nav>
     </>
   );
