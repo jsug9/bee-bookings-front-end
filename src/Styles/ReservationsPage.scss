@@ -9,6 +9,17 @@
   }
 }
 
+.reservation-form-container {
+  height: 100vh;
+  width: 100vw;
+  margin-top: -80px;
+  background: linear-gradient(rgba(159, 190, 61, 0.9), rgba(159, 190, 61, 0.9)), url('../Assets/Background.jpg');
+}
+
+.reservation-form {
+  padding-top: 80px;
+}
+
 .center {
   display: flex;
   justify-content: center;
