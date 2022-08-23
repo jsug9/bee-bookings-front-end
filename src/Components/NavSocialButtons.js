@@ -19,20 +19,26 @@ const NavSocialButtons = () => {
         url={url}
         hashtag="#beeTeam"
       >
-        <FacebookRoundedIcon size="large" color="inherit" />
+        <div className="social-button">
+          <FacebookRoundedIcon size="large" color="inherit" />
+        </div>
       </FacebookShareButton>
       <TwitterShareButton
         url={url}
         title="Book your favorite bee using this awesome new Bee Store!"
       >
-        <TwitterIcon size="large" color="inherit" />
+        <div className="social-button">
+          <TwitterIcon size="large" color="inherit" />
+        </div>
       </TwitterShareButton>
       <WhatsappShareButton
         url={url}
         title="Book your favorite bee using this awesome new Bee Store!"
         separator=" "
       >
-        <WhatsAppIcon size="large" color="inherit" />
+        <div className="social-button">
+          <WhatsAppIcon size="large" color="inherit" />
+        </div>
       </WhatsappShareButton>
     </CardActions>
   );
