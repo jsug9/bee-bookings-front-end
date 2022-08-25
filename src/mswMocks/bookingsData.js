@@ -1,0 +1,38 @@
+export default [
+  {
+    id: 6,
+    date: '2022-08-16',
+    city: 'Salt Lake City',
+    created_at: '2022-08-16T17:07:41.559Z',
+    updated_at: '2022-08-16T17:07:41.559Z',
+    user_id: 5,
+    item_id: 1,
+  },
+  {
+    id: 7,
+    date: '2022-08-17',
+    city: 'Salt Lake City',
+    created_at: '2022-08-16T17:30:32.259Z',
+    updated_at: '2022-08-16T17:30:32.259Z',
+    user_id: 5,
+    item_id: 3,
+  },
+  {
+    id: 27,
+    date: '2022-08-01',
+    city: 'Salt Lake City',
+    created_at: '2022-08-19T04:31:33.430Z',
+    updated_at: '2022-08-19T04:31:33.430Z',
+    user_id: 5,
+    item_id: 9,
+  },
+  {
+    id: 37,
+    date: '2022-08-19',
+    city: 'Orem',
+    created_at: '2022-08-19T14:59:54.740Z',
+    updated_at: '2022-08-19T14:59:54.740Z',
+    user_id: 5,
+    item_id: 10,
+  },
+];

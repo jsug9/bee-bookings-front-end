@@ -1,0 +1,68 @@
+#loginPage {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: yellow;
+  background: rgba(255, 255, 0, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+#loginClose {
+  position: absolute;
+  top: 24px;
+  right: 41px;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.loginBtn {
+  background: none;
+  font-size: 24px;
+  border: 2px solid #2f4858;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+}
+
+.loginBtn:hover {
+  background: #2f4858;
+  color: yellow;
+}
+
+// Form
+#username {
+  font-size: 20px;
+}
+
+.signupLink {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#signup {
+  cursor: pointer;
+  font-size: 19px;
+}
+
+#signup:hover {
+  opacity: 0.5;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.invisible {
+  display: none;
+}

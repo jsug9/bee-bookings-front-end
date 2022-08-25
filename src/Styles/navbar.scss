@@ -1,0 +1,98 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+nav {
+  position: fixed;
+  height: 100%;
+  width: 375px;
+  background-color: #ffeb3b;
+  z-index: 5;
+  overflow-y: auto;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 4rem;
+
+    li {
+      font-size: 34px;
+      font-weight: 900;
+
+      p {
+        padding: 1.5rem;
+        cursor: pointer;
+      }
+
+      a,
+      p {
+        text-decoration: none;
+        color: black;
+      }
+
+      a {
+        p {
+          width: 100%;
+          padding: 1.5rem;
+        }
+      }
+
+      .active p {
+        background-color: black;
+        color: white;
+      }
+    }
+
+    li:hover {
+      background-color: black;
+
+      a,
+      p {
+        color: white;
+      }
+    }
+  }
+}
+
+.hamburger {
+  height: 25px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 6;
+  cursor: pointer;
+  left: 24px;
+  top: 17px;
+
+  .slice {
+    background-color: black;
+    height: 5px;
+    width: 35px;
+    border-radius: 20%;
+  }
+}
+
+.invisible {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.appLogoLi:hover {
+  background: none;
+}
+
+.appLogo {
+  width: auto;
+  height: 112px;
+  margin-left: 15px;
+}
