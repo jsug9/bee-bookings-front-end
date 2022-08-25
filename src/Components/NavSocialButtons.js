@@ -10,27 +10,22 @@ import {
   WhatsappShareButton,
 } from 'next-share';
 
-const CardActionsContainer = (props) => {
-  const { bee } = props;
-  const url = `https://beebookcapstone.netlify.app/${bee.id}`;
+const NavSocialButtons = () => {
+  const url = 'https://beebookcapstone.netlify.app';
 
   return (
     <CardActions className="social-icons-container">
       <FacebookShareButton
         url={url}
         hashtag="#beeTeam"
-        className="social-button"
       >
         <div className="social-button">
-          <FacebookRoundedIcon
-            size="large"
-            color="inherit"
-          />
+          <FacebookRoundedIcon size="large" color="inherit" />
         </div>
       </FacebookShareButton>
       <TwitterShareButton
         url={url}
-        title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
+        title="Book your favorite bee using this awesome new Bee Store!"
       >
         <div className="social-button">
           <TwitterIcon size="large" color="inherit" />
@@ -38,7 +33,7 @@ const CardActionsContainer = (props) => {
       </TwitterShareButton>
       <WhatsappShareButton
         url={url}
-        title={`Hey! Checkout this awesome bee 🐝. I'll be booking ${bee.name} soon!`}
+        title="Book your favorite bee using this awesome new Bee Store!"
         separator=" "
       >
         <div className="social-button">
@@ -49,7 +44,7 @@ const CardActionsContainer = (props) => {
   );
 };
 
-CardActionsContainer.propTypes = {
+NavSocialButtons.propTypes = {
   bee: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -58,4 +53,4 @@ CardActionsContainer.propTypes = {
   }).isRequired,
 };
 
-export default CardActionsContainer;
+export default NavSocialButtons;
