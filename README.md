@@ -68,6 +68,11 @@ Use keys created with an [AWS S3](https://aws.amazon.com/pm/serv-s3/?trk=fecf68c
 - Twitter: [@hsztanski](https://twitter.com/hsztanski)
 - LinkedIn: [henry-nawrocki](https://linkedin.com/in/henry-nawrocki)
 
+## Kanban Board
+![image](https://user-images.githubusercontent.com/94935633/186707755-63611033-13ed-4889-95de-57fed75e0d2d.png)
+- [Link](https://github.com/users/jsug9/projects/6)
+- This project had 4 team members.
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
